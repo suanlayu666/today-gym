@@ -1,0 +1,29 @@
+{
+  "generatedAt": "2026-10-07T00:00:46.787Z",
+  "chainId": 31337,
+  "scope": "Real local EVM transactions",
+  "passed": [
+    "FLOW-01: fixed supply, zero decimals and deposit 3000",
+    "FLOW-02: request does not debit; confirmation moves exactly 30",
+    "FLOW-04: withdrawal transfers only earned revenue to payout",
+    "SAFE-01: merchant cannot confirm, stranger cannot operate merchant",
+    "SAFE-01: other user cannot confirm, reject or refund another balance",
+    "SAFE-01: over-withdrawal and repeated confirmation rejected",
+    "FLOW-03: reject and cancel never generate merchant revenue",
+    "FLOW-03: request expiry and automatic stale-request cleanup",
+    "SAFE-02: duplicate keys and concurrent requests rejected",
+    "SAFE-02: refund invalidates ability to over-confirm a pending request",
+    "SAFE-03: card expiry blocks top-up/consumption but not refund",
+    "SAFE-02: direct surplus does not become withdrawable",
+    "FLOW-04: payout change preserves credit and logs exact operator",
+    "SAFE-03: token transfer failures atomically roll back",
+    "SAFE-03: reentrant token callback cannot enter refund",
+    "QUANT/SAFE: deterministic operation sequence maintains invariant",
+    "SAFE: invalid amount/allowance/credit rejected"
+  ],
+  "notCovered": [
+    "Sepolia",
+    "mainnet"
+  ],
+  "compiler": "0.8.30+commit.73712a01.Emscripten.clang"
+}

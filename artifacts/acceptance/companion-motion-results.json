@@ -1,0 +1,130 @@
+{
+  "at": "2026-10-07T06:21:28.776Z",
+  "scope": "Purely decorative animation; no transactions or model requests",
+  "frameSwitchObserved": true,
+  "pauseResumeVerified": true,
+  "mobileWidth": 319,
+  "mobileScrollWidth": 319,
+  "samples": [
+    {
+      "frame": "0",
+      "motion": "rest",
+      "viewport": 319,
+      "width": 319
+    },
+    {
+      "frame": "0",
+      "motion": "rest",
+      "viewport": 319,
+      "width": 319
+    },
+    {
+      "frame": "0",
+      "motion": "rest",
+      "viewport": 319,
+      "width": 319
+    },
+    {
+      "frame": "0",
+      "motion": "rest",
+      "viewport": 319,
+      "width": 319
+    },
+    {
+      "frame": "0",
+      "motion": "rest",
+      "viewport": 319,
+      "width": 319
+    },
+    {
+      "frame": "0",
+      "motion": "rest",
+      "viewport": 319,
+      "width": 319
+    },
+    {
+      "frame": "0",
+      "motion": "rest",
+      "viewport": 319,
+      "width": 319
+    },
+    {
+      "frame": "0",
+      "motion": "rest",
+      "viewport": 319,
+      "width": 319
+    },
+    {
+      "frame": "0",
+      "motion": "rest",
+      "viewport": 319,
+      "width": 319
+    },
+    {
+      "frame": "0",
+      "motion": "rest",
+      "viewport": 319,
+      "width": 319
+    },
+    {
+      "frame": "0",
+      "motion": "rest",
+      "viewport": 319,
+      "width": 319
+    },
+    {
+      "frame": "0",
+      "motion": "rest",
+      "viewport": 319,
+      "width": 319
+    },
+    {
+      "frame": "0",
+      "motion": "rest",
+      "viewport": 319,
+      "width": 319
+    },
+    {
+      "frame": "0",
+      "motion": "rest",
+      "viewport": 319,
+      "width": 319
+    },
+    {
+      "frame": "0",
+      "motion": "pushup",
+      "viewport": 319,
+      "width": 319
+    },
+    {
+      "frame": "0",
+      "motion": "pushup",
+      "viewport": 319,
+      "width": 319
+    },
+    {
+      "frame": "1",
+      "motion": "pushup",
+      "viewport": 319,
+      "width": 319
+    },
+    {
+      "frame": "1",
+      "motion": "pushup",
+      "viewport": 319,
+      "width": 319
+    },
+    {
+      "frame": "1",
+      "motion": "pushup",
+      "viewport": 319,
+      "width": 319
+    },
+    {
+      "frame": "1",
+      "motion": "pushup",
+      "viewport": 319,
+      "width": 319
+    }
+  ]
+}

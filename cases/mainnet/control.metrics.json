@@ -1,0 +1,202 @@
+{
+  "rule": {
+    "version": "usdc-flow-v1",
+    "baselineDays": 7,
+    "minRawAmount": "100000000000",
+    "growthBps": "50000",
+    "singleConcentrationBps": "8000"
+  },
+  "unit": "raw token units",
+  "decimals": 6,
+  "current": {
+    "from": 1790726400,
+    "to": 1790812800,
+    "total": "1256160344465382",
+    "count": 15,
+    "maxSingle": "291925450020739",
+    "singleConcentrationBps": "2323",
+    "topRecipient": "0x688CC76D3b009d805AB6b4D0A1cbd228131b5cBF",
+    "recipientConcentrationBps": "2831",
+    "eventIds": [
+      "event-3be698a925b7f84e29fc1ebc",
+      "event-22258f8d327c15cfeceeffbe",
+      "event-2501e4f802f67198672b2a7f",
+      "event-86fa0c4098a03d794042d718",
+      "event-0dbd6ab70a950b8ba262e522",
+      "event-80639f368f413a963bd49307",
+      "event-82470b2752a2f9322150b6df",
+      "event-da2faacd05d186dec053d844",
+      "event-b4ae453ea4facca709e48ee9",
+      "event-b76ffc49146bb36264bbefc3",
+      "event-52fd692a878bf091a89a9448",
+      "event-b16d311fcf8193117083ebba",
+      "event-e820ac4d47e4408e9969dbf2",
+      "event-ec300b9d22782c60ce6a4f9d",
+      "event-8f7fa2bd832aa59bf0aea340"
+    ]
+  },
+  "baseline": {
+    "days": 7,
+    "from": 1790121600,
+    "to": 1790726400,
+    "daily": [
+      {
+        "from": 1790121600,
+        "to": 1790208000,
+        "total": "414245799018660",
+        "count": 9,
+        "maxSingle": "209242994017668",
+        "singleConcentrationBps": "5051",
+        "topRecipient": "0xf1EdBf98ddA764Ec51dE3776371F0F7d6F6156a8",
+        "recipientConcentrationBps": "5051",
+        "eventIds": [
+          "event-dd80212f7fe1366c0f55ed6d",
+          "event-17e0695aad99cff9b92ddad4",
+          "event-f668f978a326fe81d8a04f59",
+          "event-82957034546f34af8038949b",
+          "event-57edb8ddaa83a2e02ecae371",
+          "event-44af869d76b4d05c6c1e309b",
+          "event-8bfe77067fe2539c15054274",
+          "event-211cb7b27b4c7f28e5c45660",
+          "event-11d8491541215d44f3ad7508"
+        ]
+      },
+      {
+        "from": 1790208000,
+        "to": 1790294400,
+        "total": "489671335587879",
+        "count": 10,
+        "maxSingle": "229507591552323",
+        "singleConcentrationBps": "4686",
+        "topRecipient": "0xf1EdBf98ddA764Ec51dE3776371F0F7d6F6156a8",
+        "recipientConcentrationBps": "4686",
+        "eventIds": [
+          "event-f7e02bb781939b4b13001af6",
+          "event-556bf21b6f49732b9536adac",
+          "event-479d4ce15e279ac995a28119",
+          "event-a2310c4be8d02300bb71a639",
+          "event-02185d9d0c7faa00066fd13f",
+          "event-546298248d9062df0753df31",
+          "event-be833be0db4042ec4068ac4a",
+          "event-7e1718219fabf353b78d7461",
+          "event-da9448c148fd5cd27f85cda6",
+          "event-ce4f8de7585cdc4396386a90"
+        ]
+      },
+      {
+        "from": 1790294400,
+        "to": 1790380800,
+        "total": "516655031643400",
+        "count": 19,
+        "maxSingle": "261158132068601",
+        "singleConcentrationBps": "5054",
+        "topRecipient": "0xf1EdBf98ddA764Ec51dE3776371F0F7d6F6156a8",
+        "recipientConcentrationBps": "5054",
+        "eventIds": [
+          "event-309a080aaa1a3952c5c7723c",
+          "event-349261111e134c4a04ee0366",
+          "event-7184c28d1f14cc754bf9336c",
+          "event-00af591c86b649410fd809c5",
+          "event-8d9d7b585deb033381f6d47f",
+          "event-6314679bdae2cd2ba5f17f5c",
+          "event-7a15cc15653f2d290a33aff8",
+          "event-9cd894081811256c699fc3fe",
+          "event-a009e50c01b4e8f934b95e58",
+          "event-eea3302294fce510e0b5c2e8",
+          "event-06e5077d9a2f671a4985acb8",
+          "event-3003a521f78d85d5bdf75535",
+          "event-e0668adc492b74e8e34dced2",
+          "event-d70685a3b368a0fbeba0cd15",
+          "event-c158fbd61edc604791c3ce2d",
+          "event-4b15d988af92e5a77ca78f89",
+          "event-3e3f9d4af0c72ec617695055",
+          "event-937152bbdd32475f3b005f71",
+          "event-73b8c3a74d20c1194152b58b"
+        ]
+      },
+      {
+        "from": 1790380800,
+        "to": 1790467200,
+        "total": "522950024971896",
+        "count": 6,
+        "maxSingle": "261791892898796",
+        "singleConcentrationBps": "5006",
+        "topRecipient": "0xf1EdBf98ddA764Ec51dE3776371F0F7d6F6156a8",
+        "recipientConcentrationBps": "5006",
+        "eventIds": [
+          "event-cfb3404d0231738dbd629d84",
+          "event-61d2c6bc9ea8916d3dc382c4",
+          "event-5a01f4d0636d9d5d2b94b7d6",
+          "event-f1540e53c6ec32e6593bde2f",
+          "event-f9009a563095ff0dd8d35153",
+          "event-596a8eb1cefb5c36ae377020"
+        ]
+      },
+      {
+        "from": 1790467200,
+        "to": 1790553600,
+        "total": "513463241276429",
+        "count": 4,
+        "maxSingle": "251671348264831",
+        "singleConcentrationBps": "4901",
+        "topRecipient": "0xf1EdBf98ddA764Ec51dE3776371F0F7d6F6156a8",
+        "recipientConcentrationBps": "4901",
+        "eventIds": [
+          "event-2284695d572ab31ccc63d88c",
+          "event-718ea13d57d8494886c8c21f",
+          "event-0ccd00479c7ac7e6d9b7b87d",
+          "event-53648d0cd2ebc4c820876d65"
+        ]
+      },
+      {
+        "from": 1790553600,
+        "to": 1790640000,
+        "total": "500552198714755",
+        "count": 4,
+        "maxSingle": "243777790339924",
+        "singleConcentrationBps": "4870",
+        "topRecipient": "0xf1EdBf98ddA764Ec51dE3776371F0F7d6F6156a8",
+        "recipientConcentrationBps": "4870",
+        "eventIds": [
+          "event-f18b11950890a1ed8113081d",
+          "event-911cca200fc2d85ba01063a0",
+          "event-0757a0637feb8b0b66d83eca",
+          "event-e6e6e14391b6400c0a8ec1b7"
+        ]
+      },
+      {
+        "from": 1790640000,
+        "to": 1790726400,
+        "total": "560114642190619",
+        "count": 9,
+        "maxSingle": "314486481740444",
+        "singleConcentrationBps": "5614",
+        "topRecipient": "0xf1EdBf98ddA764Ec51dE3776371F0F7d6F6156a8",
+        "recipientConcentrationBps": "5614",
+        "eventIds": [
+          "event-26bdbf5b03644edefd3395a6",
+          "event-4abed7be390129c28a7199db",
+          "event-429f54983042968b49f2aef8",
+          "event-90a113fa789f900c5c0c3745",
+          "event-d19c9a2642a9ea61b29cf1c5",
+          "event-575ca255201a9f3deb0b3309",
+          "event-02dc85bb5d619234e8b400cd",
+          "event-b394c03e34c0709ec80673ca",
+          "event-312b9966045337ac48cea68e"
+        ]
+      }
+    ],
+    "total": "3517652273403638",
+    "meanNumerator": "3517652273403638",
+    "meanDenominator": "7",
+    "count": "61"
+  },
+  "relativeTotalBps": "24997",
+  "relativeCountBps": "17213",
+  "flags": [],
+  "limitations": [
+    "零基线的相对变化不可计算，不输出无穷倍。",
+    "候选从大额交易样本中选取，有选择偏差，不是独立预测验证。",
+    "集中转账可能是正常资金归集；链上无法单独证明现实身份或经营意图。"
+  ]
+}

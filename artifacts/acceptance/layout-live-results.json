@@ -1,0 +1,63 @@
+{
+  "at": "2026-10-07T01:41:43.202Z",
+  "passed": true,
+  "checks": [
+    {
+      "name": "actual balance after modal refund",
+      "passed": true,
+      "credit": "2820",
+      "wallet": "27060",
+      "visits": "94",
+      "todayRevenue": "90"
+    },
+    {
+      "name": "real local EVM receipt for refund submitted through new modal",
+      "passed": true,
+      "block": 96,
+      "txHash": "0xac9e72a7418d67b8a1a71e3315e624e32c04cb472ca443311ac3d312d6627e86"
+    },
+    {
+      "name": "real manually asked AI investigation binds current gym, member account and role",
+      "passed": true,
+      "jobId": "42b329e6-ec3d-4e5c-8d04-c0efa3e984ea",
+      "reportId": "d91301dc-40b1-4ad0-a5bf-b0ee25955d26",
+      "asOfBlock": 96,
+      "tools": [
+        {
+          "name": "get_business_events",
+          "status": "ok"
+        },
+        {
+          "name": "compute_metrics",
+          "status": "ok"
+        },
+        {
+          "name": "get_escrow_snapshot",
+          "status": "ok"
+        },
+        {
+          "name": "get_payout_timeline",
+          "status": "ok"
+        },
+        {
+          "name": "get_tx_evidence",
+          "status": "ok"
+        },
+        {
+          "name": "get_tx_evidence",
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "name": "actual report evidence API resolves within the same network and cutoff",
+      "passed": true,
+      "references": 16
+    },
+    {
+      "name": "public mainnet study cases and authorized background gym investigation preserved",
+      "passed": true
+    }
+  ],
+  "scope": "Current local EVM demo state and real DeepSeek question, not Sepolia/public business deployment, independent multi-agent, all-natural-language semantic validation or a new full contract suite."
+}

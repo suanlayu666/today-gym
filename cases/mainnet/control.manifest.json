@@ -1,0 +1,37 @@
+{
+  "id": "mainnet-usdc-31173ed1-1790726400",
+  "chainId": 1,
+  "dataOrigin": "public-mainnet",
+  "adapter": "erc20",
+  "name": "主网正常对照 · USDC 地址 0x31173Ed1 · 2026-09-30",
+  "token": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+  "tokenSymbol": "USDC",
+  "decimals": 6,
+  "deploymentBlock": 26029316,
+  "fromBlock": 26029316,
+  "toBlock": 26093737,
+  "target": "0x31173Ed183e5a9450C3671018ec4d770c8A8bF18",
+  "sourceUrl": "https://developers.circle.com/stablecoins/usdc-contract-addresses",
+  "analysisWindow": {
+    "from": 1790726400,
+    "to": 1790812800
+  },
+  "baselineDays": 7,
+  "ruleVersion": "usdc-flow-v1",
+  "collection": {
+    "capturedAt": "2026-10-06T15:53:41.227Z",
+    "rpcHost": "ethereum.publicnode.com",
+    "selection": "120 块大额样本候选；固定阈值筛选，非独立预测验证",
+    "complete": true,
+    "rawFile": "cases/mainnet/0x31173ed183e5a9450c3671018ec4d770c8a8bf18.raw.json",
+    "followupFromBlock": 26086570,
+    "indexHost": "eth.blockscout.com",
+    "coverageMethod": "bounded-index-pagination + every returned transfer checked against RPC receipt and block",
+    "limitations": [
+      "无法独立证明第三方索引绝无遗漏。",
+      "代币精度是当前读取，不是历史 eth_call。",
+      "探索性选样，不是独立预测验证。"
+    ]
+  },
+  "caseRole": "control"
+}

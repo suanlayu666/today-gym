@@ -1,0 +1,42 @@
+{
+  "data": {
+    "address": "0xD178a90C41ff3DcffbfDEF7De0BAF76Cbfe6a121",
+    "token": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+    "fromBlock": 26090234,
+    "toBlock": 26090354,
+    "anchor": {
+      "eventId": "event-809eb80f85d5eac9ed40bab1",
+      "txHash": "0x763dacbfb51a3ce48654576bae9026ea0ee8143a8101efd774d85535efa2abdc",
+      "blockNumber": 26090234,
+      "logIndex": 589,
+      "value": "11200000000000"
+    },
+    "horizonBlocks": 120,
+    "ruleVersion": "post-receipt-120-v1",
+    "totalRaw": "0",
+    "count": 1,
+    "positiveCount": 0,
+    "transfers": [
+      {
+        "txHash": "0xb71efc3fb358522f46dd80a1b869ca95b2324e1f0a74ae9e7c1bdbc66de13817",
+        "blockNumber": 26090239,
+        "blockHash": "0x1bab6dcab0c1227f078a7411dfbca3ca23c9191cc9c134da50d10025bbe0cbd8",
+        "logIndex": 666,
+        "from": "0xD178a90C41ff3DcffbfDEF7De0BAF76Cbfe6a121",
+        "to": "0x8E71ae8f3b88f052708216917241ccff06038232",
+        "value": "0"
+      }
+    ],
+    "truncated": false,
+    "requestCount": 4,
+    "indexSource": {
+      "host": "eth.blockscout.com",
+      "pages": 1,
+      "limitation": "完整分页的探索器索引窗口；逐条收据核验不能单独证明索引绝无遗漏。"
+    },
+    "limitation": "仅观察目标向该地址最大一笔正数转入之后至随后最多120个区块（或案例截止块）的本 token 转出，同块排除锚点前的日志。不是全日后续流向，不是逐枚归属；更晚的流动未查询。未查询的逐笔时间戳不显示。主网索引已完整分页且返回转出逐笔核对收据，但无法独立证明索引绝无遗漏。"
+  },
+  "evidenceIds": [
+    "followup-9e194ef5f6791528d7094183"
+  ]
+}

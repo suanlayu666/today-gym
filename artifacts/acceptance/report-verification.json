@@ -1,0 +1,92 @@
+{
+  "at": "2026-10-07T00:12:10.017Z",
+  "checks": [
+    {
+      "name": "mainnet-anomaly: schema, citations, numerical assertions and deterministic facts",
+      "passed": true
+    },
+    {
+      "name": "mainnet-anomaly: report interpretation matches persisted actual model response",
+      "passed": true
+    },
+    {
+      "name": "mainnet-control: schema, citations, numerical assertions and deterministic facts",
+      "passed": true
+    },
+    {
+      "name": "mainnet-control: report interpretation matches persisted actual model response",
+      "passed": true
+    },
+    {
+      "name": "local-normal: schema, citations, numerical assertions and deterministic facts",
+      "passed": true
+    },
+    {
+      "name": "local-normal: report interpretation matches persisted actual model response",
+      "passed": true
+    },
+    {
+      "name": "local-normal: saved same-block accounting coverage",
+      "passed": true
+    },
+    {
+      "name": "local-anomaly: schema, citations, numerical assertions and deterministic facts",
+      "passed": true
+    },
+    {
+      "name": "local-anomaly: report interpretation matches persisted actual model response",
+      "passed": true
+    },
+    {
+      "name": "local-anomaly: saved same-block accounting coverage",
+      "passed": true
+    }
+  ],
+  "results": [
+    {
+      "role": "mainnet-anomaly",
+      "datasetId": "mainnet-usdc-f07e3258-1790726400",
+      "reportId": "724ce936-b009-4601-bd72-59cb3b982d85",
+      "jobId": "1ce0e7c0-af6b-413d-a6a2-8073fcfc5593",
+      "asOfBlock": 26093737,
+      "chainId": 1,
+      "toolCalls": 6,
+      "factCount": 6
+    },
+    {
+      "role": "mainnet-control",
+      "datasetId": "mainnet-usdc-31173ed1-1790726400",
+      "reportId": "4a0d9e83-e652-44d7-8655-ee17b311f875",
+      "jobId": "15a68a4c-262f-44da-92b8-674c2b514b80",
+      "asOfBlock": 26093737,
+      "chainId": 1,
+      "toolCalls": 4,
+      "factCount": 4
+    },
+    {
+      "role": "local-normal",
+      "datasetId": "local-6-1791299344390",
+      "reportId": "66b4b531-0728-43b5-8bd2-b165b2eeb977",
+      "jobId": "828f8424-ee90-4a3f-89a9-41c42b5f7fc7",
+      "asOfBlock": 78,
+      "chainId": 31337,
+      "toolCalls": 6,
+      "factCount": 3
+    },
+    {
+      "role": "local-anomaly",
+      "datasetId": "local-anomaly-65",
+      "reportId": "99c893f2-4d6c-4803-a760-262dfa4283fb",
+      "jobId": "820a8cda-4225-4faa-8b44-1fdba571a526",
+      "asOfBlock": 78,
+      "chainId": 31337,
+      "toolCalls": 7,
+      "factCount": 3
+    }
+  ],
+  "limitations": [
+    "此脚本验证程序引用、原始模型稿一致性和保存状态，不证明所有自然语言解释。",
+    "公开主网在线再核查另见 verify:mainnet:online。",
+    "本地业务不替代 Sepolia 公共业务验收。"
+  ]
+}

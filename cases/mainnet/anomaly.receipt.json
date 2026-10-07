@@ -1,0 +1,95 @@
+{
+  "id": "tx-05c8d084d01d2769e3bff7ef",
+  "datasetId": "mainnet-usdc-f07e3258-1790726400",
+  "chainId": 1,
+  "kind": "transaction",
+  "asOfBlock": 26090234,
+  "capturedAt": "2026-10-06T16:16:09.509Z",
+  "txHash": "0x763dacbfb51a3ce48654576bae9026ea0ee8143a8101efd774d85535efa2abdc",
+  "explorerUrl": "https://etherscan.io/tx/0x763dacbfb51a3ce48654576bae9026ea0ee8143a8101efd774d85535efa2abdc",
+  "facts": {
+    "hash": "0x763dacbfb51a3ce48654576bae9026ea0ee8143a8101efd774d85535efa2abdc",
+    "from": "0xf07e3258395089514200209153a5d25da97bc22c",
+    "to": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+    "status": 1,
+    "blockNumber": 26090234,
+    "blockHash": "0x989593ea5b2c879593dfe2cf0670867744c1c95370bde78c9ba34323c60105da",
+    "logs": [
+      {
+        "address": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+        "topics": [
+          "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+          "0x000000000000000000000000f07e3258395089514200209153a5d25da97bc22c",
+          "0x000000000000000000000000d178a90c41ff3dcffbfdef7de0baf76cbfe6a121"
+        ],
+        "data": "0x00000000000000000000000000000000000000000000000000000a2fb4058000",
+        "index": 589
+      }
+    ],
+    "gasUsed": "45172",
+    "rawTransaction": {
+      "type": "0x2",
+      "chainId": "0x1",
+      "nonce": "0xb81",
+      "gas": "0xb1f0",
+      "maxFeePerGas": "0x1382c9db",
+      "maxPriorityFeePerGas": "0x989681",
+      "to": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+      "value": "0x0",
+      "accessList": [],
+      "input": "0xa9059cbb000000000000000000000000d178a90c41ff3dcffbfdef7de0baf76cbfe6a12100000000000000000000000000000000000000000000000000000a2fb4058000",
+      "r": "0xae12cbe20147b6fc428d31704f0eeb3221d47622ad44f5f46138fe112142c2",
+      "s": "0x76c9b9e15d297a202ed2c0577dea323b1480f3e9f68edf23fe040c9cf8578b64",
+      "yParity": "0x1",
+      "v": "0x1",
+      "hash": "0x763dacbfb51a3ce48654576bae9026ea0ee8143a8101efd774d85535efa2abdc",
+      "blockHash": "0x989593ea5b2c879593dfe2cf0670867744c1c95370bde78c9ba34323c60105da",
+      "blockNumber": "0x18e1afa",
+      "transactionIndex": "0x107",
+      "from": "0xf07e3258395089514200209153a5d25da97bc22c",
+      "gasPrice": "0xf64c6c0",
+      "blockTimestamp": "0x6abcfd7f"
+    },
+    "rawReceipt": {
+      "type": "0x2",
+      "status": "0x1",
+      "cumulativeGasUsed": "0x17b2aea",
+      "logs": [
+        {
+          "address": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+          "topics": [
+            "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+            "0x000000000000000000000000f07e3258395089514200209153a5d25da97bc22c",
+            "0x000000000000000000000000d178a90c41ff3dcffbfdef7de0baf76cbfe6a121"
+          ],
+          "data": "0x00000000000000000000000000000000000000000000000000000a2fb4058000",
+          "blockHash": "0x989593ea5b2c879593dfe2cf0670867744c1c95370bde78c9ba34323c60105da",
+          "blockNumber": "0x18e1afa",
+          "blockTimestamp": "0x6abcfd7f",
+          "transactionHash": "0x763dacbfb51a3ce48654576bae9026ea0ee8143a8101efd774d85535efa2abdc",
+          "transactionIndex": "0x107",
+          "logIndex": "0x24d",
+          "removed": false
+        }
+      ],
+      "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000400000000000000000000000000000000000100000000000000000000008000008000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000200000000000010000000000000000000000000000000000200000000000000000000000000000002000000000000000000000000002000000000000000000000000000000000000008000000000000000000000000000000000000010000000000000000000000000000000000000000000",
+      "transactionHash": "0x763dacbfb51a3ce48654576bae9026ea0ee8143a8101efd774d85535efa2abdc",
+      "transactionIndex": "0x107",
+      "blockHash": "0x989593ea5b2c879593dfe2cf0670867744c1c95370bde78c9ba34323c60105da",
+      "blockNumber": "0x18e1afa",
+      "gasUsed": "0xb074",
+      "effectiveGasPrice": "0xf64c6c0",
+      "from": "0xf07e3258395089514200209153a5d25da97bc22c",
+      "to": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+      "contractAddress": null
+    },
+    "rpcHosts": [
+      "ethereum.publicnode.com",
+      "eth.drpc.org"
+    ]
+  },
+  "coverage": {
+    "complete": true,
+    "missing": []
+  }
+}

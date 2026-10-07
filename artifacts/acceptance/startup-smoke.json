@@ -1,0 +1,28 @@
+{
+  "at": "2026-10-07T00:12:41.389Z",
+  "passed": true,
+  "results": [
+    {
+      "name": "fresh project/data cold start, deploy, frontend proxy, sync and balances",
+      "passed": true,
+      "datasetId": "local-2-1791331950290"
+    },
+    {
+      "name": "stop only all three owned isolated services",
+      "passed": true
+    },
+    {
+      "name": "restart new local node, recoverably archive stale manifest, deploy new active case",
+      "passed": true,
+      "oldDatasetId": "local-2-1791331950290",
+      "newDatasetId": "local-2-1791331956925"
+    }
+  ],
+  "isolatedCopy": "/private/tmp/gym-start-a4Y13C",
+  "ports": [
+    65065,
+    65066,
+    65067
+  ],
+  "scope": "Same project code, existing installed dependencies reused. New isolated local node/data/API/web and one restart; no LLM/private keys/public transactions and no original-chain rollback. Not a clean dependency download or Sepolia verification."
+}

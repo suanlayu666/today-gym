@@ -1,0 +1,50 @@
+{
+  "at": "2026-10-07T02:39:12.282Z",
+  "checks": [
+    {
+      "name": "Node",
+      "status": "pass",
+      "detail": "26.7.0"
+    },
+    {
+      "name": "依赖与编译产物",
+      "status": "pass"
+    },
+    {
+      "name": "DeepSeek 服务端配置",
+      "status": "configured",
+      "detail": {
+        "providerHost": "api.deepseek.com",
+        "model": "deepseek-flash",
+        "secretDisplayed": false
+      }
+    },
+    {
+      "name": "本地链",
+      "status": "unavailable"
+    },
+    {
+      "name": "部署 local-anomaly-65",
+      "status": "unverified",
+      "detail": "节点不可用、链已重启或部署清单与当前链不一致；不得展示为有效部署。"
+    },
+    {
+      "name": "部署 local-6-1791299344390",
+      "status": "unverified",
+      "detail": "节点不可用、链已重启或部署清单与当前链不一致；不得展示为有效部署。"
+    },
+    {
+      "name": "API",
+      "status": "pass",
+      "detail": {
+        "modelConfigured": true,
+        "datasetCount": 4
+      }
+    },
+    {
+      "name": "网站",
+      "status": "unavailable"
+    }
+  ],
+  "scope": "本机配置和可连接服务检查；不是公开链业务或最终系统验收"
+}

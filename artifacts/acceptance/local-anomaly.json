@@ -1,0 +1,380 @@
+{
+  "dataset": {
+    "id": "local-anomaly-65",
+    "chainId": 31337,
+    "dataOrigin": "local-chain",
+    "adapter": "gym",
+    "name": "本地异动 · 密集核销与改址提现",
+    "token": "0x0165878A594ca255338adfa4d48449f69242Eb8F",
+    "escrow": "0xa513E6E4b8f2a923D98304ec87F64353C4D5C853",
+    "merchant": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+    "payout": "0x15d34AAf54267DB7D7c367839AAf71A00a2C6A65",
+    "users": [
+      "0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
+      "0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC",
+      "0x90F79bf6EB2c4f870365E785982E1f101E93b906"
+    ],
+    "nextPayout": "0x9965507D1a55bcC2695C58ba16FB37d819B0A4dc",
+    "tokenSymbol": "GYM",
+    "decimals": 0,
+    "deploymentBlock": 12,
+    "deployedAt": "2026-10-06T15:53:45.354Z",
+    "transactions": [
+      "0x096fc39db3c90cc8501cc96169bcb64b311206888fe367d4fa38c9db04dde33c",
+      "0x133404558a5be22124427c17436f419a60579b6694a29ffe63986365a68645ea"
+    ],
+    "caseRole": "anomaly"
+  },
+  "transactions": [
+    {
+      "step": "approve",
+      "txHash": "0xf48943e4b5e3d22520c988a52977404e96f9446029197be6d97b8b75d0792a0c",
+      "blockNumber": 14
+    },
+    {
+      "step": "deposit",
+      "txHash": "0xe24e3b94cd65b7d8886f4cd0783455d9accd557a6889248f58183f76b85b3e10",
+      "blockNumber": 15
+    },
+    {
+      "step": "request-1",
+      "txHash": "0xc7d961b1c28ffaf50a79ce1ae8950f75b47938719f496eb77c19bb59abaf5e90",
+      "blockNumber": 16
+    },
+    {
+      "step": "confirm-1",
+      "txHash": "0x65b56af0d45459bc0d21919efc5df43e2011edf5b502bfc06bc10cced62cfa5b",
+      "blockNumber": 17
+    },
+    {
+      "step": "request-2",
+      "txHash": "0x1c52cb1b73bd98c24f363d1d4cbe68d307a3677a226ad5ad10b21b3169841fcb",
+      "blockNumber": 18
+    },
+    {
+      "step": "confirm-2",
+      "txHash": "0x919fc283219ee8573b26ef77d49a5c6a2b784229bd04b903e38e1c34b683f94c",
+      "blockNumber": 19
+    },
+    {
+      "step": "request-3",
+      "txHash": "0x31f846fcfabd9086c58171d1ec6aa8129e8316b93ff4415f72391c02c37fe5b3",
+      "blockNumber": 20
+    },
+    {
+      "step": "confirm-3",
+      "txHash": "0x4d3f3cad7aaa1dc761992933b81e63769ea6935fa90c391284fd8e34ddbb422a",
+      "blockNumber": 21
+    },
+    {
+      "step": "request-4",
+      "txHash": "0x2324ef4f41c3351356dd2ff3d7e2d3ec40d2ea8728e04c26548a955d05830fe0",
+      "blockNumber": 22
+    },
+    {
+      "step": "confirm-4",
+      "txHash": "0x3b29b8158492df940fdd4355db7d815374ebc6af5ab1b4e5ad0b2545e207fdbe",
+      "blockNumber": 23
+    },
+    {
+      "step": "request-5",
+      "txHash": "0x466d7667e670b4408951a0319daa79af89020ce2ee2bca9491c0c90e9d0a9586",
+      "blockNumber": 24
+    },
+    {
+      "step": "confirm-5",
+      "txHash": "0xf72c9f3a1afffa8965778584b6862df55cc7996aeb855f015fa180017a99cbb5",
+      "blockNumber": 25
+    },
+    {
+      "step": "request-6",
+      "txHash": "0xbd369de12b987c32423619b66d984be2ef02cb2b5b440a7a1f4a0d7f67964147",
+      "blockNumber": 26
+    },
+    {
+      "step": "confirm-6",
+      "txHash": "0x8fdeb390ed0cdcb239fa552d0c531c2942274f835ae9d9ab6e743adf1ad7fb3a",
+      "blockNumber": 27
+    },
+    {
+      "step": "request-7",
+      "txHash": "0x636d3fba13f6865165c684683b8fd4cf938a72e99121fb4578eaf7fe6a094d58",
+      "blockNumber": 28
+    },
+    {
+      "step": "confirm-7",
+      "txHash": "0xb2afb963e2d3b66c9ead8bf94b9e9cd490f4e75860e7c642d9ae0b3c5af351b9",
+      "blockNumber": 29
+    },
+    {
+      "step": "request-8",
+      "txHash": "0xea7a6b161b4dc17643185cb3370c19efd0341f4a1ab92d482cd338c944f937ed",
+      "blockNumber": 30
+    },
+    {
+      "step": "confirm-8",
+      "txHash": "0x2b2fdc2a846b405d7461329cd3e83c68e5d32ecceb207d585356e60a90453ad1",
+      "blockNumber": 31
+    },
+    {
+      "step": "request-9",
+      "txHash": "0xff71f634fcf8ecbf527f167f60479c443e2910742fc880e8696001e3d10ae647",
+      "blockNumber": 32
+    },
+    {
+      "step": "confirm-9",
+      "txHash": "0x19003bdd8c5eb5c252da288af20198245d4eb3a3bccb499e9295b3c915da23b9",
+      "blockNumber": 33
+    },
+    {
+      "step": "request-10",
+      "txHash": "0x41d8e3e44b04347c8a725049ef2bb350c004ad69e888879393419e4ed05c1994",
+      "blockNumber": 34
+    },
+    {
+      "step": "confirm-10",
+      "txHash": "0x0f9361e19639944b78fca473651450574211132a043fdc1b0cfb3b3d9bb6e39b",
+      "blockNumber": 35
+    },
+    {
+      "step": "request-11",
+      "txHash": "0x22fdb9035cb1226dc55d8538a6dfcab0da188fd1ecef90d448d30d4e654a86a7",
+      "blockNumber": 36
+    },
+    {
+      "step": "confirm-11",
+      "txHash": "0xf39e9a748d784add57a25916ab3b1e3fcbd9670c712309eec66cd038a582b941",
+      "blockNumber": 37
+    },
+    {
+      "step": "request-12",
+      "txHash": "0x706ac0223644f8520a7d0c8d541177c2103937518793e00c2f44934a33bd4099",
+      "blockNumber": 38
+    },
+    {
+      "step": "confirm-12",
+      "txHash": "0x85860c997627926369ae72d87194776f284be0c50d24fa3d306d61ad03046a64",
+      "blockNumber": 39
+    },
+    {
+      "step": "request-13",
+      "txHash": "0x4864a7268789f4eb29251d7c77ec7d1cf25ce51b8dfbcef3ad520a5da7f971d6",
+      "blockNumber": 40
+    },
+    {
+      "step": "confirm-13",
+      "txHash": "0x4debdd14838319dceb1bd5d5898ba3d5932e7a8ee0b66e2fe341b22ad5dbda81",
+      "blockNumber": 41
+    },
+    {
+      "step": "request-14",
+      "txHash": "0x480f3cf035062a5a38456bc7deac9c55a21ebf96358d315aeb4151b789b6d393",
+      "blockNumber": 42
+    },
+    {
+      "step": "confirm-14",
+      "txHash": "0x895f9c19cbc722315e97d9c0715849286842900bcc32d3acab7af5fd214e66b1",
+      "blockNumber": 43
+    },
+    {
+      "step": "request-15",
+      "txHash": "0xfe48bfdedf932adf0ae02870cce7d80c50fcb02e5dfba9e0f6e4efb252765c48",
+      "blockNumber": 44
+    },
+    {
+      "step": "confirm-15",
+      "txHash": "0x6c1d094680f5786d420bb816f23e0997e3cc615da60fbc406382435ab774dfb5",
+      "blockNumber": 45
+    },
+    {
+      "step": "request-16",
+      "txHash": "0xfaa591c83401c3ec95e668286688a7c73ff25372118cc9e068c168d94a648396",
+      "blockNumber": 46
+    },
+    {
+      "step": "confirm-16",
+      "txHash": "0x2e62310448fa6f7d6366e3eaaf6d278b364c2919eb7ca1df7de7c13aadfbc2c8",
+      "blockNumber": 47
+    },
+    {
+      "step": "request-17",
+      "txHash": "0xcb165f1a9621541ea441d9704c5d685431231bd0212c19a07b2e606cd63b058e",
+      "blockNumber": 48
+    },
+    {
+      "step": "confirm-17",
+      "txHash": "0x0d861102385494450f49b19f7933c6442376b0a73853473704dbd81e817b3ba6",
+      "blockNumber": 49
+    },
+    {
+      "step": "request-18",
+      "txHash": "0x7ade83a04904fd470e0382d7b4f7eeba8244a84b07eefa3f876ffa7415f45581",
+      "blockNumber": 50
+    },
+    {
+      "step": "confirm-18",
+      "txHash": "0x8aba3c0551c8ab1eb6b855413e51794221721b20bd9bc532f6939ca50bcae2a3",
+      "blockNumber": 51
+    },
+    {
+      "step": "request-19",
+      "txHash": "0x69219c7766d61010f8aa2f4e91a074713a322c224d18fdc0a7d23f91dc47c898",
+      "blockNumber": 52
+    },
+    {
+      "step": "confirm-19",
+      "txHash": "0x9807832a2cf102e5b7e2686bd3ac13ceef90d3167a7a549c881fefe6f18d788b",
+      "blockNumber": 53
+    },
+    {
+      "step": "request-20",
+      "txHash": "0xd567c0a2327da54da062de7e9b251ec59dda51a4e2dbedb317c264086d81dab6",
+      "blockNumber": 54
+    },
+    {
+      "step": "confirm-20",
+      "txHash": "0x8f72caafa6d1c566426396c0b4e43b14ee904b791b1eca597d5255886d40d9f7",
+      "blockNumber": 55
+    },
+    {
+      "step": "request-21",
+      "txHash": "0xbe5cb2a84a1cd0dcdacb374b78da8dd8f22e8e6887c30b3f7758fc65a660b743",
+      "blockNumber": 56
+    },
+    {
+      "step": "confirm-21",
+      "txHash": "0x35c16c6055d2cfed45f766c00743a0428ffef0930168a6031082a9e67fb528a5",
+      "blockNumber": 57
+    },
+    {
+      "step": "request-22",
+      "txHash": "0x2662c259923d7c0f6716ac36d919e47d7869d525fabd6a9ceaeb8142891b4383",
+      "blockNumber": 58
+    },
+    {
+      "step": "confirm-22",
+      "txHash": "0xfe52013a0cb8376e34392a34abce6c36adf964418c89f5313cb66adeae6863cd",
+      "blockNumber": 59
+    },
+    {
+      "step": "request-23",
+      "txHash": "0xbefeba24c1a577f2569b2d35ca84dade53ddb82f94c67eaf0a4eae3da95e5ede",
+      "blockNumber": 60
+    },
+    {
+      "step": "confirm-23",
+      "txHash": "0x7b845c0f5186e7deb82ec6012043bc4c1db170da1dbdec1622ea6639a548ae97",
+      "blockNumber": 61
+    },
+    {
+      "step": "request-24",
+      "txHash": "0x46e4946a611096bdee393d0ed652b228cd5725c0aa6f7475a88bd71fd3b0c0dc",
+      "blockNumber": 62
+    },
+    {
+      "step": "confirm-24",
+      "txHash": "0xa67f22f6655022fbced06ab8c8abee69596435febc3d1b1a215b34e37c88f20b",
+      "blockNumber": 63
+    },
+    {
+      "step": "payout-change",
+      "txHash": "0x134c30560d7b4baf19818cb37e5444241ead94abbfa5d971fa1144f02d1d2e3e",
+      "blockNumber": 64
+    },
+    {
+      "step": "withdraw-600",
+      "txHash": "0x54f45f36facf7a10935119c0b15548fe8bcd1288d88204c41c3cbf4352efda2a",
+      "blockNumber": 65
+    }
+  ],
+  "alerts": [
+    {
+      "id": "alert-cc515c474a9d9f7baae4660a",
+      "datasetId": "local-anomaly-65",
+      "ruleId": "R4",
+      "title": "同一会员短时集中确认消费",
+      "severity": "attention",
+      "evidenceIds": [
+        "event-700f75f6548276938e870fc3",
+        "event-7ec0beafa4d97180fb0b8a67",
+        "event-c634c40c0c4fa2525b182f8d",
+        "event-6a1efefcdde27c8e2ae13a25",
+        "event-23e06be0037a54f05a11b11c",
+        "event-e92fee4fe871be342d3a7623",
+        "event-b2bce51841f69078f3e47860",
+        "event-71778962766effc99a9eb93c",
+        "event-afaa7cbf07ed80bcf784a555",
+        "event-2c66e7dde8f8c270763241b0",
+        "event-106d0c5967e5ab2be7eae0d1",
+        "event-4d83c69665c722d3e73eca0b",
+        "event-cec4a3af679e18ba4dd06bd8",
+        "event-185533ccd592cf97a163e2ec",
+        "event-d4995f07a1e0828ec69222cc",
+        "event-45af7e3f3dd36e596ff5a225",
+        "event-4b7a3d10d2e8c2daaf9f3d02",
+        "event-062c825e93c36e3585115643",
+        "event-e728a2a6056212b437a56fac",
+        "event-845596245e4216abe9397680",
+        "event-9eab3f40d13b069686428ff3",
+        "event-0ecaa8f50850d375f7048774",
+        "event-3090bf650f6b303f02dca47a",
+        "event-3c5aa2c43da24ae8d9470c0f"
+      ],
+      "metrics": {
+        "user": "0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
+        "count": "24",
+        "amount": "720"
+      },
+      "window": {
+        "from": 1791215685,
+        "to": 1791302085
+      }
+    },
+    {
+      "id": "alert-7c9c6534b7a1cf47dd7c5519",
+      "datasetId": "local-anomaly-65",
+      "ruleId": "R2",
+      "title": "变更收款地址后提现",
+      "severity": "attention",
+      "evidenceIds": [
+        "event-97880a4f47657dd7b1b8d333",
+        "event-95a37a6e03727dcb4797fe6a"
+      ],
+      "metrics": {
+        "amount": "600",
+        "newAddress": "0x9965507D1a55bcC2695C58ba16FB37d819B0A4dc"
+      },
+      "window": {
+        "from": 1791215685,
+        "to": 1791302085
+      }
+    },
+    {
+      "id": "alert-ff382d47464fba0e1424b7ac",
+      "datasetId": "local-anomaly-65",
+      "ruleId": "R1",
+      "title": "已结算额度集中提现",
+      "severity": "attention",
+      "evidenceIds": [
+        "event-95a37a6e03727dcb4797fe6a"
+      ],
+      "metrics": {
+        "amount": "600",
+        "denominator": "720",
+        "basisPoints": "8333",
+        "formula": "窗口提现合计 / 窗口首笔提现前可提额度"
+      },
+      "window": {
+        "from": 1791215685,
+        "to": 1791302085
+      }
+    }
+  ],
+  "accounting": {
+    "assets": "2400",
+    "userCredit": "2280",
+    "revenue": "120"
+  },
+  "verifiedAt": "2026-10-06T15:53:50.352Z",
+  "limitation": "人为构造的真实本地 EVM 交易，不是公开网络或真实经营诈骗。"
+}

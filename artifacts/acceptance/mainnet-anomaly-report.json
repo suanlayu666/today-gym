@@ -1,0 +1,563 @@
+{
+  "headline": "评估日出现单笔高度集中转出，但补查的120区块窗口未显示该笔资金立即再转出，需保留正常资金调度解释",
+  "findings": [
+    {
+      "text": "评估窗口内目标转出合计 13200000.0 USDC，转出日志 3 条（含零金额日志），最大单笔 11200000.0 USDC。此前 7 个完整 UTC 日合计 62000400.00015 USDC。",
+      "type": "fact",
+      "evidenceIds": [
+        "metrics-b8d5d942ad0d5425f0438a52"
+      ]
+    },
+    {
+      "text": "规则版本 usdc-flow-v1；实际 flags：MAIN_CONCENTRATION。相对日均倍数 1.4903，比较方向：高于此前7日日均；单笔集中度 8484 bps，合计最大接收方 0xD178a90C41ff3DcffbfDEF7De0BAF76Cbfe6a121。公式及阈值见程序附件。",
+      "type": "fact",
+      "evidenceIds": [
+        "metrics-b8d5d942ad0d5425f0438a52"
+      ]
+    },
+    {
+      "text": "本次追加在线核验的交易位于区块 #26088240，收据状态 1；交易发送方 0xb5a08bde6f7035e7b4cdaab93c8ef89bde525e03，调用目标 0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48。代币接收方需查看收据日志，不等于调用目标；哈希、输入与日志见证据。",
+      "type": "fact",
+      "evidenceIds": [
+        "tx-fa2726e48b42503ee8c3687b"
+      ]
+    },
+    {
+      "text": "本次追加在线核验的交易位于区块 #26090234，收据状态 1；交易发送方 0xf07e3258395089514200209153a5d25da97bc22c，调用目标 0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48。代币接收方需查看收据日志，不等于调用目标；哈希、输入与日志见证据。",
+      "type": "fact",
+      "evidenceIds": [
+        "tx-05c8d084d01d2769e3bff7ef"
+      ]
+    },
+    {
+      "text": "接收地址 0x8E712469E6CB10f6A9008fdcf2AB46c3CcC08232 在补查区块 #26091454–#26091574 内本 token 转出合计 6408448.0 USDC，共 1 条转出日志，其中 1 条正数、0 条零金额。仅观察接收锚点后最多120区块，不是全天、完整余额或逐枚资金归属追踪。",
+      "type": "fact",
+      "evidenceIds": [
+        "followup-465b273cb05a9502fb95e867"
+      ]
+    },
+    {
+      "text": "接收地址 0xD178a90C41ff3DcffbfDEF7De0BAF76Cbfe6a121 在补查区块 #26090234–#26090354 内本 token 转出合计 0.0 USDC，共 1 条转出日志，其中 0 条正数、1 条零金额。仅观察接收锚点后最多120区块，不是全天、完整余额或逐枚资金归属追踪。",
+      "type": "fact",
+      "evidenceIds": [
+        "followup-9e194ef5f6791528d7094183"
+      ]
+    },
+    {
+      "text": "推断：评估日转出总量相对此前7日日均上升，笔数却低于基线日均水平，说明异动主要来自少数大额笔而非全活动面放大；这与规则的“大额集中”告警方向一致。",
+      "type": "inference",
+      "evidenceIds": [
+        "metrics-b8d5d942ad0d5425f0438a52"
+      ]
+    },
+    {
+      "text": "推断：从基线多日可见，目标与该集中接收方、以及另一反复地址之间存在多日双向往来，呈互转/回流模式；这更像持续的流动性调度或内部划转，而非一次性单向外流。",
+      "type": "inference",
+      "evidenceIds": [
+        "event-987fffd08a2df8393401c86d",
+        "event-19bb036cb0227e625b25d99f",
+        "event-7e5f263d5ba6195d5db99763",
+        "event-997821b6605d969cafc6fc87"
+      ]
+    },
+    {
+      "text": "推断：最大接收方在锚点后120区块内的本token转出为0，仅有一条0金额日志；至少在该有界窗口内，未观察到该资金被立即转走。此结论有窗口边界，不能外推到全天或完整余额。",
+      "type": "inference",
+      "evidenceIds": [
+        "followup-9e194ef5f6791528d7094183"
+      ]
+    },
+    {
+      "text": "推断：另一被跟踪接收方在同一有界规则下，于锚点后120区块内出现一笔正数转出，说明部分大额入账随后继续流转；该证据属于该地址自身，不适用失败/未流转那笔资金。",
+      "type": "inference",
+      "evidenceIds": [
+        "followup-465b273cb05a9502fb95e867"
+      ]
+    },
+    {
+      "text": "未知：无法确定这些地址的现实身份、彼此关系、资金目的或是否属于同一控制人；链上往来本身不足以证明主体身份或合法经营。",
+      "type": "unknown",
+      "evidenceIds": [
+        "event-809eb80f85d5eac9ed40bab1",
+        "event-19bb036cb0227e625b25d99f"
+      ]
+    },
+    {
+      "text": "未知：因无历史余额快照，无法断言目标在评估日前是否已持有对应资金，也无法逐枚归属“全部资金再转出”或判断是否动用既有库存。",
+      "type": "unknown",
+      "evidenceIds": [
+        "metrics-b8d5d942ad0d5425f0438a52"
+      ]
+    },
+    {
+      "text": "未知：补查仅覆盖锚点后最多120区块，且仅查本token；更晚窗口、其他token或其他形式的资产变动未纳入，不能据此对最终流向下结论。",
+      "type": "unknown",
+      "evidenceIds": [
+        "followup-9e194ef5f6791528d7094183",
+        "followup-465b273cb05a9502fb95e867"
+      ]
+    }
+  ],
+  "hypotheses": [
+    {
+      "explanation": "正常解释（较充分）：评估日大额集中转出可能是目标与其长期往来对手方之间的资金调度或内部归集，接收方在随后120区块内未见即时分散转出，与“暂时落账/结算在途”相符。",
+      "supportingEvidenceIds": [
+        "event-809eb80f85d5eac9ed40bab1",
+        "event-19bb036cb0227e625b25d99f",
+        "event-7e5f263d5ba6195d5db99763",
+        "followup-9e194ef5f6791528d7094183"
+      ],
+      "contradictingEvidenceIds": [
+        "followup-465b273cb05a9502fb95e867",
+        "metrics-b8d5d942ad0d5425f0438a52"
+      ],
+      "unresolved": [
+        "接收方在120区块之后是否继续转出",
+        "目标与接收方是否为同一控制人",
+        "是否存在链下结算安排"
+      ]
+    },
+    {
+      "explanation": "替代解释：这可能是资金流出前的集中准备，接收方作为中转；但支持此解释的证据不直接——另一地址出现的正数后续转出属于不同地址，不能作为该笔资金已被转运的证据。",
+      "supportingEvidenceIds": [
+        "metrics-b8d5d942ad0d5425f0438a52",
+        "followup-465b273cb05a9502fb95e867"
+      ],
+      "contradictingEvidenceIds": [
+        "followup-9e194ef5f6791528d7094183",
+        "event-19bb036cb0227e625b25d99f"
+      ],
+      "unresolved": [
+        "最大接收方在更长窗口内的行为",
+        "是否存在多跳拆分",
+        "是否为交易所或托管内部账户"
+      ]
+    },
+    {
+      "explanation": "中性解释：也可能只是单日大额付款或结算周期的正常波动，笔数偏低但并非异常收缩；需要更长基线与更多同类日的对比才能判断，不构成风险定性。",
+      "supportingEvidenceIds": [
+        "metrics-b8d5d942ad0d5425f0438a52",
+        "event-809eb80f85d5eac9ed40bab1"
+      ],
+      "contradictingEvidenceIds": [],
+      "unresolved": [
+        "同类阈值日的正常分布范围",
+        "目标经营背景",
+        "后续是否回流"
+      ]
+    }
+  ],
+  "consumerImpact": "本案例仅涉及主网ERC20的USDC转账，不适用健身房会员权益或商家申请类业务语义，不能据此推断任何登记权益、订单或退款安排受到影响。观察到的只是链上大额集中转出与有限窗口内的后续流动，既不证明主体身份或经营意图，也不能作为退款、跑路或损失结论。对使用者而言，应把该告警理解为需要进一步链上核实的资金集中信号，而非已确认的资不抵债或欺诈事实。",
+  "recommendations": [
+    "对最大接收方在锚点后更长时间窗（超出120区块）及后续多次转出做补充核查",
+    "将观察对象扩展到目标的全部正数转出对手方，而非仅最大一笔",
+    "结合多个同类阈值日构建更长基线，判断本次是否属于周期性波动",
+    "如需业务判断，应取得链下合同、结算或订单等信息，链上数据本身不足",
+    "任何进一步结论都应以逐笔收据核验为前提，避免单点推断"
+  ],
+  "limitations": [
+    "补查为收到最大正数入账后最多120区块的有界观察，不是全天或完整追踪",
+    "索引来源为第三方，无法独立证明绝无遗漏",
+    "代币精度为当前读取，非历史eth_call",
+    "候选来自固定阈值样本，存在选择偏差，不是独立预测验证",
+    "已查询收据的仅为评估日主要转出及一笔基线转入，其余日志仅由采集器核对，不属于本次追加抽查",
+    "无历史余额，无法断言语义上的资金归属或全部再转出",
+    "链上数据不能证明现实身份、经营意图或合法合规状态",
+    "0金额日志计入笔数统计，可影响对活动强度的直观解读"
+  ],
+  "id": "724ce936-b009-4601-bd72-59cb3b982d85",
+  "datasetId": "mainnet-usdc-f07e3258-1790726400",
+  "chainId": 1,
+  "dataOrigin": "public-mainnet",
+  "asOfBlock": 26093737,
+  "mode": "llm",
+  "status": "complete",
+  "analysis": {
+    "factGeneration": "evidence-facts-v1",
+    "token": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+    "tokenSymbol": "USDC",
+    "decimals": 6,
+    "fromBlock": 26029316,
+    "toBlock": 26093737,
+    "window": {
+      "from": 1790726400,
+      "to": 1790812800
+    },
+    "ruleVersion": "usdc-flow-v1",
+    "metricsEvidenceId": "metrics-b8d5d942ad0d5425f0438a52",
+    "metrics": {
+      "rule": {
+        "version": "usdc-flow-v1",
+        "baselineDays": 7,
+        "minRawAmount": "100000000000",
+        "growthBps": "50000",
+        "singleConcentrationBps": "8000"
+      },
+      "unit": "raw token units",
+      "decimals": 6,
+      "current": {
+        "from": 1790726400,
+        "to": 1790812800,
+        "total": "13200000000000",
+        "count": 3,
+        "maxSingle": "11200000000000",
+        "singleConcentrationBps": "8484",
+        "topRecipient": "0xD178a90C41ff3DcffbfDEF7De0BAF76Cbfe6a121",
+        "recipientConcentrationBps": "8484",
+        "eventIds": [
+          "event-809eb80f85d5eac9ed40bab1",
+          "event-b92af9d040385923f0e4436d",
+          "event-a7d253d7402e33a07e535ad6"
+        ]
+      },
+      "baseline": {
+        "days": 7,
+        "from": 1790121600,
+        "to": 1790726400,
+        "daily": [
+          {
+            "from": 1790121600,
+            "to": 1790208000,
+            "total": "18000000000150",
+            "count": 7,
+            "maxSingle": "5000000000000",
+            "singleConcentrationBps": "2777",
+            "topRecipient": "0x0405bb0dFcaf9983E0B2eece98A1DF1cb54e291a",
+            "recipientConcentrationBps": "5555",
+            "eventIds": [
+              "event-88e5db8b5adbd124045b0529",
+              "event-a1b32f9f6e5127a32a223125",
+              "event-1a082e53ae597eb9fb93892e",
+              "event-36c7c48fd3f61d3fbfa8361d",
+              "event-a2687ff4b83cb85b2da250a1",
+              "event-6f2ba83b96d1dd1db7f6c393",
+              "event-987fffd08a2df8393401c86d"
+            ]
+          },
+          {
+            "from": 1790208000,
+            "to": 1790294400,
+            "total": "0",
+            "count": 2,
+            "maxSingle": "0",
+            "singleConcentrationBps": null,
+            "topRecipient": "0x8E71ae8f3b88f052708216917241ccff06038232",
+            "recipientConcentrationBps": null,
+            "eventIds": [
+              "event-ce6803b8c6e8b89fdad9cdec",
+              "event-10872863bdcccc7701c70bd3"
+            ]
+          },
+          {
+            "from": 1790294400,
+            "to": 1790380800,
+            "total": "25000400000000",
+            "count": 8,
+            "maxSingle": "5000100000000",
+            "singleConcentrationBps": "2000",
+            "topRecipient": "0x0405bb0dFcaf9983E0B2eece98A1DF1cb54e291a",
+            "recipientConcentrationBps": "8000",
+            "eventIds": [
+              "event-2093af0913b4c5e0ff00b874",
+              "event-3c3c48feb664c4ad74e30d42",
+              "event-e8af21b93acd3c323a41f1ad",
+              "event-3c9b49ce76b65b63b62102f9",
+              "event-ca7926c4ad7c3843ef98de5b",
+              "event-c1676d3380f571be80d49834",
+              "event-cd3cd56d3932a3eab7a3bc95",
+              "event-a057f43d1e0b3cac4c80b9f9"
+            ]
+          },
+          {
+            "from": 1790380800,
+            "to": 1790467200,
+            "total": "0",
+            "count": 0,
+            "maxSingle": "0",
+            "singleConcentrationBps": null,
+            "topRecipient": null,
+            "recipientConcentrationBps": null,
+            "eventIds": []
+          },
+          {
+            "from": 1790467200,
+            "to": 1790553600,
+            "total": "0",
+            "count": 0,
+            "maxSingle": "0",
+            "singleConcentrationBps": null,
+            "topRecipient": null,
+            "recipientConcentrationBps": null,
+            "eventIds": []
+          },
+          {
+            "from": 1790553600,
+            "to": 1790640000,
+            "total": "12000000000000",
+            "count": 5,
+            "maxSingle": "5000000000000",
+            "singleConcentrationBps": "4166",
+            "topRecipient": "0x0405bb0dFcaf9983E0B2eece98A1DF1cb54e291a",
+            "recipientConcentrationBps": "8333",
+            "eventIds": [
+              "event-4aaee05d891039f061781a4c",
+              "event-0ab4a2ff3fe056c1d7aa5eaf",
+              "event-df49c631acb7ff760b29e8ab",
+              "event-008925d58d736e48e23bf20c",
+              "event-3fea4d7c27d630139435e047"
+            ]
+          },
+          {
+            "from": 1790640000,
+            "to": 1790726400,
+            "total": "7000000000000",
+            "count": 6,
+            "maxSingle": "5000000000000",
+            "singleConcentrationBps": "7142",
+            "topRecipient": "0x0405bb0dFcaf9983E0B2eece98A1DF1cb54e291a",
+            "recipientConcentrationBps": "7142",
+            "eventIds": [
+              "event-bfd0508826ecc5ccc7e58c8a",
+              "event-8fe0ef608432e26f38764a8c",
+              "event-d4dfdbdda35f0ebf3dcc1934",
+              "event-3bfff1f53be1d4ce1daba5ec",
+              "event-61cd0766431491f735350dde",
+              "event-baa918943c5282a486e01f2f"
+            ]
+          }
+        ],
+        "total": "62000400000150",
+        "meanNumerator": "62000400000150",
+        "meanDenominator": "7",
+        "count": "28"
+      },
+      "relativeTotalBps": "14903",
+      "relativeCountBps": "7500",
+      "flags": [
+        "MAIN_CONCENTRATION"
+      ],
+      "limitations": [
+        "零基线的相对变化不可计算，不输出无穷倍。",
+        "候选从大额交易样本中选取，有选择偏差，不是独立预测验证。",
+        "集中转账可能是正常资金归集；链上无法单独证明现实身份或经营意图。"
+      ]
+    },
+    "display": {
+      "currentTotal": "13200000.0 USDC",
+      "currentMaxSingle": "11200000.0 USDC",
+      "baselineTotal": "62000400.00015 USDC",
+      "relativeTotalRatio": "1.4903",
+      "relativeCountRatio": "0.75",
+      "currentVersusDailyMean": "高于此前7日日均",
+      "comparisonDefinition": "倍数=评估日总量/(此前7日合计/7)，不是除以7日合计。bps除以一万得到倍数；直接引用relativeTotalRatio，不要重新计算。",
+      "countDefinition": "笔数包含返回的value=0日志；最低规模阈值应用于整日转出合计，不是逐条过滤条件。"
+    },
+    "collection": {
+      "capturedAt": "2026-10-06T16:09:13.580Z",
+      "rpcHost": "ethereum.publicnode.com",
+      "selection": "120 块大额样本候选；固定阈值筛选，非独立预测验证",
+      "complete": true,
+      "rawFile": "cases/mainnet/0xf07e3258395089514200209153a5d25da97bc22c.raw.json",
+      "followupFromBlock": 26086570,
+      "indexHost": "eth.blockscout.com",
+      "coverageMethod": "bounded-index-pagination + every returned transfer checked against RPC receipt and block",
+      "limitations": [
+        "无法独立证明第三方索引绝无遗漏。",
+        "代币精度是当前读取，不是历史 eth_call。",
+        "探索性选样，不是独立预测验证。"
+      ]
+    },
+    "checkpoint": {
+      "blockNumber": 26093737,
+      "blockHash": "0xcd26204e996dceb606ccf0bc6f5bf8ea6747a471df8be73b5855f01624d5d743",
+      "timestamp": 1790812799,
+      "head": 26134372,
+      "status": "ok",
+      "coverageComplete": true,
+      "coverageMethod": "bounded-index-pagination + every returned transfer checked against RPC receipt and block",
+      "fromBlock": 26029316,
+      "fromTimestamp": 1790035200,
+      "toTimestamp": 1790812800,
+      "syncedAt": "2026-10-06T16:16:07.974Z",
+      "replay": true
+    }
+  },
+  "toolRuns": [
+    {
+      "id": "1f5f9c0d-5dfb-4bd7-89ff-15c141f796bc",
+      "name": "get_business_events",
+      "arguments": {},
+      "startedAt": "2026-10-06T22:16:59.723Z",
+      "status": "ok",
+      "evidenceIds": [
+        "event-d9187bf0d97434fe9d7d59d9",
+        "event-193a4a92344afbf633aa7adf",
+        "event-217217d689ee27bf5cafda5f",
+        "event-06c913a219a2e114ee518ab7",
+        "event-2ec3e8af438e51cedcba76cc",
+        "event-8a1378afc9443d9923b15882",
+        "event-738eda11636a24ee77e7628a",
+        "event-242307bf2db3dcda2cc13309",
+        "event-a78e83d8400d158f882440c1",
+        "event-9fa5640a749f42393eb86abb",
+        "event-4e69c1941396cf8370a08ef7",
+        "event-37d1c31dd18bf846e556f5a1",
+        "event-bbf462b66901619202761c54",
+        "event-a744ce83f7cd356cf00b5614",
+        "event-7484ad94415b18d986879a47",
+        "event-5677d416fd3109f21251e34a",
+        "event-405eb9ed7309d0f9204bb93c",
+        "event-916ff5fcb08999a1f6b432d6",
+        "event-b1bb248c8c3e5fc4ce53c5b1",
+        "event-cf1a8d51e806ede0ad3adaa4",
+        "event-39e80d9c46a3ba43b06077a3",
+        "event-88e5db8b5adbd124045b0529",
+        "event-819ce060f123a1c5d29e420e",
+        "event-af2389a6744e42590fbead6a",
+        "event-a1b32f9f6e5127a32a223125",
+        "event-a065bdf9d7ff9d9d1b554035",
+        "event-c92793538d403ca26e887f73",
+        "event-1a082e53ae597eb9fb93892e",
+        "event-36c7c48fd3f61d3fbfa8361d",
+        "event-91421496750ac3273d51cb93",
+        "event-a2687ff4b83cb85b2da250a1",
+        "event-6f2ba83b96d1dd1db7f6c393",
+        "event-987fffd08a2df8393401c86d",
+        "event-ce42402199cc41a5671f946e",
+        "event-ce6803b8c6e8b89fdad9cdec",
+        "event-10872863bdcccc7701c70bd3",
+        "event-19bb036cb0227e625b25d99f",
+        "event-74f786346eae35ceea1be306",
+        "event-2093af0913b4c5e0ff00b874",
+        "event-997821b6605d969cafc6fc87",
+        "event-3c3c48feb664c4ad74e30d42",
+        "event-7e5f263d5ba6195d5db99763",
+        "event-33e28c8f9f8c14b8a0eb063a",
+        "event-f90498bb9015afd7ae718887",
+        "event-e8af21b93acd3c323a41f1ad",
+        "event-3c9b49ce76b65b63b62102f9",
+        "event-ca7926c4ad7c3843ef98de5b",
+        "event-f42c8736f4309f8be8a348ff",
+        "event-c1676d3380f571be80d49834",
+        "event-fa678e849ba1d48e79282fc3",
+        "event-396a773dd6089c6d25b1b7b6",
+        "event-cd3cd56d3932a3eab7a3bc95",
+        "event-a057f43d1e0b3cac4c80b9f9",
+        "event-9efd31ddb9e374b0262798fd",
+        "event-4aaee05d891039f061781a4c",
+        "event-0ab4a2ff3fe056c1d7aa5eaf",
+        "event-df49c631acb7ff760b29e8ab",
+        "event-4a24d07bdeaae93e491c2bcc",
+        "event-3ea9040a4f8a0e57ef12f2f4",
+        "event-008925d58d736e48e23bf20c",
+        "event-ba3b9796d6c49fdf23d14a8d",
+        "event-3fea4d7c27d630139435e047",
+        "event-76436851c215aa6b7ef1fc59",
+        "event-bfd0508826ecc5ccc7e58c8a",
+        "event-8fe0ef608432e26f38764a8c",
+        "event-521d4a683ed7248915b23f80",
+        "event-060c43f44400d559117cf5f5",
+        "event-d4dfdbdda35f0ebf3dcc1934",
+        "event-3bfff1f53be1d4ce1daba5ec",
+        "event-61cd0766431491f735350dde",
+        "event-d16e5e0bdd7b4b38aa341eb2",
+        "event-baa918943c5282a486e01f2f",
+        "event-ed76f622596b0ee60a9bcf79",
+        "event-5961e3b800f76aa069a578d4",
+        "event-389b521e2f3909189afa03f8",
+        "event-4bb0b95873535d5eb0c7b187",
+        "event-809eb80f85d5eac9ed40bab1",
+        "event-d6d745580b74b14d763e693f",
+        "event-b92af9d040385923f0e4436d",
+        "event-a7d253d7402e33a07e535ad6"
+      ],
+      "summary": "取得 80 条证据"
+    },
+    {
+      "id": "38537868-f0fe-45d9-9570-91eb9c229f33",
+      "name": "compute_metrics",
+      "arguments": {},
+      "startedAt": "2026-10-06T22:16:59.727Z",
+      "status": "ok",
+      "evidenceIds": [
+        "metrics-b8d5d942ad0d5425f0438a52"
+      ],
+      "summary": "取得 1 条证据"
+    },
+    {
+      "id": "4fee1a65-119f-42f5-9e45-1d6d2d6faa15",
+      "name": "get_tx_evidence",
+      "arguments": {
+        "txHash": "0x763dacbfb51a3ce48654576bae9026ea0ee8143a8101efd774d85535efa2abdc"
+      },
+      "startedAt": "2026-10-06T22:17:01.065Z",
+      "status": "ok",
+      "evidenceIds": [
+        "tx-05c8d084d01d2769e3bff7ef"
+      ],
+      "summary": "取得 1 条证据"
+    },
+    {
+      "id": "55d9f678-94b6-443e-9cbf-a959303b8b2d",
+      "name": "get_tx_evidence",
+      "arguments": {
+        "txHash": "0x97f0d09a2c74a4d4f4e0fba25b47ded3b60c1f197b2540dee646d8c9d5a63c09"
+      },
+      "startedAt": "2026-10-06T22:17:02.661Z",
+      "status": "ok",
+      "evidenceIds": [
+        "tx-fa2726e48b42503ee8c3687b"
+      ],
+      "summary": "取得 1 条证据"
+    },
+    {
+      "id": "3b41711d-7ae6-496c-b688-266d6790f460",
+      "name": "get_token_transfers",
+      "arguments": {
+        "address": "0xD178a90C41ff3DcffbfDEF7De0BAF76Cbfe6a121"
+      },
+      "startedAt": "2026-10-06T22:17:04.440Z",
+      "status": "ok",
+      "evidenceIds": [
+        "followup-9e194ef5f6791528d7094183"
+      ],
+      "summary": "取得 1 条证据"
+    },
+    {
+      "id": "bc573d0e-0519-473b-8111-2b246f25a299",
+      "name": "get_token_transfers",
+      "arguments": {
+        "address": "0x8E712469E6CB10f6A9008fdcf2AB46c3CcC08232"
+      },
+      "startedAt": "2026-10-06T22:17:05.240Z",
+      "status": "ok",
+      "evidenceIds": [
+        "followup-465b273cb05a9502fb95e867"
+      ],
+      "summary": "取得 1 条证据"
+    }
+  ],
+  "generatedAt": "2026-10-06T22:17:14.897Z",
+  "review": {
+    "at": "2026-10-07T00:10:45.452Z",
+    "method": "development-evidence-review",
+    "notes": [
+      {
+        "text": "两笔 Agent 追加核验交易均位于评估日。原稿限制中“一笔基线转入”的时间归类不正确，以对应事件时间及收据区块为准。",
+        "evidenceIds": [
+          "tx-05c8d084d01d2769e3bff7ef",
+          "tx-fa2726e48b42503ee8c3687b"
+        ]
+      },
+      {
+        "text": "最大接收地址的窄窗口未见正数转出，不证明资金最终停留。另一地址的后续转出只说明该地址发生流动，不能认定转出的币逐枚来自本次入账。资金归集等原因仍是候选解释，不是已查明的现实原因。",
+        "evidenceIds": [
+          "metrics-b8d5d942ad0d5425f0438a52",
+          "followup-9e194ef5f6791528d7094183",
+          "followup-465b273cb05a9502fb95e867"
+        ]
+      }
+    ],
+    "excludedHypotheses": []
+  }
+}

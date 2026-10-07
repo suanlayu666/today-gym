@@ -1,0 +1,2476 @@
+{
+  "at": "2026-10-07T03:51:16.384Z",
+  "scope": "本地 EVM 实际交易与真实 DeepSeek 两阶段工具调用；不代表 Sepolia 或生产安全审计",
+  "chainId": 31337,
+  "checks": [
+    {
+      "name": "本地链、模型和自动核查均真实启用",
+      "result": "pass"
+    },
+    {
+      "name": "零金额拒绝",
+      "result": "pass"
+    },
+    {
+      "name": "会员不能通过付款接口转给其他地址",
+      "result": "pass"
+    },
+    {
+      "name": "余额不足拒绝",
+      "result": "pass"
+    },
+    {
+      "name": "自由金额付款、收款只计一次、同请求重试不重复转账",
+      "result": "pass",
+      "detail": {
+        "txHash": "0x0b3006e0785cd1fe4465696a814a826fbe31160a6dd8ed102460199f2eae570f",
+        "resumedExistingReceipt": true
+      }
+    },
+    {
+      "name": "商家自由转出链上记录，不经过托管",
+      "result": "pass",
+      "detail": {
+        "txHash": "0x97f9e16688460018c3744620fcf8c341f2caa6e2307e0e1a879a52179abc6162",
+        "resumedExistingReceipt": true
+      }
+    },
+    {
+      "name": "网站外发起的一层关联转账也被监控",
+      "result": "pass",
+      "detail": {
+        "txHash": "0xd6b83459ab72b553e08b5698fb14e6c270a7bb7ea27c3b38e63f997f15f4d4cd"
+      }
+    },
+    {
+      "name": "真实双 Agent 完成 payment 调查",
+      "result": "pass",
+      "detail": {
+        "eventId": "direct-local-1791344887892:0x0b3006e0785cd1fe4465696a814a826fbe31160a6dd8ed102460199f2eae570f:0",
+        "reportId": "919d4417-494a-49d8-a996-f63689440fa4",
+        "risk": "insufficient",
+        "toolRuns": [
+          {
+            "agent": "investigator",
+            "count": 3
+          },
+          {
+            "agent": "reviewer",
+            "count": 3
+          }
+        ]
+      }
+    },
+    {
+      "name": "真实双 Agent 完成 withdrawal 调查",
+      "result": "pass",
+      "detail": {
+        "eventId": "direct-local-1791344887892:0x97f9e16688460018c3744620fcf8c341f2caa6e2307e0e1a879a52179abc6162:0",
+        "reportId": "7f580d6b-1791-4c1c-99b9-8f5690092c4b",
+        "risk": "attention",
+        "toolRuns": [
+          {
+            "agent": "investigator",
+            "count": 4
+          },
+          {
+            "agent": "reviewer",
+            "count": 4
+          }
+        ]
+      }
+    },
+    {
+      "name": "真实双 Agent 完成 recipient-transfer 调查",
+      "result": "pass",
+      "detail": {
+        "eventId": "direct-local-1791344887892:0xd6b83459ab72b553e08b5698fb14e6c270a7bb7ea27c3b38e63f997f15f4d4cd:0",
+        "reportId": "781ecd6f-4037-4cf7-bea7-0620af751bfe",
+        "risk": "insufficient",
+        "toolRuns": [
+          {
+            "agent": "investigator",
+            "count": 4
+          },
+          {
+            "agent": "reviewer",
+            "count": 3
+          }
+        ]
+      }
+    },
+    {
+      "name": "高转出比例信号、资金去向工具及证据报告可用",
+      "result": "pass"
+    },
+    {
+      "name": "拒绝第三方网页来源",
+      "result": "pass"
+    }
+  ],
+  "events": [
+    {
+      "id": "direct-local-1791344887892:0x0b3006e0785cd1fe4465696a814a826fbe31160a6dd8ed102460199f2eae570f:0",
+      "txHash": "0x0b3006e0785cd1fe4465696a814a826fbe31160a6dd8ed102460199f2eae570f",
+      "logIndex": 0,
+      "blockNumber": 2,
+      "blockHash": "0xef8d97ef39fc643f2079b20af6b24440afce12269d0a0c9ae7a5bf2ea93e1939",
+      "timestamp": 1791344897,
+      "from": "0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC",
+      "to": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+      "amount": "863",
+      "kind": "payment"
+    },
+    {
+      "id": "direct-local-1791344887892:0x97f9e16688460018c3744620fcf8c341f2caa6e2307e0e1a879a52179abc6162:0",
+      "txHash": "0x97f9e16688460018c3744620fcf8c341f2caa6e2307e0e1a879a52179abc6162",
+      "logIndex": 0,
+      "blockNumber": 3,
+      "blockHash": "0xc1b99fa86cd3390388e6973c01b80bad8fa1a39ef6bde9698337b04645ccc519",
+      "timestamp": 1791344898,
+      "from": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+      "to": "0x90F79bf6EB2c4f870365E785982E1f101E93b906",
+      "amount": "776",
+      "kind": "withdrawal"
+    },
+    {
+      "id": "direct-local-1791344887892:0xd6b83459ab72b553e08b5698fb14e6c270a7bb7ea27c3b38e63f997f15f4d4cd:0",
+      "txHash": "0xd6b83459ab72b553e08b5698fb14e6c270a7bb7ea27c3b38e63f997f15f4d4cd",
+      "logIndex": 0,
+      "blockNumber": 4,
+      "blockHash": "0x0d53a8199854b4dfb6228489336e2eb9f51d0b419d606186b20e97e858ad9161",
+      "timestamp": 1791344899,
+      "from": "0x90F79bf6EB2c4f870365E785982E1f101E93b906",
+      "to": "0x15d34AAf54267DB7D7c367839AAf71A00a2C6A65",
+      "amount": "1",
+      "kind": "recipient-transfer"
+    }
+  ],
+  "reports": [
+    {
+      "id": "c0fcb873-f14e-49fe-8e4f-0f0c6def0e9e",
+      "datasetId": "direct-local-1791344887892",
+      "eventId": "direct-local-1791344887892:0x97f9e16688460018c3744620fcf8c341f2caa6e2307e0e1a879a52179abc6162:0",
+      "asOfBlock": 4,
+      "chainId": 31337,
+      "dataOrigin": "local-chain",
+      "status": "partial",
+      "risk": "insufficient",
+      "headline": "AI 核查未完成",
+      "metrics": {
+        "version": "direct-flow-quant-v1",
+        "window": {
+          "from": 1791258498,
+          "to": 1791344898,
+          "seconds": 86400
+        },
+        "eventAmount": "776",
+        "baselineCount": 0,
+        "baselineMedian": null,
+        "amountVsMedianBps": null,
+        "receipts": "863",
+        "outflows": "776",
+        "netInflow": "87",
+        "outflowToReceiptBps": "8991",
+        "recipientConcentrationBps": "10000",
+        "topRecipient": "0x90f79bf6eb2c4f870365e785982e1f101e93b906",
+        "secondsSinceLastReceipt": 1,
+        "flags": [
+          "近24小时转出达到收款的80%或以上",
+          "收款后五分钟内出现转出"
+        ],
+        "limitations": [
+          "同类历史样本不足三笔，不计算金额异常倍数。",
+          "只反映已采集的当前币种与部署后窗口，不是商家全部资产或全部负债。",
+          "规则信号不等于跑路、违法或线下服务停止；正常成本支付也可能触发。"
+        ]
+      },
+      "facts": [
+        {
+          "text": "本笔转账 776 GYM，发送方 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266，接收方 0x90F79bf6EB2c4f870365E785982E1f101E93b906。",
+          "evidenceIds": [
+            "direct-local-1791344887892:0x97f9e16688460018c3744620fcf8c341f2caa6e2307e0e1a879a52179abc6162:0"
+          ]
+        },
+        {
+          "text": "统计窗口收款 863 GYM，转出 776 GYM；只计算一次付款，不重复计收款。",
+          "evidenceIds": [
+            "f98761d0-a1b8-4f71-ae58-96564de17c46:metrics"
+          ]
+        }
+      ],
+      "stages": [
+        {
+          "name": "investigator",
+          "status": "failed",
+          "model": "deepseek-flash",
+          "startedAt": "2026-10-07T03:51:01.173Z",
+          "toolRuns": [
+            {
+              "id": "30c234ba-b6ca-4ed9-90ab-122590bec7e3",
+              "name": "list_events",
+              "arguments": {},
+              "at": "2026-10-07T03:51:02.724Z",
+              "status": "ok",
+              "result": {
+                "events": [
+                  {
+                    "id": "direct-local-1791344887892:0x0b3006e0785cd1fe4465696a814a826fbe31160a6dd8ed102460199f2eae570f:0",
+                    "txHash": "0x0b3006e0785cd1fe4465696a814a826fbe31160a6dd8ed102460199f2eae570f",
+                    "logIndex": 0,
+                    "blockNumber": 2,
+                    "blockHash": "0xef8d97ef39fc643f2079b20af6b24440afce12269d0a0c9ae7a5bf2ea93e1939",
+                    "timestamp": 1791344897,
+                    "from": "0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC",
+                    "to": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+                    "amount": "863",
+                    "kind": "payment"
+                  },
+                  {
+                    "id": "direct-local-1791344887892:0x97f9e16688460018c3744620fcf8c341f2caa6e2307e0e1a879a52179abc6162:0",
+                    "txHash": "0x97f9e16688460018c3744620fcf8c341f2caa6e2307e0e1a879a52179abc6162",
+                    "logIndex": 0,
+                    "blockNumber": 3,
+                    "blockHash": "0xc1b99fa86cd3390388e6973c01b80bad8fa1a39ef6bde9698337b04645ccc519",
+                    "timestamp": 1791344898,
+                    "from": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+                    "to": "0x90F79bf6EB2c4f870365E785982E1f101E93b906",
+                    "amount": "776",
+                    "kind": "withdrawal"
+                  }
+                ],
+                "total": 2,
+                "truncated": false,
+                "asOfBlock": 4,
+                "limitation": "一笔付款同时是商家收款，不重复计数。初始铸币不是经营收款。"
+              },
+              "evidenceIds": [
+                "direct-local-1791344887892:0x0b3006e0785cd1fe4465696a814a826fbe31160a6dd8ed102460199f2eae570f:0",
+                "direct-local-1791344887892:0x97f9e16688460018c3744620fcf8c341f2caa6e2307e0e1a879a52179abc6162:0"
+              ]
+            },
+            {
+              "id": "eaa2e650-d6f2-43b4-bf0f-746d27e82798",
+              "name": "compute_metrics",
+              "arguments": {},
+              "at": "2026-10-07T03:51:02.725Z",
+              "status": "ok",
+              "result": {
+                "version": "direct-flow-quant-v1",
+                "window": {
+                  "from": 1791258498,
+                  "to": 1791344898,
+                  "seconds": 86400
+                },
+                "eventAmount": "776",
+                "baselineCount": 0,
+                "baselineMedian": null,
+                "amountVsMedianBps": null,
+                "receipts": "863",
+                "outflows": "776",
+                "netInflow": "87",
+                "outflowToReceiptBps": "8991",
+                "recipientConcentrationBps": "10000",
+                "topRecipient": "0x90f79bf6eb2c4f870365e785982e1f101e93b906",
+                "secondsSinceLastReceipt": 1,
+                "flags": [
+                  "近24小时转出达到收款的80%或以上",
+                  "收款后五分钟内出现转出"
+                ],
+                "limitations": [
+                  "同类历史样本不足三笔，不计算金额异常倍数。",
+                  "只反映已采集的当前币种与部署后窗口，不是商家全部资产或全部负债。",
+                  "规则信号不等于跑路、违法或线下服务停止；正常成本支付也可能触发。"
+                ],
+                "evidenceId": "f98761d0-a1b8-4f71-ae58-96564de17c46:metrics",
+                "formula": {
+                  "bps": "分子×10000÷分母；10000bps=100%，整数截断",
+                  "amountRatio": "当前金额÷此前最多20笔同类记录中位数，仅样本>=3时计算",
+                  "outflowRatio": "24小时商家转出合计÷商家收款合计",
+                  "concentration": "24小时最大接收方转出合计÷转出合计"
+                },
+                "asOfBlock": 3
+              },
+              "evidenceIds": [
+                "f98761d0-a1b8-4f71-ae58-96564de17c46:metrics"
+              ]
+            },
+            {
+              "id": "2bcddb1d-4ca9-474a-b1ef-242a15af6a5c",
+              "name": "verify_transaction",
+              "arguments": {
+                "txHash": "0x97f9e16688460018c3744620fcf8c341f2caa6e2307e0e1a879a52179abc6162"
+              },
+              "at": "2026-10-07T03:51:02.726Z",
+              "status": "ok",
+              "result": {
+                "evidenceId": "f98761d0-a1b8-4f71-ae58-96564de17c46:receipt",
+                "chainId": 31337,
+                "txHash": "0x97f9e16688460018c3744620fcf8c341f2caa6e2307e0e1a879a52179abc6162",
+                "blockNumber": 3,
+                "blockHash": "0xc1b99fa86cd3390388e6973c01b80bad8fa1a39ef6bde9698337b04645ccc519",
+                "status": "confirmed",
+                "transactionFrom": "0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266",
+                "transactionTo": "0x5fbdb2315678afecb367f032d93f642f64180aa3",
+                "transfer": {
+                  "from": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+                  "to": "0x90F79bf6EB2c4f870365E785982E1f101E93b906",
+                  "amount": "776",
+                  "logIndex": 0
+                },
+                "gasUsed": "51565",
+                "effectiveGasPrice": "850439491",
+                "explorerUrl": null,
+                "finality": "已入块；不是最终不可逆确认"
+              },
+              "evidenceIds": [
+                "f98761d0-a1b8-4f71-ae58-96564de17c46:receipt",
+                "direct-local-1791344887892:0x97f9e16688460018c3744620fcf8c341f2caa6e2307e0e1a879a52179abc6162:0"
+              ]
+            },
+            {
+              "id": "4825ac1d-a39c-4118-9713-99e74caa57b1",
+              "name": "trace_recipient",
+              "arguments": {
+                "address": "0x90F79bf6EB2c4f870365E785982E1f101E93b906"
+              },
+              "at": "2026-10-07T03:51:02.734Z",
+              "status": "ok",
+              "result": {
+                "evidenceId": "f98761d0-a1b8-4f71-ae58-96564de17c46:trace:0x90f79bf6eb2c4f870365e785982e1f101e93b906",
+                "address": "0x90F79bf6EB2c4f870365E785982E1f101E93b906",
+                "anchorEventId": "direct-local-1791344887892:0x97f9e16688460018c3744620fcf8c341f2caa6e2307e0e1a879a52179abc6162:0",
+                "fromBlock": 3,
+                "toBlock": 4,
+                "transfers": [
+                  {
+                    "txHash": "0xd6b83459ab72b553e08b5698fb14e6c270a7bb7ea27c3b38e63f997f15f4d4cd",
+                    "blockNumber": 4,
+                    "from": "0x90F79bf6EB2c4f870365E785982E1f101E93b906",
+                    "to": "0x15d34AAf54267DB7D7c367839AAf71A00a2C6A65",
+                    "amount": "1"
+                  }
+                ],
+                "completeWithinWindow": true,
+                "limitation": "仅一层、当前币种和最多120区块；未查询下一接收地址，不能证明这些转出属于该笔会员款，未来交易不在本次报告中。"
+              },
+              "evidenceIds": [
+                "f98761d0-a1b8-4f71-ae58-96564de17c46:trace:0x90f79bf6eb2c4f870365e785982e1f101e93b906",
+                "direct-local-1791344887892:0x97f9e16688460018c3744620fcf8c341f2caa6e2307e0e1a879a52179abc6162:0"
+              ]
+            }
+          ],
+          "error": "报告证据或结论校验未通过：Unsupported criminal prediction",
+          "finishedAt": "2026-10-07T03:51:14.495Z"
+        }
+      ],
+      "limitations": [
+        "同类历史样本不足三笔，不计算金额异常倍数。",
+        "只反映已采集的当前币种与部署后窗口，不是商家全部资产或全部负债。",
+        "规则信号不等于跑路、违法或线下服务停止；正常成本支付也可能触发。",
+        "仅分析已观察到的链上资金行为，不评价未知线下履约；GYM 为无真实价值的测试币。",
+        "调查与复核使用同一模型服务，独立调用工具不等于独立模型或完全消除共同偏差。"
+      ],
+      "generatedAt": "2026-10-07T03:51:14.496Z"
+    },
+    {
+      "id": "7f580d6b-1791-4c1c-99b9-8f5690092c4b",
+      "datasetId": "direct-local-1791344887892",
+      "eventId": "direct-local-1791344887892:0x97f9e16688460018c3744620fcf8c341f2caa6e2307e0e1a879a52179abc6162:0",
+      "asOfBlock": 4,
+      "chainId": 31337,
+      "dataOrigin": "local-chain",
+      "status": "complete",
+      "risk": "attention",
+      "headline": "独立重算后，list_events 返回 2 笔事件、compute_metrics 返回收款 863、转出 776、净流入 87、转出/收款 8991bps、集中度 10000bps，verify_transaction 确认当前事件已入块（非最终不可逆），trace_recipient 显示 0x90F7…b906 于 block 4 向 0x15d3…6A65 一层转出 1 GYM。事实口径与调查稿一致，但样本不足三笔、未查询下一层地址，不能逐枚归属会员资金，也不给出任何确定性定性。",
+      "metrics": {
+        "version": "direct-flow-quant-v1",
+        "window": {
+          "from": 1791258498,
+          "to": 1791344898,
+          "seconds": 86400
+        },
+        "eventAmount": "776",
+        "baselineCount": 0,
+        "baselineMedian": null,
+        "amountVsMedianBps": null,
+        "receipts": "863",
+        "outflows": "776",
+        "netInflow": "87",
+        "outflowToReceiptBps": "8991",
+        "recipientConcentrationBps": "10000",
+        "topRecipient": "0x90f79bf6eb2c4f870365e785982e1f101e93b906",
+        "secondsSinceLastReceipt": 1,
+        "flags": [
+          "近24小时转出达到收款的80%或以上",
+          "收款后五分钟内出现转出"
+        ],
+        "limitations": [
+          "同类历史样本不足三笔，不计算金额异常倍数。",
+          "只反映已采集的当前币种与部署后窗口，不是商家全部资产或全部负债。",
+          "规则信号不等于跑路、违法或线下服务停止；正常成本支付也可能触发。"
+        ]
+      },
+      "facts": [
+        {
+          "text": "本笔转账 776 GYM，发送方 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266，接收方 0x90F79bf6EB2c4f870365E785982E1f101E93b906。",
+          "evidenceIds": [
+            "direct-local-1791344887892:0x97f9e16688460018c3744620fcf8c341f2caa6e2307e0e1a879a52179abc6162:0"
+          ]
+        },
+        {
+          "text": "统计窗口收款 863 GYM，转出 776 GYM；只计算一次付款，不重复计收款。",
+          "evidenceIds": [
+            "eed6033a-5717-46a5-bf73-415394c9aa3d:metrics"
+          ]
+        }
+      ],
+      "stages": [
+        {
+          "name": "investigator",
+          "status": "complete",
+          "model": "deepseek-flash",
+          "startedAt": "2026-10-07T03:50:29.952Z",
+          "toolRuns": [
+            {
+              "id": "0296429c-6c28-4442-b0f1-24776bf1a79c",
+              "name": "list_events",
+              "arguments": {},
+              "at": "2026-10-07T03:50:31.307Z",
+              "status": "ok",
+              "result": {
+                "events": [
+                  {
+                    "id": "direct-local-1791344887892:0x0b3006e0785cd1fe4465696a814a826fbe31160a6dd8ed102460199f2eae570f:0",
+                    "txHash": "0x0b3006e0785cd1fe4465696a814a826fbe31160a6dd8ed102460199f2eae570f",
+                    "logIndex": 0,
+                    "blockNumber": 2,
+                    "blockHash": "0xef8d97ef39fc643f2079b20af6b24440afce12269d0a0c9ae7a5bf2ea93e1939",
+                    "timestamp": 1791344897,
+                    "from": "0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC",
+                    "to": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+                    "amount": "863",
+                    "kind": "payment"
+                  },
+                  {
+                    "id": "direct-local-1791344887892:0x97f9e16688460018c3744620fcf8c341f2caa6e2307e0e1a879a52179abc6162:0",
+                    "txHash": "0x97f9e16688460018c3744620fcf8c341f2caa6e2307e0e1a879a52179abc6162",
+                    "logIndex": 0,
+                    "blockNumber": 3,
+                    "blockHash": "0xc1b99fa86cd3390388e6973c01b80bad8fa1a39ef6bde9698337b04645ccc519",
+                    "timestamp": 1791344898,
+                    "from": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+                    "to": "0x90F79bf6EB2c4f870365E785982E1f101E93b906",
+                    "amount": "776",
+                    "kind": "withdrawal"
+                  }
+                ],
+                "total": 2,
+                "truncated": false,
+                "asOfBlock": 4,
+                "limitation": "一笔付款同时是商家收款，不重复计数。初始铸币不是经营收款。"
+              },
+              "evidenceIds": [
+                "direct-local-1791344887892:0x0b3006e0785cd1fe4465696a814a826fbe31160a6dd8ed102460199f2eae570f:0",
+                "direct-local-1791344887892:0x97f9e16688460018c3744620fcf8c341f2caa6e2307e0e1a879a52179abc6162:0"
+              ]
+            },
+            {
+              "id": "8c134eec-2c47-41f1-a880-65655738d7df",
+              "name": "compute_metrics",
+              "arguments": {},
+              "at": "2026-10-07T03:50:31.308Z",
+              "status": "ok",
+              "result": {
+                "version": "direct-flow-quant-v1",
+                "window": {
+                  "from": 1791258498,
+                  "to": 1791344898,
+                  "seconds": 86400
+                },
+                "eventAmount": "776",
+                "baselineCount": 0,
+                "baselineMedian": null,
+                "amountVsMedianBps": null,
+                "receipts": "863",
+                "outflows": "776",
+                "netInflow": "87",
+                "outflowToReceiptBps": "8991",
+                "recipientConcentrationBps": "10000",
+                "topRecipient": "0x90f79bf6eb2c4f870365e785982e1f101e93b906",
+                "secondsSinceLastReceipt": 1,
+                "flags": [
+                  "近24小时转出达到收款的80%或以上",
+                  "收款后五分钟内出现转出"
+                ],
+                "limitations": [
+                  "同类历史样本不足三笔，不计算金额异常倍数。",
+                  "只反映已采集的当前币种与部署后窗口，不是商家全部资产或全部负债。",
+                  "规则信号不等于跑路、违法或线下服务停止；正常成本支付也可能触发。"
+                ],
+                "evidenceId": "eed6033a-5717-46a5-bf73-415394c9aa3d:metrics",
+                "formula": {
+                  "bps": "分子×10000÷分母；10000bps=100%，整数截断",
+                  "amountRatio": "当前金额÷此前最多20笔同类记录中位数，仅样本>=3时计算",
+                  "outflowRatio": "24小时商家转出合计÷商家收款合计",
+                  "concentration": "24小时最大接收方转出合计÷转出合计"
+                },
+                "asOfBlock": 3
+              },
+              "evidenceIds": [
+                "eed6033a-5717-46a5-bf73-415394c9aa3d:metrics"
+              ]
+            },
+            {
+              "id": "8d0e1f81-7f30-4456-a214-d955554bfb0c",
+              "name": "verify_transaction",
+              "arguments": {
+                "txHash": "0x97f9e16688460018c3744620fcf8c341f2caa6e2307e0e1a879a52179abc6162"
+              },
+              "at": "2026-10-07T03:50:31.308Z",
+              "status": "ok",
+              "result": {
+                "evidenceId": "eed6033a-5717-46a5-bf73-415394c9aa3d:receipt",
+                "chainId": 31337,
+                "txHash": "0x97f9e16688460018c3744620fcf8c341f2caa6e2307e0e1a879a52179abc6162",
+                "blockNumber": 3,
+                "blockHash": "0xc1b99fa86cd3390388e6973c01b80bad8fa1a39ef6bde9698337b04645ccc519",
+                "status": "confirmed",
+                "transactionFrom": "0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266",
+                "transactionTo": "0x5fbdb2315678afecb367f032d93f642f64180aa3",
+                "transfer": {
+                  "from": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+                  "to": "0x90F79bf6EB2c4f870365E785982E1f101E93b906",
+                  "amount": "776",
+                  "logIndex": 0
+                },
+                "gasUsed": "51565",
+                "effectiveGasPrice": "850439491",
+                "explorerUrl": null,
+                "finality": "已入块；不是最终不可逆确认"
+              },
+              "evidenceIds": [
+                "eed6033a-5717-46a5-bf73-415394c9aa3d:receipt",
+                "direct-local-1791344887892:0x97f9e16688460018c3744620fcf8c341f2caa6e2307e0e1a879a52179abc6162:0"
+              ]
+            },
+            {
+              "id": "5394d8a8-af6e-46f9-af59-986d79c1e341",
+              "name": "trace_recipient",
+              "arguments": {
+                "address": "0x90F79bf6EB2c4f870365E785982E1f101E93b906"
+              },
+              "at": "2026-10-07T03:50:31.314Z",
+              "status": "ok",
+              "result": {
+                "evidenceId": "eed6033a-5717-46a5-bf73-415394c9aa3d:trace:0x90f79bf6eb2c4f870365e785982e1f101e93b906",
+                "address": "0x90F79bf6EB2c4f870365E785982E1f101E93b906",
+                "anchorEventId": "direct-local-1791344887892:0x97f9e16688460018c3744620fcf8c341f2caa6e2307e0e1a879a52179abc6162:0",
+                "fromBlock": 3,
+                "toBlock": 4,
+                "transfers": [
+                  {
+                    "txHash": "0xd6b83459ab72b553e08b5698fb14e6c270a7bb7ea27c3b38e63f997f15f4d4cd",
+                    "blockNumber": 4,
+                    "from": "0x90F79bf6EB2c4f870365E785982E1f101E93b906",
+                    "to": "0x15d34AAf54267DB7D7c367839AAf71A00a2C6A65",
+                    "amount": "1"
+                  }
+                ],
+                "completeWithinWindow": true,
+                "limitation": "仅一层、当前币种和最多120区块；未查询下一接收地址，不能证明这些转出属于该笔会员款，未来交易不在本次报告中。"
+              },
+              "evidenceIds": [
+                "eed6033a-5717-46a5-bf73-415394c9aa3d:trace:0x90f79bf6eb2c4f870365e785982e1f101e93b906",
+                "direct-local-1791344887892:0x97f9e16688460018c3744620fcf8c341f2caa6e2307e0e1a879a52179abc6162:0"
+              ]
+            }
+          ],
+          "result": {
+            "summary": "当前已入块事件为一笔从 0xf39F…2266 转出 776 GYM 至 0x90F7…b906 的链上转账，收据工具确认已入块（finality：已入块，非最终不可逆）。指标显示窗口内收款 863、转出 776、净流入 87，转出/收款约 8991bps，前一笔经营收款后约 1 秒即出现本次转出，且该接收地址在窗口内转出集中度为 10000bps。一层追踪显示 0x90F7…b906 随后向 0x15d3…6A65 转出 1 GYM。仅凭链上数据无法认定跑路或违法，也无法将窗口内转出逐枚归属到该地址某位会员的资金；样本不足，不计算金额异常倍数。",
+            "risk": "attention",
+            "observations": [
+              {
+                "type": "inference",
+                "text": "当前事件经收据工具核验已在链上确认入块，转账方向为商家直接接收地址 0x90F7…b906，非托管或按次结算通道。",
+                "evidenceIds": [
+                  "eed6033a-5717-46a5-bf73-415394c9aa3d:receipt",
+                  "direct-local-1791344887892:0x97f9e16688460018c3744620fcf8c341f2caa6e2307e0e1a879a52179abc6162:0"
+                ]
+              },
+              {
+                "type": "inference",
+                "text": "指标显示窗口内转出占收款比例约 8991bps，并触发“收款后五分钟内出现转出”和“转出达收款 80% 以上”两个规则信号；程序同时注明规则信号不等于跑路或违法。",
+                "evidenceIds": [
+                  "eed6033a-5717-46a5-bf73-415394c9aa3d:metrics"
+                ]
+              },
+              {
+                "type": "inference",
+                "text": "事件列表与指标口径为：收款 863 来自 0x3C44…93BC（block 2），转出 776 至 0x90F7…b906（block 3），净流入 87；一笔付款同时是商家收款，不重复计数。",
+                "evidenceIds": [
+                  "direct-local-1791344887892:0x0b3006e0785cd1fe4465696a814a826fbe31160a6dd8ed102460199f2eae570f:0",
+                  "direct-local-1791344887892:0x97f9e16688460018c3744620fcf8c341f2caa6e2307e0e1a879a52179abc6162:0",
+                  "eed6033a-5717-46a5-bf73-415394c9aa3d:metrics"
+                ]
+              },
+              {
+                "type": "inference",
+                "text": "对商家直接接收地址 0x90F7…b906 的一层追踪显示其后于 block 4 向 0x15d3…6A65 转出 1 GYM，接收方集中度为 10000bps。",
+                "evidenceIds": [
+                  "eed6033a-5717-46a5-bf73-415394c9aa3d:trace:0x90f79bf6eb2c4f870365e785982e1f101e93b906",
+                  "eed6033a-5717-46a5-bf73-415394c9aa3d:metrics"
+                ]
+              },
+              {
+                "type": "unknown",
+                "text": "窗口内转出不能逐枚归属为某位会员的资金；0x90F7…b906 与 0x15d3…6A65 的现实身份、是否属于同一经营主体，链上数据不提供，不予猜测。",
+                "evidenceIds": [
+                  "eed6033a-5717-46a5-bf73-415394c9aa3d:trace:0x90f79bf6eb2c4f870365e785982e1f101e93b906"
+                ]
+              },
+              {
+                "type": "unknown",
+                "text": "同类历史样本不足三笔，不计算金额异常倍数；当前窗口只反映已采集币种与部署后数据，不等于商家全部资产或负债。",
+                "evidenceIds": [
+                  "eed6033a-5717-46a5-bf73-415394c9aa3d:metrics"
+                ]
+              }
+            ],
+            "alternatives": [
+              "正常经营解释：该 776 GYM 转出可能是商家支付房租、工资、供应商货款或设备采购等经营成本，因为收款后短时间对外付款在正常经营中也会出现。",
+              "正常经营解释：0x90F7…b906 向 0x15d3…6A65 的 1 GYM 转出金额远小于本金，可能只是链上小额测试或零钱整理，与会员预付款无关。",
+              "正常经营解释：收款与转出发生在相邻两个区块，可能只是批量结算或自动化脚本在同一批交易中完成的资金归集。"
+            ],
+            "limitations": [
+              "同类历史样本不足三笔，无法计算金额相对基线的异常倍数。",
+              "收据显示“已入块；不是最终不可逆确认”，未来可能存在回滚或重组，后续区块交易不在本次报告。",
+              "一层追踪仅覆盖当前币种、最多 120 区块，未查询下一接收地址，不能证明这些转出属于该笔会员款。",
+              "本地链数据只反映已采集的部署后窗口，不是商家全部资产、负债或全部经营流水。",
+              "本场景资金直接转给商家，没有托管、按次结算或退款保证；该合同事实不构成对现实身份或线下服务质量的判断。",
+              "GYM 无人民币或美元价值，不能折算为货币金额。"
+            ],
+            "recommendation": "将风险等级保留为 attention：现有证据只能支持“收到经营款后快速大比例对外转出且转出高度集中于单一地址”这一链上事实，不足以认定跑路或违法。建议复核员独立重新调用 list_events、compute_metrics、verify_transaction 与 trace_recipient，确认上述 evidenceId 对应数值未变，并补充该接收地址与下一层地址的历史流水、合同与线下履约信息后再作判断。"
+          },
+          "finishedAt": "2026-10-07T03:50:38.267Z"
+        },
+        {
+          "name": "reviewer",
+          "status": "complete",
+          "model": "deepseek-flash",
+          "startedAt": "2026-10-07T03:50:38.268Z",
+          "toolRuns": [
+            {
+              "id": "a333baf5-939e-43af-a89a-4a2bd18401d2",
+              "name": "list_events",
+              "arguments": {},
+              "at": "2026-10-07T03:50:39.875Z",
+              "status": "ok",
+              "result": {
+                "events": [
+                  {
+                    "id": "direct-local-1791344887892:0x0b3006e0785cd1fe4465696a814a826fbe31160a6dd8ed102460199f2eae570f:0",
+                    "txHash": "0x0b3006e0785cd1fe4465696a814a826fbe31160a6dd8ed102460199f2eae570f",
+                    "logIndex": 0,
+                    "blockNumber": 2,
+                    "blockHash": "0xef8d97ef39fc643f2079b20af6b24440afce12269d0a0c9ae7a5bf2ea93e1939",
+                    "timestamp": 1791344897,
+                    "from": "0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC",
+                    "to": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+                    "amount": "863",
+                    "kind": "payment"
+                  },
+                  {
+                    "id": "direct-local-1791344887892:0x97f9e16688460018c3744620fcf8c341f2caa6e2307e0e1a879a52179abc6162:0",
+                    "txHash": "0x97f9e16688460018c3744620fcf8c341f2caa6e2307e0e1a879a52179abc6162",
+                    "logIndex": 0,
+                    "blockNumber": 3,
+                    "blockHash": "0xc1b99fa86cd3390388e6973c01b80bad8fa1a39ef6bde9698337b04645ccc519",
+                    "timestamp": 1791344898,
+                    "from": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+                    "to": "0x90F79bf6EB2c4f870365E785982E1f101E93b906",
+                    "amount": "776",
+                    "kind": "withdrawal"
+                  }
+                ],
+                "total": 2,
+                "truncated": false,
+                "asOfBlock": 4,
+                "limitation": "一笔付款同时是商家收款，不重复计数。初始铸币不是经营收款。"
+              },
+              "evidenceIds": [
+                "direct-local-1791344887892:0x0b3006e0785cd1fe4465696a814a826fbe31160a6dd8ed102460199f2eae570f:0",
+                "direct-local-1791344887892:0x97f9e16688460018c3744620fcf8c341f2caa6e2307e0e1a879a52179abc6162:0"
+              ]
+            },
+            {
+              "id": "514124a6-dff9-4f82-a099-a2496ec17be9",
+              "name": "compute_metrics",
+              "arguments": {},
+              "at": "2026-10-07T03:50:39.877Z",
+              "status": "ok",
+              "result": {
+                "version": "direct-flow-quant-v1",
+                "window": {
+                  "from": 1791258498,
+                  "to": 1791344898,
+                  "seconds": 86400
+                },
+                "eventAmount": "776",
+                "baselineCount": 0,
+                "baselineMedian": null,
+                "amountVsMedianBps": null,
+                "receipts": "863",
+                "outflows": "776",
+                "netInflow": "87",
+                "outflowToReceiptBps": "8991",
+                "recipientConcentrationBps": "10000",
+                "topRecipient": "0x90f79bf6eb2c4f870365e785982e1f101e93b906",
+                "secondsSinceLastReceipt": 1,
+                "flags": [
+                  "近24小时转出达到收款的80%或以上",
+                  "收款后五分钟内出现转出"
+                ],
+                "limitations": [
+                  "同类历史样本不足三笔，不计算金额异常倍数。",
+                  "只反映已采集的当前币种与部署后窗口，不是商家全部资产或全部负债。",
+                  "规则信号不等于跑路、违法或线下服务停止；正常成本支付也可能触发。"
+                ],
+                "evidenceId": "eed6033a-5717-46a5-bf73-415394c9aa3d:metrics",
+                "formula": {
+                  "bps": "分子×10000÷分母；10000bps=100%，整数截断",
+                  "amountRatio": "当前金额÷此前最多20笔同类记录中位数，仅样本>=3时计算",
+                  "outflowRatio": "24小时商家转出合计÷商家收款合计",
+                  "concentration": "24小时最大接收方转出合计÷转出合计"
+                },
+                "asOfBlock": 3
+              },
+              "evidenceIds": [
+                "eed6033a-5717-46a5-bf73-415394c9aa3d:metrics"
+              ]
+            },
+            {
+              "id": "d10bfe59-0307-4d84-869f-2a5fc5cab11e",
+              "name": "verify_transaction",
+              "arguments": {
+                "txHash": "0x97f9e16688460018c3744620fcf8c341f2caa6e2307e0e1a879a52179abc6162"
+              },
+              "at": "2026-10-07T03:50:39.878Z",
+              "status": "ok",
+              "result": {
+                "evidenceId": "eed6033a-5717-46a5-bf73-415394c9aa3d:receipt",
+                "chainId": 31337,
+                "txHash": "0x97f9e16688460018c3744620fcf8c341f2caa6e2307e0e1a879a52179abc6162",
+                "blockNumber": 3,
+                "blockHash": "0xc1b99fa86cd3390388e6973c01b80bad8fa1a39ef6bde9698337b04645ccc519",
+                "status": "confirmed",
+                "transactionFrom": "0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266",
+                "transactionTo": "0x5fbdb2315678afecb367f032d93f642f64180aa3",
+                "transfer": {
+                  "from": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+                  "to": "0x90F79bf6EB2c4f870365E785982E1f101E93b906",
+                  "amount": "776",
+                  "logIndex": 0
+                },
+                "gasUsed": "51565",
+                "effectiveGasPrice": "850439491",
+                "explorerUrl": null,
+                "finality": "已入块；不是最终不可逆确认"
+              },
+              "evidenceIds": [
+                "eed6033a-5717-46a5-bf73-415394c9aa3d:receipt",
+                "direct-local-1791344887892:0x97f9e16688460018c3744620fcf8c341f2caa6e2307e0e1a879a52179abc6162:0"
+              ]
+            },
+            {
+              "id": "967f6d68-049e-49f1-8bf2-84ee9df2ff5c",
+              "name": "trace_recipient",
+              "arguments": {
+                "address": "0x90F79bf6EB2c4f870365E785982E1f101E93b906"
+              },
+              "at": "2026-10-07T03:50:39.887Z",
+              "status": "ok",
+              "result": {
+                "evidenceId": "eed6033a-5717-46a5-bf73-415394c9aa3d:trace:0x90f79bf6eb2c4f870365e785982e1f101e93b906",
+                "address": "0x90F79bf6EB2c4f870365E785982E1f101E93b906",
+                "anchorEventId": "direct-local-1791344887892:0x97f9e16688460018c3744620fcf8c341f2caa6e2307e0e1a879a52179abc6162:0",
+                "fromBlock": 3,
+                "toBlock": 4,
+                "transfers": [
+                  {
+                    "txHash": "0xd6b83459ab72b553e08b5698fb14e6c270a7bb7ea27c3b38e63f997f15f4d4cd",
+                    "blockNumber": 4,
+                    "from": "0x90F79bf6EB2c4f870365E785982E1f101E93b906",
+                    "to": "0x15d34AAf54267DB7D7c367839AAf71A00a2C6A65",
+                    "amount": "1"
+                  }
+                ],
+                "completeWithinWindow": true,
+                "limitation": "仅一层、当前币种和最多120区块；未查询下一接收地址，不能证明这些转出属于该笔会员款，未来交易不在本次报告中。"
+              },
+              "evidenceIds": [
+                "eed6033a-5717-46a5-bf73-415394c9aa3d:trace:0x90f79bf6eb2c4f870365e785982e1f101e93b906",
+                "direct-local-1791344887892:0x97f9e16688460018c3744620fcf8c341f2caa6e2307e0e1a879a52179abc6162:0"
+              ]
+            }
+          ],
+          "result": {
+            "summary": "独立重算后，list_events 返回 2 笔事件、compute_metrics 返回收款 863、转出 776、净流入 87、转出/收款 8991bps、集中度 10000bps，verify_transaction 确认当前事件已入块（非最终不可逆），trace_recipient 显示 0x90F7…b906 于 block 4 向 0x15d3…6A65 一层转出 1 GYM。事实口径与调查稿一致，但样本不足三笔、未查询下一层地址，不能逐枚归属会员资金，也不给出任何确定性定性。",
+            "risk": "attention",
+            "observations": [
+              {
+                "type": "inference",
+                "text": "verify_transaction 独立核验当前事件 0x97f9…6162 状态为 confirmed，入块 3，转账方向为 0xf39F…2266 转出 776 GYM 至商家直接接收地址 0x90F7…b906，finality 为“已入块；不是最终不可逆确认”。",
+                "evidenceIds": [
+                  "eed6033a-5717-46a5-bf73-415394c9aa3d:receipt",
+                  "direct-local-1791344887892:0x97f9e16688460018c3744620fcf8c341f2caa6e2307e0e1a879a52179abc6162:0"
+                ]
+              },
+              {
+                "type": "inference",
+                "text": "compute_metrics 独立重算窗口内收款 863、转出 776、净流入 87、outflowToReceiptBps 8991、recipientConcentrationBps 10000、secondsSinceLastReceipt 1，并触发“收款后五分钟内出现转出”和“近24小时转出达收款80%或以上”两条规则信号；程序同时注明规则信号不等于跑路、违法或线下服务停止。",
+                "evidenceIds": [
+                  "eed6033a-5717-46a5-bf73-415394c9aa3d:metrics"
+                ]
+              },
+              {
+                "type": "inference",
+                "text": "list_events 独立列示全部 2 笔事件：block 2 收款 863 来自 0x3C44…93BC 至 0xf39F…2266，block 3 转出 776 至 0x90F7…b906；程序注明一笔付款同时是商家收款、不重复计数，且本地数据只覆盖已采集窗口。",
+                "evidenceIds": [
+                  "direct-local-1791344887892:0x0b3006e0785cd1fe4465696a814a826fbe31160a6dd8ed102460199f2eae570f:0",
+                  "direct-local-1791344887892:0x97f9e16688460018c3744620fcf8c341f2caa6e2307e0e1a879a52179abc6162:0"
+                ]
+              },
+              {
+                "type": "inference",
+                "text": "trace_recipient 独立对商家直接接收地址 0x90F7…b906 做一层追踪，发现其于 block 4 向 0x15d3…6A65 转出 1 GYM；工具限定仅一层、当前币种与最多 120 区块，并明确不能证明该转出属于该笔会员款。",
+                "evidenceIds": [
+                  "eed6033a-5717-46a5-bf73-415394c9aa3d:trace:0x90f79bf6eb2c4f870365e785982e1f101e93b906",
+                  "direct-local-1791344887892:0x97f9e16688460018c3744620fcf8c341f2caa6e2307e0e1a879a52179abc6162:0"
+                ]
+              },
+              {
+                "type": "unknown",
+                "text": "0x90F7…b906 与 0x15d3…6A65 的现实身份、是否属同一经营主体、是否关联任何会员，链上数据不提供；窗口内转出也不能逐枚归属为某位会员的资金，均不予猜测。",
+                "evidenceIds": [
+                  "eed6033a-5717-46a5-bf73-415394c9aa3d:trace:0x90f79bf6eb2c4f870365e785982e1f101e93b906"
+                ]
+              },
+              {
+                "type": "unknown",
+                "text": "同类历史样本不足三笔，baselineCount 为 0，程序不计算金额异常倍数；本轮只反映已采集的当前币种与部署后窗口，不等于商家全部资产、负债或全部经营流水。",
+                "evidenceIds": [
+                  "eed6033a-5717-46a5-bf73-415394c9aa3d:metrics"
+                ]
+              }
+            ],
+            "alternatives": [
+              "正常经营解释：该 776 GYM 转出可能是商家支付房租、工资、供应商货款或设备采购等经营成本，收款后短时间对外付款在正常经营中同样会出现。",
+              "正常经营解释：0x90F7…b906 向 0x15d3…6A65 的 1 GYM 转出金额远小于本次转出，可能只是链上小额测试、零钱整理或自动化脚本的资金归集，与会员预付款无关。",
+              "正常经营解释：收款与转出位于相邻两个区块，可能只是同一批自动化交易完成的批量结算，而非针对该笔款项的即时处置。"
+            ],
+            "limitations": [
+              "同类历史样本不足三笔，无法计算金额相对基线的异常倍数。",
+              "收据为“已入块；不是最终不可逆确认”，未来仍可能回滚或重组，后续区块交易不在本次报告。",
+              "一层追踪仅覆盖当前币种、最多 120 区块且未查询下一接收地址，不能证明这些转出属于该笔会员款。",
+              "本地链数据只反映已采集的部署后窗口，不是商家全部资产、负债或全部经营流水。",
+              "本场景资金直接转给商家，没有托管、按次结算或退款保证；该合同事实不构成对现实身份或线下服务质量的判断。",
+              "GYM 无人民币或美元价值，不能折算为货币金额；也不判断未知地址的现实身份与线下服务质量。"
+            ],
+            "recommendation": "维持 attention：独立重算与调查稿事实口径一致，现有证据只支持“收到经营款后快速大比例对外转出且转出集中于单一地址”这一链上事实。建议继续补充该接收地址与 0x15d3…6A65 的历史流水、合同与线下履约信息，并核对后续区块交易后再评估。",
+            "verdict": "agree"
+          },
+          "finishedAt": "2026-10-07T03:50:50.833Z"
+        }
+      ],
+      "limitations": [
+        "同类历史样本不足三笔，不计算金额异常倍数。",
+        "只反映已采集的当前币种与部署后窗口，不是商家全部资产或全部负债。",
+        "规则信号不等于跑路、违法或线下服务停止；正常成本支付也可能触发。",
+        "仅分析已观察到的链上资金行为，不评价未知线下履约；GYM 为无真实价值的测试币。",
+        "调查与复核使用同一模型服务，独立调用工具不等于独立模型或完全消除共同偏差。"
+      ],
+      "generatedAt": "2026-10-07T03:50:50.834Z"
+    },
+    {
+      "id": "781ecd6f-4037-4cf7-bea7-0620af751bfe",
+      "datasetId": "direct-local-1791344887892",
+      "eventId": "direct-local-1791344887892:0xd6b83459ab72b553e08b5698fb14e6c270a7bb7ea27c3b38e63f997f15f4d4cd:0",
+      "asOfBlock": 4,
+      "chainId": 31337,
+      "dataOrigin": "local-chain",
+      "status": "complete",
+      "risk": "insufficient",
+      "headline": "独立复核已重新调用 list_events、compute_metrics、verify_transaction，并尝试 trace_recipient。重算结果与调查稿一致：窗口内 3 笔已入块事件，收款 863、转出 776、净流入 87、转出/收款 8991 bps、最大接收方集中度 10000 bps，最大接收方为 0x90f7...b906；当前事件金额 1、由 0x90f7...b906 转至 0x15d3...6A65，状态 confirmed 但非最终不可逆确认。trace_recipient 未取得结果，一层转出结构未能核验，属证据缺口。窗口样本极少且无基线，不能据此推断任何现实主体身份或资金归属。",
+      "metrics": {
+        "version": "direct-flow-quant-v1",
+        "window": {
+          "from": 1791258499,
+          "to": 1791344899,
+          "seconds": 86400
+        },
+        "eventAmount": "1",
+        "baselineCount": 0,
+        "baselineMedian": null,
+        "amountVsMedianBps": null,
+        "receipts": "863",
+        "outflows": "776",
+        "netInflow": "87",
+        "outflowToReceiptBps": "8991",
+        "recipientConcentrationBps": "10000",
+        "topRecipient": "0x90f79bf6eb2c4f870365e785982e1f101e93b906",
+        "secondsSinceLastReceipt": null,
+        "flags": [],
+        "limitations": [
+          "同类历史样本不足三笔，不计算金额异常倍数。",
+          "只反映已采集的当前币种与部署后窗口，不是商家全部资产或全部负债。",
+          "规则信号不等于跑路、违法或线下服务停止；正常成本支付也可能触发。"
+        ]
+      },
+      "facts": [
+        {
+          "text": "本笔转账 1 GYM，发送方 0x90F79bf6EB2c4f870365E785982E1f101E93b906，接收方 0x15d34AAf54267DB7D7c367839AAf71A00a2C6A65。",
+          "evidenceIds": [
+            "direct-local-1791344887892:0xd6b83459ab72b553e08b5698fb14e6c270a7bb7ea27c3b38e63f997f15f4d4cd:0"
+          ]
+        },
+        {
+          "text": "统计窗口收款 863 GYM，转出 776 GYM；只计算一次付款，不重复计收款。",
+          "evidenceIds": [
+            "2079cb66-a355-43f8-8275-fc5e662b3e26:metrics"
+          ]
+        }
+      ],
+      "stages": [
+        {
+          "name": "investigator",
+          "status": "complete",
+          "model": "deepseek-flash",
+          "startedAt": "2026-10-07T03:50:09.611Z",
+          "toolRuns": [
+            {
+              "id": "c579541e-2efa-4ceb-8bb4-de57951a428f",
+              "name": "list_events",
+              "arguments": {},
+              "at": "2026-10-07T03:50:11.393Z",
+              "status": "ok",
+              "result": {
+                "events": [
+                  {
+                    "id": "direct-local-1791344887892:0x0b3006e0785cd1fe4465696a814a826fbe31160a6dd8ed102460199f2eae570f:0",
+                    "txHash": "0x0b3006e0785cd1fe4465696a814a826fbe31160a6dd8ed102460199f2eae570f",
+                    "logIndex": 0,
+                    "blockNumber": 2,
+                    "blockHash": "0xef8d97ef39fc643f2079b20af6b24440afce12269d0a0c9ae7a5bf2ea93e1939",
+                    "timestamp": 1791344897,
+                    "from": "0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC",
+                    "to": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+                    "amount": "863",
+                    "kind": "payment"
+                  },
+                  {
+                    "id": "direct-local-1791344887892:0x97f9e16688460018c3744620fcf8c341f2caa6e2307e0e1a879a52179abc6162:0",
+                    "txHash": "0x97f9e16688460018c3744620fcf8c341f2caa6e2307e0e1a879a52179abc6162",
+                    "logIndex": 0,
+                    "blockNumber": 3,
+                    "blockHash": "0xc1b99fa86cd3390388e6973c01b80bad8fa1a39ef6bde9698337b04645ccc519",
+                    "timestamp": 1791344898,
+                    "from": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+                    "to": "0x90F79bf6EB2c4f870365E785982E1f101E93b906",
+                    "amount": "776",
+                    "kind": "withdrawal"
+                  },
+                  {
+                    "id": "direct-local-1791344887892:0xd6b83459ab72b553e08b5698fb14e6c270a7bb7ea27c3b38e63f997f15f4d4cd:0",
+                    "txHash": "0xd6b83459ab72b553e08b5698fb14e6c270a7bb7ea27c3b38e63f997f15f4d4cd",
+                    "logIndex": 0,
+                    "blockNumber": 4,
+                    "blockHash": "0x0d53a8199854b4dfb6228489336e2eb9f51d0b419d606186b20e97e858ad9161",
+                    "timestamp": 1791344899,
+                    "from": "0x90F79bf6EB2c4f870365E785982E1f101E93b906",
+                    "to": "0x15d34AAf54267DB7D7c367839AAf71A00a2C6A65",
+                    "amount": "1",
+                    "kind": "recipient-transfer"
+                  }
+                ],
+                "total": 3,
+                "truncated": false,
+                "asOfBlock": 4,
+                "limitation": "一笔付款同时是商家收款，不重复计数。初始铸币不是经营收款。"
+              },
+              "evidenceIds": [
+                "direct-local-1791344887892:0x0b3006e0785cd1fe4465696a814a826fbe31160a6dd8ed102460199f2eae570f:0",
+                "direct-local-1791344887892:0x97f9e16688460018c3744620fcf8c341f2caa6e2307e0e1a879a52179abc6162:0",
+                "direct-local-1791344887892:0xd6b83459ab72b553e08b5698fb14e6c270a7bb7ea27c3b38e63f997f15f4d4cd:0"
+              ]
+            },
+            {
+              "id": "0bfcf13f-d9e0-4159-aef2-c1704594efcf",
+              "name": "compute_metrics",
+              "arguments": {},
+              "at": "2026-10-07T03:50:11.394Z",
+              "status": "ok",
+              "result": {
+                "version": "direct-flow-quant-v1",
+                "window": {
+                  "from": 1791258499,
+                  "to": 1791344899,
+                  "seconds": 86400
+                },
+                "eventAmount": "1",
+                "baselineCount": 0,
+                "baselineMedian": null,
+                "amountVsMedianBps": null,
+                "receipts": "863",
+                "outflows": "776",
+                "netInflow": "87",
+                "outflowToReceiptBps": "8991",
+                "recipientConcentrationBps": "10000",
+                "topRecipient": "0x90f79bf6eb2c4f870365e785982e1f101e93b906",
+                "secondsSinceLastReceipt": null,
+                "flags": [],
+                "limitations": [
+                  "同类历史样本不足三笔，不计算金额异常倍数。",
+                  "只反映已采集的当前币种与部署后窗口，不是商家全部资产或全部负债。",
+                  "规则信号不等于跑路、违法或线下服务停止；正常成本支付也可能触发。"
+                ],
+                "evidenceId": "2079cb66-a355-43f8-8275-fc5e662b3e26:metrics",
+                "formula": {
+                  "bps": "分子×10000÷分母；10000bps=100%，整数截断",
+                  "amountRatio": "当前金额÷此前最多20笔同类记录中位数，仅样本>=3时计算",
+                  "outflowRatio": "24小时商家转出合计÷商家收款合计",
+                  "concentration": "24小时最大接收方转出合计÷转出合计"
+                },
+                "asOfBlock": 4
+              },
+              "evidenceIds": [
+                "2079cb66-a355-43f8-8275-fc5e662b3e26:metrics"
+              ]
+            },
+            {
+              "id": "b3803047-2e2d-40c9-9ce8-3c793c01296a",
+              "name": "verify_transaction",
+              "arguments": {
+                "txHash": "0xd6b83459ab72b553e08b5698fb14e6c270a7bb7ea27c3b38e63f997f15f4d4cd"
+              },
+              "at": "2026-10-07T03:50:11.394Z",
+              "status": "ok",
+              "result": {
+                "evidenceId": "2079cb66-a355-43f8-8275-fc5e662b3e26:receipt",
+                "chainId": 31337,
+                "txHash": "0xd6b83459ab72b553e08b5698fb14e6c270a7bb7ea27c3b38e63f997f15f4d4cd",
+                "blockNumber": 4,
+                "blockHash": "0x0d53a8199854b4dfb6228489336e2eb9f51d0b419d606186b20e97e858ad9161",
+                "status": "confirmed",
+                "transactionFrom": "0x90f79bf6eb2c4f870365e785982e1f101e93b906",
+                "transactionTo": "0x5fbdb2315678afecb367f032d93f642f64180aa3",
+                "transfer": {
+                  "from": "0x90F79bf6EB2c4f870365E785982E1f101E93b906",
+                  "to": "0x15d34AAf54267DB7D7c367839AAf71A00a2C6A65",
+                  "amount": "1",
+                  "logIndex": 0
+                },
+                "gasUsed": "51553",
+                "effectiveGasPrice": "744317275",
+                "explorerUrl": null,
+                "finality": "已入块；不是最终不可逆确认"
+              },
+              "evidenceIds": [
+                "2079cb66-a355-43f8-8275-fc5e662b3e26:receipt",
+                "direct-local-1791344887892:0xd6b83459ab72b553e08b5698fb14e6c270a7bb7ea27c3b38e63f997f15f4d4cd:0"
+              ]
+            },
+            {
+              "id": "56efb058-2826-4fd4-9f34-31c42d57e3a3",
+              "name": "trace_recipient",
+              "arguments": {
+                "address": "0x15d34AAf54267DB7D7c367839AAf71A00a2C6A65"
+              },
+              "at": "2026-10-07T03:50:11.401Z",
+              "status": "error",
+              "result": {
+                "error": "工具未成功，参数、范围或网络需核查；不能把查询失败当作没有交易。"
+              },
+              "evidenceIds": []
+            }
+          ],
+          "result": {
+            "summary": "当前窗口已入块共 3 笔事件：一笔 payment（收款）、一笔 withdrawal（转出）、一笔 recipient-transfer（当前事件）。程序展示收款 863、转出 776、净流入 87，转出/收款比 8991 bps，最大接收方转出集中度 10000 bps，指向地址 0x90f7...b906。当前事件经 verify_transaction 确认为已入块、非最终不可逆。trace_recipient 查询失败，无法核实商家接收地址的一层转出结构，相关线索记入证据缺口，不当作没有交易。",
+            "risk": "insufficient",
+            "observations": [
+              {
+                "type": "inference",
+                "text": "当前事件 direct-local...d4cd:0 已入块（区块 4），转账金额 1，由 0x90f7...b906 转至 0x15d3...6A65，交易状态 confirmed 但非最终不可逆；该金额与其余两笔（863、776）量级差异明显。",
+                "evidenceIds": [
+                  "direct-local-1791344887892:0xd6b83459ab72b553e08b5698fb14e6c270a7bb7ea27c3b38e63f997f15f4d4cd:0",
+                  "2079cb66-a355-43f8-8275-fc5e662b3e26:receipt"
+                ]
+              },
+              {
+                "type": "inference",
+                "text": "指标显示窗口内收款 863、转出 776、净流入 87，转出/收款约 8991 bps，即商家转出规模接近同期收款；但窗口样本极少，且 24 小时观察窗不等于商家全部资产或负债。",
+                "evidenceIds": [
+                  "2079cb66-a355-43f8-8275-fc5e662b3e26:metrics"
+                ]
+              },
+              {
+                "type": "inference",
+                "text": "程序显示最大接收方转出集中度 10000 bps，接收方为 0x90f7...b906；该地址同时也是当前事件的转出方，因此其转出行为值得优先核对是否属于商家自持地址调度。",
+                "evidenceIds": [
+                  "2079cb66-a355-43f8-8275-fc5e662b3e26:metrics",
+                  "direct-local-1791344887892:0x97f9e16688460018c3744620fcf8c341f2caa6e2307e0e1a879a52179abc6162:0"
+                ]
+              },
+              {
+                "type": "unknown",
+                "text": "trace_recipient 对商家直接接收地址查询失败（参数、范围或网络需核查），无法完成一层转出的链路核验；此为证据缺口，不能据此推断该地址无后续交易或无现实关联。",
+                "evidenceIds": [
+                  "2079cb66-a355-43f8-8275-fc5e662b3e26:metrics"
+                ]
+              },
+              {
+                "type": "unknown",
+                "text": "窗口内转出无法逐枚归属到某位具体会员，本场景缺少托管、按次结算或退款保证；是否存在退款义务、服务未交付等线下事实无法从链上数据判定。",
+                "evidenceIds": [
+                  "2079cb66-a355-43f8-8275-fc5e662b3e26:metrics",
+                  "direct-local-1791344887892:0xd6b83459ab72b553e08b5698fb14e6c270a7bb7ea27c3b38e63f997f15f4d4cd:0"
+                ]
+              }
+            ],
+            "alternatives": [
+              "正常经营支付：窗口内一笔转出可对应房租、水电、器材采购、员工工资或平台手续费等常规成本，程序亦提示正常成本支付也可能触发规则信号。",
+              "商家自持地址间调度：转出接收方与当前事件转出方为同一地址，可能是同一控制人内部划转，而非对外支出。",
+              "链上样本与事件采集不全：本窗口仅 3 笔事件，可能遗漏其他币种、其他链或未采集交易，导致比例失真。"
+            ],
+            "limitations": [
+              "同类历史样本不足三笔，程序不计算金额异常倍数，指标不具备统计基线意义。",
+              "trace_recipient 查询失败，一层转出结构未核验；不能把查询失败当作没有交易。",
+              "指标仅覆盖当前币种与部署后 24 小时窗口，不代表商家全部资产、全部负债或全部会员资金。",
+              "规则信号与比例不等于跑路、违法或服务停止，也不等于任何现实主体身份认定。",
+              "当前事件为已入块但非最终不可逆确认，后续存在重组或状态变化的可能。",
+              "GYM 为模拟代币，无人民币或美元价值，不进行金额的货币折算。"
+            ],
+            "recommendation": "复核员应重新调用 compute_metrics 与 verify_transaction（必要时以调整参数重试 trace_recipient）核对当前事件与一层转出；在补齐一层链路与更长时序样本前，本任务维持 insufficient，不对未知地址现实身份、线下服务质量或经营意愿作任何判定。"
+          },
+          "finishedAt": "2026-10-07T03:50:17.650Z"
+        },
+        {
+          "name": "reviewer",
+          "status": "complete",
+          "model": "deepseek-flash",
+          "startedAt": "2026-10-07T03:50:17.652Z",
+          "toolRuns": [
+            {
+              "id": "4f5fef98-fa57-4164-ae3c-9833a96fea18",
+              "name": "list_events",
+              "arguments": {},
+              "at": "2026-10-07T03:50:19.006Z",
+              "status": "ok",
+              "result": {
+                "events": [
+                  {
+                    "id": "direct-local-1791344887892:0x0b3006e0785cd1fe4465696a814a826fbe31160a6dd8ed102460199f2eae570f:0",
+                    "txHash": "0x0b3006e0785cd1fe4465696a814a826fbe31160a6dd8ed102460199f2eae570f",
+                    "logIndex": 0,
+                    "blockNumber": 2,
+                    "blockHash": "0xef8d97ef39fc643f2079b20af6b24440afce12269d0a0c9ae7a5bf2ea93e1939",
+                    "timestamp": 1791344897,
+                    "from": "0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC",
+                    "to": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+                    "amount": "863",
+                    "kind": "payment"
+                  },
+                  {
+                    "id": "direct-local-1791344887892:0x97f9e16688460018c3744620fcf8c341f2caa6e2307e0e1a879a52179abc6162:0",
+                    "txHash": "0x97f9e16688460018c3744620fcf8c341f2caa6e2307e0e1a879a52179abc6162",
+                    "logIndex": 0,
+                    "blockNumber": 3,
+                    "blockHash": "0xc1b99fa86cd3390388e6973c01b80bad8fa1a39ef6bde9698337b04645ccc519",
+                    "timestamp": 1791344898,
+                    "from": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+                    "to": "0x90F79bf6EB2c4f870365E785982E1f101E93b906",
+                    "amount": "776",
+                    "kind": "withdrawal"
+                  },
+                  {
+                    "id": "direct-local-1791344887892:0xd6b83459ab72b553e08b5698fb14e6c270a7bb7ea27c3b38e63f997f15f4d4cd:0",
+                    "txHash": "0xd6b83459ab72b553e08b5698fb14e6c270a7bb7ea27c3b38e63f997f15f4d4cd",
+                    "logIndex": 0,
+                    "blockNumber": 4,
+                    "blockHash": "0x0d53a8199854b4dfb6228489336e2eb9f51d0b419d606186b20e97e858ad9161",
+                    "timestamp": 1791344899,
+                    "from": "0x90F79bf6EB2c4f870365E785982E1f101E93b906",
+                    "to": "0x15d34AAf54267DB7D7c367839AAf71A00a2C6A65",
+                    "amount": "1",
+                    "kind": "recipient-transfer"
+                  }
+                ],
+                "total": 3,
+                "truncated": false,
+                "asOfBlock": 4,
+                "limitation": "一笔付款同时是商家收款，不重复计数。初始铸币不是经营收款。"
+              },
+              "evidenceIds": [
+                "direct-local-1791344887892:0x0b3006e0785cd1fe4465696a814a826fbe31160a6dd8ed102460199f2eae570f:0",
+                "direct-local-1791344887892:0x97f9e16688460018c3744620fcf8c341f2caa6e2307e0e1a879a52179abc6162:0",
+                "direct-local-1791344887892:0xd6b83459ab72b553e08b5698fb14e6c270a7bb7ea27c3b38e63f997f15f4d4cd:0"
+              ]
+            },
+            {
+              "id": "816d6821-c288-49a5-bbf3-368560edb86e",
+              "name": "compute_metrics",
+              "arguments": {},
+              "at": "2026-10-07T03:50:19.007Z",
+              "status": "ok",
+              "result": {
+                "version": "direct-flow-quant-v1",
+                "window": {
+                  "from": 1791258499,
+                  "to": 1791344899,
+                  "seconds": 86400
+                },
+                "eventAmount": "1",
+                "baselineCount": 0,
+                "baselineMedian": null,
+                "amountVsMedianBps": null,
+                "receipts": "863",
+                "outflows": "776",
+                "netInflow": "87",
+                "outflowToReceiptBps": "8991",
+                "recipientConcentrationBps": "10000",
+                "topRecipient": "0x90f79bf6eb2c4f870365e785982e1f101e93b906",
+                "secondsSinceLastReceipt": null,
+                "flags": [],
+                "limitations": [
+                  "同类历史样本不足三笔，不计算金额异常倍数。",
+                  "只反映已采集的当前币种与部署后窗口，不是商家全部资产或全部负债。",
+                  "规则信号不等于跑路、违法或线下服务停止；正常成本支付也可能触发。"
+                ],
+                "evidenceId": "2079cb66-a355-43f8-8275-fc5e662b3e26:metrics",
+                "formula": {
+                  "bps": "分子×10000÷分母；10000bps=100%，整数截断",
+                  "amountRatio": "当前金额÷此前最多20笔同类记录中位数，仅样本>=3时计算",
+                  "outflowRatio": "24小时商家转出合计÷商家收款合计",
+                  "concentration": "24小时最大接收方转出合计÷转出合计"
+                },
+                "asOfBlock": 4
+              },
+              "evidenceIds": [
+                "2079cb66-a355-43f8-8275-fc5e662b3e26:metrics"
+              ]
+            },
+            {
+              "id": "6e3a5cab-7bea-4c93-b941-c333f57a5ac8",
+              "name": "verify_transaction",
+              "arguments": {
+                "txHash": "0xd6b83459ab72b553e08b5698fb14e6c270a7bb7ea27c3b38e63f997f15f4d4cd"
+              },
+              "at": "2026-10-07T03:50:19.008Z",
+              "status": "ok",
+              "result": {
+                "evidenceId": "2079cb66-a355-43f8-8275-fc5e662b3e26:receipt",
+                "chainId": 31337,
+                "txHash": "0xd6b83459ab72b553e08b5698fb14e6c270a7bb7ea27c3b38e63f997f15f4d4cd",
+                "blockNumber": 4,
+                "blockHash": "0x0d53a8199854b4dfb6228489336e2eb9f51d0b419d606186b20e97e858ad9161",
+                "status": "confirmed",
+                "transactionFrom": "0x90f79bf6eb2c4f870365e785982e1f101e93b906",
+                "transactionTo": "0x5fbdb2315678afecb367f032d93f642f64180aa3",
+                "transfer": {
+                  "from": "0x90F79bf6EB2c4f870365E785982E1f101E93b906",
+                  "to": "0x15d34AAf54267DB7D7c367839AAf71A00a2C6A65",
+                  "amount": "1",
+                  "logIndex": 0
+                },
+                "gasUsed": "51553",
+                "effectiveGasPrice": "744317275",
+                "explorerUrl": null,
+                "finality": "已入块；不是最终不可逆确认"
+              },
+              "evidenceIds": [
+                "2079cb66-a355-43f8-8275-fc5e662b3e26:receipt",
+                "direct-local-1791344887892:0xd6b83459ab72b553e08b5698fb14e6c270a7bb7ea27c3b38e63f997f15f4d4cd:0"
+              ]
+            }
+          ],
+          "result": {
+            "summary": "独立复核已重新调用 list_events、compute_metrics、verify_transaction，并尝试 trace_recipient。重算结果与调查稿一致：窗口内 3 笔已入块事件，收款 863、转出 776、净流入 87、转出/收款 8991 bps、最大接收方集中度 10000 bps，最大接收方为 0x90f7...b906；当前事件金额 1、由 0x90f7...b906 转至 0x15d3...6A65，状态 confirmed 但非最终不可逆确认。trace_recipient 未取得结果，一层转出结构未能核验，属证据缺口。窗口样本极少且无基线，不能据此推断任何现实主体身份或资金归属。",
+            "risk": "insufficient",
+            "observations": [
+              {
+                "type": "inference",
+                "text": "重算指标与调查稿一致：窗口内收款 863、转出 776、净流入 87，转出/收款 8991 bps，最大接收方转出集中度 10000 bps，topRecipient 为 0x90f7...b906。该比例仅基于当前币种、部署后 24 小时窗口与 3 笔事件。",
+                "evidenceIds": [
+                  "2079cb66-a355-43f8-8275-fc5e662b3e26:metrics",
+                  "direct-local-1791344887892:0x0b3006e0785cd1fe4465696a814a826fbe31160a6dd8ed102460199f2eae570f:0"
+                ]
+              },
+              {
+                "type": "inference",
+                "text": "当前事件经 verify_transaction 确认为已入块（区块 4）、status confirmed、非最终不可逆；转账金额 1，由 0x90f7...b906 至 0x15d3...6A65，量级与 863、776 两笔差异明显，但程序因历史样本不足不计算金额异常倍数。",
+                "evidenceIds": [
+                  "2079cb66-a355-43f8-8275-fc5e662b3e26:receipt",
+                  "direct-local-1791344887892:0xd6b83459ab72b553e08b5698fb14e6c270a7bb7ea27c3b38e63f997f15f4d4cd:0"
+                ]
+              },
+              {
+                "type": "inference",
+                "text": "list_events 显示窗口内三笔事件存在资金流向序列：0x3C44...93BC 付款至 0xf39F...2266，0xf39F...2266 转出 776 至 0x90f7...b906，随后 0x90f7...b906 转出 1 至 0x15d3...6A65。该序列仅为已采集事件，不能据此认定地址间现实归属或转出目的。",
+                "evidenceIds": [
+                  "direct-local-1791344887892:0x0b3006e0785cd1fe4465696a814a826fbe31160a6dd8ed102460199f2eae570f:0",
+                  "direct-local-1791344887892:0x97f9e16688460018c3744620fcf8c341f2caa6e2307e0e1a879a52179abc6162:0",
+                  "direct-local-1791344887892:0xd6b83459ab72b553e08b5698fb14e6c270a7bb7ea27c3b38e63f997f15f4d4cd:0"
+                ]
+              },
+              {
+                "type": "unknown",
+                "text": "trace_recipient 对商家直接接收地址的一层转出查询未返回结果，一层链路结构未核验；这是证据缺口，不能解释为该地址没有后续交易或无现实关联。",
+                "evidenceIds": [
+                  "2079cb66-a355-43f8-8275-fc5e662b3e26:metrics"
+                ]
+              },
+              {
+                "type": "unknown",
+                "text": "窗口内转出 776 与当前事件 1 无法逐枚归属为某位具体会员的资金；是否存在退款义务、服务是否交付等线下事实，链上数据无法判定。",
+                "evidenceIds": [
+                  "2079cb66-a355-43f8-8275-fc5e662b3e26:metrics",
+                  "direct-local-1791344887892:0xd6b83459ab72b553e08b5698fb14e6c270a7bb7ea27c3b38e63f997f15f4d4cd:0"
+                ]
+              }
+            ],
+            "alternatives": [
+              "正常经营支付：转出 776 或当前 1 可对应房租、水电、器材采购、员工工资、平台手续费等常规成本，程序亦提示正常成本支付可能触发规则信号。",
+              "同一控制人地址调度：最大接收方 0x90f7...b906 同时是当前事件转出方，可能是自持地址间内部划转，而非对外支出。",
+              "样本与采集不全：窗口仅 3 笔事件，可能遗漏其他币种、其他链或未采集交易，导致比例失真。"
+            ],
+            "limitations": [
+              "同类历史样本不足三笔，程序不计算金额异常倍数，比例不具备统计基线意义。",
+              "trace_recipient 未取得结果，一层转出结构未核验，不能把查询失败当作没有交易。",
+              "指标仅覆盖当前币种与部署后 24 小时窗口，不代表商家全部资产、全部负债或全部会员资金。",
+              "规则信号与比例不等于经营异常或服务停止，也不等于任何现实主体身份认定。",
+              "当前事件已入块但非最终不可逆，存在重组或状态变化可能。",
+              "GYM 为模拟代币，无人民币或美元价值，不进行货币折算。"
+            ],
+            "recommendation": "维持 insufficient：需以调整参数重试 trace_recipient 补齐商家直接接收地址的一层转出链路，并延长时序、扩大样本后再评估；当前不判断未知地址现实身份、线下服务质量或经营意愿。",
+            "verdict": "agree"
+          },
+          "finishedAt": "2026-10-07T03:50:29.944Z"
+        }
+      ],
+      "limitations": [
+        "同类历史样本不足三笔，不计算金额异常倍数。",
+        "只反映已采集的当前币种与部署后窗口，不是商家全部资产或全部负债。",
+        "规则信号不等于跑路、违法或线下服务停止；正常成本支付也可能触发。",
+        "仅分析已观察到的链上资金行为，不评价未知线下履约；GYM 为无真实价值的测试币。",
+        "调查与复核使用同一模型服务，独立调用工具不等于独立模型或完全消除共同偏差。"
+      ],
+      "generatedAt": "2026-10-07T03:50:29.946Z"
+    },
+    {
+      "id": "074455c7-368d-4c31-8736-8392d5dcd4de",
+      "datasetId": "direct-local-1791344887892",
+      "eventId": "direct-local-1791344887892:0xd6b83459ab72b553e08b5698fb14e6c270a7bb7ea27c3b38e63f997f15f4d4cd:0",
+      "asOfBlock": 4,
+      "chainId": 31337,
+      "dataOrigin": "local-chain",
+      "status": "partial",
+      "risk": "insufficient",
+      "headline": "AI 核查未完成",
+      "metrics": {
+        "version": "direct-flow-quant-v1",
+        "window": {
+          "from": 1791258499,
+          "to": 1791344899,
+          "seconds": 86400
+        },
+        "eventAmount": "1",
+        "baselineCount": 0,
+        "baselineMedian": null,
+        "amountVsMedianBps": null,
+        "receipts": "863",
+        "outflows": "776",
+        "netInflow": "87",
+        "outflowToReceiptBps": "8991",
+        "recipientConcentrationBps": "10000",
+        "topRecipient": "0x90f79bf6eb2c4f870365e785982e1f101e93b906",
+        "secondsSinceLastReceipt": null,
+        "flags": [],
+        "limitations": [
+          "同类历史样本不足三笔，不计算金额异常倍数。",
+          "只反映已采集的当前币种与部署后窗口，不是商家全部资产或全部负债。",
+          "规则信号不等于跑路、违法或线下服务停止；正常成本支付也可能触发。"
+        ]
+      },
+      "facts": [
+        {
+          "text": "本笔转账 1 GYM，发送方 0x90F79bf6EB2c4f870365E785982E1f101E93b906，接收方 0x15d34AAf54267DB7D7c367839AAf71A00a2C6A65。",
+          "evidenceIds": [
+            "direct-local-1791344887892:0xd6b83459ab72b553e08b5698fb14e6c270a7bb7ea27c3b38e63f997f15f4d4cd:0"
+          ]
+        },
+        {
+          "text": "统计窗口收款 863 GYM，转出 776 GYM；只计算一次付款，不重复计收款。",
+          "evidenceIds": [
+            "fcb45e62-b726-4ae8-a460-0a8f4eb20934:metrics"
+          ]
+        }
+      ],
+      "stages": [
+        {
+          "name": "investigator",
+          "status": "failed",
+          "model": "deepseek-flash",
+          "startedAt": "2026-10-07T03:49:01.121Z",
+          "toolRuns": [
+            {
+              "id": "195f954d-3622-490e-a857-4aa0a413987f",
+              "name": "list_events",
+              "arguments": {},
+              "at": "2026-10-07T03:49:02.361Z",
+              "status": "ok",
+              "result": {
+                "events": [
+                  {
+                    "id": "direct-local-1791344887892:0x0b3006e0785cd1fe4465696a814a826fbe31160a6dd8ed102460199f2eae570f:0",
+                    "txHash": "0x0b3006e0785cd1fe4465696a814a826fbe31160a6dd8ed102460199f2eae570f",
+                    "logIndex": 0,
+                    "blockNumber": 2,
+                    "blockHash": "0xef8d97ef39fc643f2079b20af6b24440afce12269d0a0c9ae7a5bf2ea93e1939",
+                    "timestamp": 1791344897,
+                    "from": "0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC",
+                    "to": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+                    "amount": "863",
+                    "kind": "payment"
+                  },
+                  {
+                    "id": "direct-local-1791344887892:0x97f9e16688460018c3744620fcf8c341f2caa6e2307e0e1a879a52179abc6162:0",
+                    "txHash": "0x97f9e16688460018c3744620fcf8c341f2caa6e2307e0e1a879a52179abc6162",
+                    "logIndex": 0,
+                    "blockNumber": 3,
+                    "blockHash": "0xc1b99fa86cd3390388e6973c01b80bad8fa1a39ef6bde9698337b04645ccc519",
+                    "timestamp": 1791344898,
+                    "from": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+                    "to": "0x90F79bf6EB2c4f870365E785982E1f101E93b906",
+                    "amount": "776",
+                    "kind": "withdrawal"
+                  },
+                  {
+                    "id": "direct-local-1791344887892:0xd6b83459ab72b553e08b5698fb14e6c270a7bb7ea27c3b38e63f997f15f4d4cd:0",
+                    "txHash": "0xd6b83459ab72b553e08b5698fb14e6c270a7bb7ea27c3b38e63f997f15f4d4cd",
+                    "logIndex": 0,
+                    "blockNumber": 4,
+                    "blockHash": "0x0d53a8199854b4dfb6228489336e2eb9f51d0b419d606186b20e97e858ad9161",
+                    "timestamp": 1791344899,
+                    "from": "0x90F79bf6EB2c4f870365E785982E1f101E93b906",
+                    "to": "0x15d34AAf54267DB7D7c367839AAf71A00a2C6A65",
+                    "amount": "1",
+                    "kind": "recipient-transfer"
+                  }
+                ],
+                "total": 3,
+                "truncated": false,
+                "asOfBlock": 4,
+                "limitation": "一笔付款同时是商家收款，不重复计数。初始铸币不是经营收款。"
+              },
+              "evidenceIds": [
+                "direct-local-1791344887892:0x0b3006e0785cd1fe4465696a814a826fbe31160a6dd8ed102460199f2eae570f:0",
+                "direct-local-1791344887892:0x97f9e16688460018c3744620fcf8c341f2caa6e2307e0e1a879a52179abc6162:0",
+                "direct-local-1791344887892:0xd6b83459ab72b553e08b5698fb14e6c270a7bb7ea27c3b38e63f997f15f4d4cd:0"
+              ]
+            },
+            {
+              "id": "b133b87f-8e00-40bb-83f2-864dc09960b1",
+              "name": "compute_metrics",
+              "arguments": {},
+              "at": "2026-10-07T03:49:02.361Z",
+              "status": "ok",
+              "result": {
+                "version": "direct-flow-quant-v1",
+                "window": {
+                  "from": 1791258499,
+                  "to": 1791344899,
+                  "seconds": 86400
+                },
+                "eventAmount": "1",
+                "baselineCount": 0,
+                "baselineMedian": null,
+                "amountVsMedianBps": null,
+                "receipts": "863",
+                "outflows": "776",
+                "netInflow": "87",
+                "outflowToReceiptBps": "8991",
+                "recipientConcentrationBps": "10000",
+                "topRecipient": "0x90f79bf6eb2c4f870365e785982e1f101e93b906",
+                "secondsSinceLastReceipt": null,
+                "flags": [],
+                "limitations": [
+                  "同类历史样本不足三笔，不计算金额异常倍数。",
+                  "只反映已采集的当前币种与部署后窗口，不是商家全部资产或全部负债。",
+                  "规则信号不等于跑路、违法或线下服务停止；正常成本支付也可能触发。"
+                ],
+                "evidenceId": "fcb45e62-b726-4ae8-a460-0a8f4eb20934:metrics",
+                "formula": {
+                  "bps": "分子×10000÷分母；10000bps=100%，整数截断",
+                  "amountRatio": "当前金额÷此前最多20笔同类记录中位数，仅样本>=3时计算",
+                  "outflowRatio": "24小时商家转出合计÷商家收款合计",
+                  "concentration": "24小时最大接收方转出合计÷转出合计"
+                },
+                "asOfBlock": 4
+              },
+              "evidenceIds": [
+                "fcb45e62-b726-4ae8-a460-0a8f4eb20934:metrics"
+              ]
+            },
+            {
+              "id": "f7a8b17d-1eaa-48b6-9333-8d87cc59b6a9",
+              "name": "verify_transaction",
+              "arguments": {
+                "txHash": "0xd6b83459ab72b553e08b5698fb14e6c270a7bb7ea27c3b38e63f997f15f4d4cd"
+              },
+              "at": "2026-10-07T03:49:02.362Z",
+              "status": "ok",
+              "result": {
+                "evidenceId": "fcb45e62-b726-4ae8-a460-0a8f4eb20934:receipt",
+                "chainId": 31337,
+                "txHash": "0xd6b83459ab72b553e08b5698fb14e6c270a7bb7ea27c3b38e63f997f15f4d4cd",
+                "blockNumber": 4,
+                "blockHash": "0x0d53a8199854b4dfb6228489336e2eb9f51d0b419d606186b20e97e858ad9161",
+                "status": "confirmed",
+                "transactionFrom": "0x90f79bf6eb2c4f870365e785982e1f101e93b906",
+                "transactionTo": "0x5fbdb2315678afecb367f032d93f642f64180aa3",
+                "transfer": {
+                  "from": "0x90F79bf6EB2c4f870365E785982E1f101E93b906",
+                  "to": "0x15d34AAf54267DB7D7c367839AAf71A00a2C6A65",
+                  "amount": "1",
+                  "logIndex": 0
+                },
+                "gasUsed": "51553",
+                "effectiveGasPrice": "744317275",
+                "explorerUrl": null,
+                "finality": "已入块；不是最终不可逆确认"
+              },
+              "evidenceIds": [
+                "fcb45e62-b726-4ae8-a460-0a8f4eb20934:receipt",
+                "direct-local-1791344887892:0xd6b83459ab72b553e08b5698fb14e6c270a7bb7ea27c3b38e63f997f15f4d4cd:0"
+              ]
+            },
+            {
+              "id": "fc048d64-a08e-47ce-9d38-d6ec5c4e387a",
+              "name": "trace_recipient",
+              "arguments": {
+                "address": "0x15d34AAf54267DB7D7c367839AAf71A00a2C6A65"
+              },
+              "at": "2026-10-07T03:49:02.369Z",
+              "status": "error",
+              "result": {
+                "error": "工具未成功，参数、范围或网络需核查；不能把查询失败当作没有交易。"
+              },
+              "evidenceIds": []
+            }
+          ],
+          "error": "报告证据或结论校验未通过：Unsupported criminal prediction",
+          "finishedAt": "2026-10-07T03:49:14.237Z"
+        }
+      ],
+      "limitations": [
+        "同类历史样本不足三笔，不计算金额异常倍数。",
+        "只反映已采集的当前币种与部署后窗口，不是商家全部资产或全部负债。",
+        "规则信号不等于跑路、违法或线下服务停止；正常成本支付也可能触发。",
+        "仅分析已观察到的链上资金行为，不评价未知线下履约；GYM 为无真实价值的测试币。",
+        "调查与复核使用同一模型服务，独立调用工具不等于独立模型或完全消除共同偏差。"
+      ],
+      "generatedAt": "2026-10-07T03:49:14.238Z"
+    },
+    {
+      "id": "88ab9e88-c5bf-40fd-a41a-85d1106db9d0",
+      "datasetId": "direct-local-1791344887892",
+      "eventId": "direct-local-1791344887892:0x97f9e16688460018c3744620fcf8c341f2caa6e2307e0e1a879a52179abc6162:0",
+      "asOfBlock": 3,
+      "chainId": 31337,
+      "dataOrigin": "local-chain",
+      "status": "complete",
+      "risk": "insufficient",
+      "headline": "独立复核：list_events仅返回两笔事件（区块2收款863 GYM、区块3本笔转出776 GYM至0x90F7…B906），compute_metrics重算得收款863、转出776、净流入87、转出占收款8991bps、收款方集中度10000bps、距上次收款1秒，触发两条规则；verify_transaction确认本笔为transfer 776 GYM、status confirmed、非最终不可逆；trace_recipient在该地址锚定窗口内无任何后续转出。窗口内转出不能逐枚归属为某位会员的资金，正常经营成本支付同样可触发规则信号，同类历史样本不足三笔（baselineCount=0）无法建立金额基线。",
+      "metrics": {
+        "version": "direct-flow-quant-v1",
+        "window": {
+          "from": 1791258498,
+          "to": 1791344898,
+          "seconds": 86400
+        },
+        "eventAmount": "776",
+        "baselineCount": 0,
+        "baselineMedian": null,
+        "amountVsMedianBps": null,
+        "receipts": "863",
+        "outflows": "776",
+        "netInflow": "87",
+        "outflowToReceiptBps": "8991",
+        "recipientConcentrationBps": "10000",
+        "topRecipient": "0x90f79bf6eb2c4f870365e785982e1f101e93b906",
+        "secondsSinceLastReceipt": 1,
+        "flags": [
+          "近24小时转出达到收款的80%或以上",
+          "收款后五分钟内出现转出"
+        ],
+        "limitations": [
+          "同类历史样本不足三笔，不计算金额异常倍数。",
+          "只反映已采集的当前币种与部署后窗口，不是商家全部资产或全部负债。",
+          "规则信号不等于跑路、违法或线下服务停止；正常成本支付也可能触发。"
+        ]
+      },
+      "facts": [
+        {
+          "text": "本笔转账 776 GYM，发送方 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266，接收方 0x90F79bf6EB2c4f870365E785982E1f101E93b906。",
+          "evidenceIds": [
+            "direct-local-1791344887892:0x97f9e16688460018c3744620fcf8c341f2caa6e2307e0e1a879a52179abc6162:0"
+          ]
+        },
+        {
+          "text": "统计窗口收款 863 GYM，转出 776 GYM；只计算一次付款，不重复计收款。",
+          "evidenceIds": [
+            "02834e5c-43a3-4a5c-985a-40732451d1e1:metrics"
+          ]
+        }
+      ],
+      "stages": [
+        {
+          "name": "investigator",
+          "status": "complete",
+          "model": "deepseek-flash",
+          "startedAt": "2026-10-07T03:48:35.549Z",
+          "toolRuns": [
+            {
+              "id": "c340c3e3-eeac-4a99-ba4a-b8508d77b75a",
+              "name": "list_events",
+              "arguments": {},
+              "at": "2026-10-07T03:48:36.946Z",
+              "status": "ok",
+              "result": {
+                "events": [
+                  {
+                    "id": "direct-local-1791344887892:0x0b3006e0785cd1fe4465696a814a826fbe31160a6dd8ed102460199f2eae570f:0",
+                    "txHash": "0x0b3006e0785cd1fe4465696a814a826fbe31160a6dd8ed102460199f2eae570f",
+                    "logIndex": 0,
+                    "blockNumber": 2,
+                    "blockHash": "0xef8d97ef39fc643f2079b20af6b24440afce12269d0a0c9ae7a5bf2ea93e1939",
+                    "timestamp": 1791344897,
+                    "from": "0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC",
+                    "to": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+                    "amount": "863",
+                    "kind": "payment"
+                  },
+                  {
+                    "id": "direct-local-1791344887892:0x97f9e16688460018c3744620fcf8c341f2caa6e2307e0e1a879a52179abc6162:0",
+                    "txHash": "0x97f9e16688460018c3744620fcf8c341f2caa6e2307e0e1a879a52179abc6162",
+                    "logIndex": 0,
+                    "blockNumber": 3,
+                    "blockHash": "0xc1b99fa86cd3390388e6973c01b80bad8fa1a39ef6bde9698337b04645ccc519",
+                    "timestamp": 1791344898,
+                    "from": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+                    "to": "0x90F79bf6EB2c4f870365E785982E1f101E93b906",
+                    "amount": "776",
+                    "kind": "withdrawal"
+                  }
+                ],
+                "total": 2,
+                "truncated": false,
+                "asOfBlock": 3,
+                "limitation": "一笔付款同时是商家收款，不重复计数。初始铸币不是经营收款。"
+              },
+              "evidenceIds": [
+                "direct-local-1791344887892:0x0b3006e0785cd1fe4465696a814a826fbe31160a6dd8ed102460199f2eae570f:0",
+                "direct-local-1791344887892:0x97f9e16688460018c3744620fcf8c341f2caa6e2307e0e1a879a52179abc6162:0"
+              ]
+            },
+            {
+              "id": "fcbb42e2-58d4-41d5-86f6-ee1480aad34c",
+              "name": "compute_metrics",
+              "arguments": {},
+              "at": "2026-10-07T03:48:36.948Z",
+              "status": "ok",
+              "result": {
+                "version": "direct-flow-quant-v1",
+                "window": {
+                  "from": 1791258498,
+                  "to": 1791344898,
+                  "seconds": 86400
+                },
+                "eventAmount": "776",
+                "baselineCount": 0,
+                "baselineMedian": null,
+                "amountVsMedianBps": null,
+                "receipts": "863",
+                "outflows": "776",
+                "netInflow": "87",
+                "outflowToReceiptBps": "8991",
+                "recipientConcentrationBps": "10000",
+                "topRecipient": "0x90f79bf6eb2c4f870365e785982e1f101e93b906",
+                "secondsSinceLastReceipt": 1,
+                "flags": [
+                  "近24小时转出达到收款的80%或以上",
+                  "收款后五分钟内出现转出"
+                ],
+                "limitations": [
+                  "同类历史样本不足三笔，不计算金额异常倍数。",
+                  "只反映已采集的当前币种与部署后窗口，不是商家全部资产或全部负债。",
+                  "规则信号不等于跑路、违法或线下服务停止；正常成本支付也可能触发。"
+                ],
+                "evidenceId": "02834e5c-43a3-4a5c-985a-40732451d1e1:metrics",
+                "formula": {
+                  "bps": "分子×10000÷分母；10000bps=100%，整数截断",
+                  "amountRatio": "当前金额÷此前最多20笔同类记录中位数，仅样本>=3时计算",
+                  "outflowRatio": "24小时商家转出合计÷商家收款合计",
+                  "concentration": "24小时最大接收方转出合计÷转出合计"
+                },
+                "asOfBlock": 3
+              },
+              "evidenceIds": [
+                "02834e5c-43a3-4a5c-985a-40732451d1e1:metrics"
+              ]
+            },
+            {
+              "id": "4d7ffb32-6bb6-44e9-9d5d-c21aab4ba101",
+              "name": "verify_transaction",
+              "arguments": {
+                "txHash": "0x97f9e16688460018c3744620fcf8c341f2caa6e2307e0e1a879a52179abc6162"
+              },
+              "at": "2026-10-07T03:48:36.949Z",
+              "status": "ok",
+              "result": {
+                "evidenceId": "02834e5c-43a3-4a5c-985a-40732451d1e1:receipt",
+                "chainId": 31337,
+                "txHash": "0x97f9e16688460018c3744620fcf8c341f2caa6e2307e0e1a879a52179abc6162",
+                "blockNumber": 3,
+                "blockHash": "0xc1b99fa86cd3390388e6973c01b80bad8fa1a39ef6bde9698337b04645ccc519",
+                "status": "confirmed",
+                "transactionFrom": "0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266",
+                "transactionTo": "0x5fbdb2315678afecb367f032d93f642f64180aa3",
+                "transfer": {
+                  "from": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+                  "to": "0x90F79bf6EB2c4f870365E785982E1f101E93b906",
+                  "amount": "776",
+                  "logIndex": 0
+                },
+                "gasUsed": "51565",
+                "effectiveGasPrice": "850439491",
+                "explorerUrl": null,
+                "finality": "已入块；不是最终不可逆确认"
+              },
+              "evidenceIds": [
+                "02834e5c-43a3-4a5c-985a-40732451d1e1:receipt",
+                "direct-local-1791344887892:0x97f9e16688460018c3744620fcf8c341f2caa6e2307e0e1a879a52179abc6162:0"
+              ]
+            },
+            {
+              "id": "b2d6296a-d347-4b4a-97ca-109a46d30c02",
+              "name": "trace_recipient",
+              "arguments": {
+                "address": "0x90F79bf6EB2c4f870365E785982E1f101E93b906"
+              },
+              "at": "2026-10-07T03:48:36.958Z",
+              "status": "ok",
+              "result": {
+                "evidenceId": "02834e5c-43a3-4a5c-985a-40732451d1e1:trace:0x90f79bf6eb2c4f870365e785982e1f101e93b906",
+                "address": "0x90F79bf6EB2c4f870365E785982E1f101E93b906",
+                "anchorEventId": "direct-local-1791344887892:0x97f9e16688460018c3744620fcf8c341f2caa6e2307e0e1a879a52179abc6162:0",
+                "fromBlock": 3,
+                "toBlock": 3,
+                "transfers": [],
+                "completeWithinWindow": true,
+                "limitation": "仅一层、当前币种和最多120区块；未查询下一接收地址，不能证明这些转出属于该笔会员款，未来交易不在本次报告中。"
+              },
+              "evidenceIds": [
+                "02834e5c-43a3-4a5c-985a-40732451d1e1:trace:0x90f79bf6eb2c4f870365e785982e1f101e93b906",
+                "direct-local-1791344887892:0x97f9e16688460018c3744620fcf8c341f2caa6e2307e0e1a879a52179abc6162:0"
+              ]
+            }
+          ],
+          "result": {
+            "summary": "当前事件为窗口内第3个区块的一笔776 GYM转出，自0xf39F…B92266转至0x90F7…B906，交易已入块确认。指标显示近24小时收款863、转出776、净流入87，转出占收款8991bps，且该收款后约1秒即出现转出，收款方集中度10000bps，触发两条规则信号。但这些信号可由正常经营成本支付解释，且同类历史样本不足三笔，无法计算金额异常倍数，也无法判断未知地址现实身份或线下服务质量。",
+            "risk": "insufficient",
+            "observations": [
+              {
+                "type": "inference",
+                "text": "当前事件是一笔从0xf39F…B92266到0x90F7…B906的776 GYM转出，交易状态为confirmed、已入块，但并非最终不可逆确认；该笔与收款仓863 GYM分属两个不同事件，不可互相抵扣归属。",
+                "evidenceIds": [
+                  "direct-local-1791344887892:0x97f9e16688460018c3744620fcf8c341f2caa6e2307e0e1a879a52179abc6162:0",
+                  "02834e5c-43a3-4a5c-985a-40732451d1e1:receipt"
+                ]
+              },
+              {
+                "type": "inference",
+                "text": "近24小时窗口内收款合计863、转出合计776、净流入87，转出占收款8991bps，且转出发生在最近一笔收款之后约1秒，触发“转出达收款80%以上”和“收款后五分钟内出现转出”两条规则信号，说明窗口内资金流转节奏偏快。",
+                "evidenceIds": [
+                  "02834e5c-43a3-4a5c-985a-40732451d1e1:metrics"
+                ]
+              },
+              {
+                "type": "inference",
+                "text": "窗口内全部转出集中在单一接收地址0x90F7…B906（集中度10000bps），但trace_recipient在该地址当前窗口及最多120区块内未发现后续转出，仅为一层、当前币种查询，不能证明这些资金属于某位会员或已被再次转移。",
+                "evidenceIds": [
+                  "02834e5c-43a3-4a5c-985a-40732451d1e1:metrics",
+                  "02834e5c-43a3-4a5c-985a-40732451d1e1:trace:0x90f79bf6eb2c4f870365e785982e1f101e93b906"
+                ]
+              },
+              {
+                "type": "unknown",
+                "text": "同类历史记录不足三笔，baselineCount为0、无中位数，无法计算金额异常倍数，因此无法判断本次776 GYM在其自身历史中是否属于异常规模。",
+                "evidenceIds": [
+                  "02834e5c-43a3-4a5c-985a-40732451d1e1:metrics"
+                ]
+              },
+              {
+                "type": "unknown",
+                "text": "0x90F7…B906与0xf39F…B92266的现实身份、二者关系、是否存在合同或托管安排均未知；窗口内转出不能逐枚归属为某位会员的资金，也不能据此判断线下服务质量或经营状态。",
+                "evidenceIds": [
+                  "02834e5c-43a3-4a5c-985a-40732451d1e1:trace:0x90f79bf6eb2c4f870365e785982e1f101e93b906"
+                ]
+              }
+            ],
+            "alternatives": [
+              "正常经营成本支付：商家将窗口内收到的部分资金用于房租、工资、水电、器材、供应商结算等常规支出，收款后快速对外付款与日常现金流节奏一致，可自然触发上述规则信号。",
+              "资金归集或内部调拨：转出可能是商家在自有账户间归集或更换收款钱包，接收方未必是会员之外的第三方，但在本层数据中无从确认所有权。",
+              "样本不足导致的表面异常：窗口内仅两笔事件，历史同类样本为0笔，规则阈值在极小样本下极易被触发，信号强度有限。"
+            ],
+            "limitations": [
+              "同类历史样本不足三笔（baselineCount为0），不计算金额异常倍数，任何“异常”判断缺乏基线。",
+              "数据仅覆盖当前币种、当前部署后的两个区块与约24小时窗口，不是商家全部资产或全部负债，也不包含其他链或法币账户。",
+              "trace_recipient仅做一层、最多120区块、当前币种查询，未查询下一接收地址，不能证明这些转出属于该笔会员款，未来交易不在本次报告内。",
+              "不能判断未知地址0x90F7…B906与0xf39F…B92266的现实身份、关联关系或意图。",
+              "GYM没有人民币或美元价值，无法折算经济金额；窗口内转出不能逐枚归属为某位会员的资金。",
+              "交易已入块但非最终不可逆确认，存在后续区块重组的理论可能（本地链场景下有限）。"
+            ],
+            "recommendation": "维持“证据不足”定性：不建议仅凭本轮规则信号认定异常或推定任何违法情形。建议补充更多历史事件样本以建立金额基线，扩大trace深度与区块范围，核对商家对外公示的收款钱包与支出用途凭证，并结合疑似会员的付款记录做双向对账；在补齐上述证据前，不对该地址现实身份或经营状态作结论。"
+          },
+          "finishedAt": "2026-10-07T03:48:48.218Z"
+        },
+        {
+          "name": "reviewer",
+          "status": "complete",
+          "model": "deepseek-flash",
+          "startedAt": "2026-10-07T03:48:48.219Z",
+          "toolRuns": [
+            {
+              "id": "827209c2-4522-4bdb-8edf-08ebb1e9a660",
+              "name": "list_events",
+              "arguments": {},
+              "at": "2026-10-07T03:48:49.878Z",
+              "status": "ok",
+              "result": {
+                "events": [
+                  {
+                    "id": "direct-local-1791344887892:0x0b3006e0785cd1fe4465696a814a826fbe31160a6dd8ed102460199f2eae570f:0",
+                    "txHash": "0x0b3006e0785cd1fe4465696a814a826fbe31160a6dd8ed102460199f2eae570f",
+                    "logIndex": 0,
+                    "blockNumber": 2,
+                    "blockHash": "0xef8d97ef39fc643f2079b20af6b24440afce12269d0a0c9ae7a5bf2ea93e1939",
+                    "timestamp": 1791344897,
+                    "from": "0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC",
+                    "to": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+                    "amount": "863",
+                    "kind": "payment"
+                  },
+                  {
+                    "id": "direct-local-1791344887892:0x97f9e16688460018c3744620fcf8c341f2caa6e2307e0e1a879a52179abc6162:0",
+                    "txHash": "0x97f9e16688460018c3744620fcf8c341f2caa6e2307e0e1a879a52179abc6162",
+                    "logIndex": 0,
+                    "blockNumber": 3,
+                    "blockHash": "0xc1b99fa86cd3390388e6973c01b80bad8fa1a39ef6bde9698337b04645ccc519",
+                    "timestamp": 1791344898,
+                    "from": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+                    "to": "0x90F79bf6EB2c4f870365E785982E1f101E93b906",
+                    "amount": "776",
+                    "kind": "withdrawal"
+                  }
+                ],
+                "total": 2,
+                "truncated": false,
+                "asOfBlock": 3,
+                "limitation": "一笔付款同时是商家收款，不重复计数。初始铸币不是经营收款。"
+              },
+              "evidenceIds": [
+                "direct-local-1791344887892:0x0b3006e0785cd1fe4465696a814a826fbe31160a6dd8ed102460199f2eae570f:0",
+                "direct-local-1791344887892:0x97f9e16688460018c3744620fcf8c341f2caa6e2307e0e1a879a52179abc6162:0"
+              ]
+            },
+            {
+              "id": "66fe46a2-e196-4046-8357-7d8a898c4883",
+              "name": "compute_metrics",
+              "arguments": {},
+              "at": "2026-10-07T03:48:49.880Z",
+              "status": "ok",
+              "result": {
+                "version": "direct-flow-quant-v1",
+                "window": {
+                  "from": 1791258498,
+                  "to": 1791344898,
+                  "seconds": 86400
+                },
+                "eventAmount": "776",
+                "baselineCount": 0,
+                "baselineMedian": null,
+                "amountVsMedianBps": null,
+                "receipts": "863",
+                "outflows": "776",
+                "netInflow": "87",
+                "outflowToReceiptBps": "8991",
+                "recipientConcentrationBps": "10000",
+                "topRecipient": "0x90f79bf6eb2c4f870365e785982e1f101e93b906",
+                "secondsSinceLastReceipt": 1,
+                "flags": [
+                  "近24小时转出达到收款的80%或以上",
+                  "收款后五分钟内出现转出"
+                ],
+                "limitations": [
+                  "同类历史样本不足三笔，不计算金额异常倍数。",
+                  "只反映已采集的当前币种与部署后窗口，不是商家全部资产或全部负债。",
+                  "规则信号不等于跑路、违法或线下服务停止；正常成本支付也可能触发。"
+                ],
+                "evidenceId": "02834e5c-43a3-4a5c-985a-40732451d1e1:metrics",
+                "formula": {
+                  "bps": "分子×10000÷分母；10000bps=100%，整数截断",
+                  "amountRatio": "当前金额÷此前最多20笔同类记录中位数，仅样本>=3时计算",
+                  "outflowRatio": "24小时商家转出合计÷商家收款合计",
+                  "concentration": "24小时最大接收方转出合计÷转出合计"
+                },
+                "asOfBlock": 3
+              },
+              "evidenceIds": [
+                "02834e5c-43a3-4a5c-985a-40732451d1e1:metrics"
+              ]
+            },
+            {
+              "id": "a9ee441c-4bbf-46d3-970d-2db2e14dafc3",
+              "name": "verify_transaction",
+              "arguments": {
+                "txHash": "0x97f9e16688460018c3744620fcf8c341f2caa6e2307e0e1a879a52179abc6162"
+              },
+              "at": "2026-10-07T03:48:49.881Z",
+              "status": "ok",
+              "result": {
+                "evidenceId": "02834e5c-43a3-4a5c-985a-40732451d1e1:receipt",
+                "chainId": 31337,
+                "txHash": "0x97f9e16688460018c3744620fcf8c341f2caa6e2307e0e1a879a52179abc6162",
+                "blockNumber": 3,
+                "blockHash": "0xc1b99fa86cd3390388e6973c01b80bad8fa1a39ef6bde9698337b04645ccc519",
+                "status": "confirmed",
+                "transactionFrom": "0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266",
+                "transactionTo": "0x5fbdb2315678afecb367f032d93f642f64180aa3",
+                "transfer": {
+                  "from": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+                  "to": "0x90F79bf6EB2c4f870365E785982E1f101E93b906",
+                  "amount": "776",
+                  "logIndex": 0
+                },
+                "gasUsed": "51565",
+                "effectiveGasPrice": "850439491",
+                "explorerUrl": null,
+                "finality": "已入块；不是最终不可逆确认"
+              },
+              "evidenceIds": [
+                "02834e5c-43a3-4a5c-985a-40732451d1e1:receipt",
+                "direct-local-1791344887892:0x97f9e16688460018c3744620fcf8c341f2caa6e2307e0e1a879a52179abc6162:0"
+              ]
+            },
+            {
+              "id": "215f2517-38ce-4c1c-97fd-0376ccefd616",
+              "name": "trace_recipient",
+              "arguments": {
+                "address": "0x90F79bf6EB2c4f870365E785982E1f101E93b906"
+              },
+              "at": "2026-10-07T03:48:49.890Z",
+              "status": "ok",
+              "result": {
+                "evidenceId": "02834e5c-43a3-4a5c-985a-40732451d1e1:trace:0x90f79bf6eb2c4f870365e785982e1f101e93b906",
+                "address": "0x90F79bf6EB2c4f870365E785982E1f101E93b906",
+                "anchorEventId": "direct-local-1791344887892:0x97f9e16688460018c3744620fcf8c341f2caa6e2307e0e1a879a52179abc6162:0",
+                "fromBlock": 3,
+                "toBlock": 3,
+                "transfers": [],
+                "completeWithinWindow": true,
+                "limitation": "仅一层、当前币种和最多120区块；未查询下一接收地址，不能证明这些转出属于该笔会员款，未来交易不在本次报告中。"
+              },
+              "evidenceIds": [
+                "02834e5c-43a3-4a5c-985a-40732451d1e1:trace:0x90f79bf6eb2c4f870365e785982e1f101e93b906",
+                "direct-local-1791344887892:0x97f9e16688460018c3744620fcf8c341f2caa6e2307e0e1a879a52179abc6162:0"
+              ]
+            }
+          ],
+          "result": {
+            "summary": "独立复核：list_events仅返回两笔事件（区块2收款863 GYM、区块3本笔转出776 GYM至0x90F7…B906），compute_metrics重算得收款863、转出776、净流入87、转出占收款8991bps、收款方集中度10000bps、距上次收款1秒，触发两条规则；verify_transaction确认本笔为transfer 776 GYM、status confirmed、非最终不可逆；trace_recipient在该地址锚定窗口内无任何后续转出。窗口内转出不能逐枚归属为某位会员的资金，正常经营成本支付同样可触发规则信号，同类历史样本不足三笔（baselineCount=0）无法建立金额基线。",
+            "risk": "insufficient",
+            "observations": [
+              {
+                "type": "inference",
+                "text": "我复核确认：全窗口仅两笔事件——区块2自0x3C44…93BC到0xf39F…B92266的863 GYM付款（商家收款），以及本笔区块3自0xf39F…B92266到0x90F7…B906的776 GYM转出；当前事件已入块确认但非最终不可逆。两笔为独立事件，不可互相抵扣或归属。",
+                "evidenceIds": [
+                  "direct-local-1791344887892:0x0b3006e0785cd1fe4465696a814a826fbe31160a6dd8ed102460199f2eae570f:0",
+                  "direct-local-1791344887892:0x97f9e16688460018c3744620fcf8c341f2caa6e2307e0e1a879a52179abc6162:0",
+                  "02834e5c-43a3-4a5c-985a-40732451d1e1:receipt"
+                ]
+              },
+              {
+                "type": "inference",
+                "text": "我重新计算指标：收款863、转出776、净流入87、转出占收款8991bps、集中度10000bps、距上次收款1秒，触发“转出达收款80%以上”和“收款后五分钟内出现转出”两条规则。数值与调查稿一致，但规则信号本身不构成异常定性。",
+                "evidenceIds": [
+                  "02834e5c-43a3-4a5c-985a-40732451d1e1:metrics"
+                ]
+              },
+              {
+                "type": "inference",
+                "text": "我重新执行trace_recipient：在锚定窗口（fromBlock=3,toBlock=3，当前币种、最多120区块的一层查询）内该地址没有后续转出，说明窗口内未见二次转移，但仅限一层且未查询下一接收地址，不能证明资金归属或最终去向。",
+                "evidenceIds": [
+                  "02834e5c-43a3-4a5c-985a-40732451d1e1:trace:0x90f79bf6eb2c4f870365e785982e1f101e93b906",
+                  "direct-local-1791344887892:0x97f9e16688460018c3744620fcf8c341f2caa6e2307e0e1a879a52179abc6162:0"
+                ]
+              },
+              {
+                "type": "unknown",
+                "text": "同类历史样本不足三笔，baselineCount为0、无中位数，amountVsMedianBps为空，无法计算金额异常倍数，因此776 GYM相对于该商家自身历史是否异常无从判断。",
+                "evidenceIds": [
+                  "02834e5c-43a3-4a5c-985a-40732451d1e1:metrics"
+                ]
+              },
+              {
+                "type": "unknown",
+                "text": "0xf39F…B92266与0x90F7…B906的现实身份、关联关系与意图未知；本地链数据不含托管制、按次结算或退款保证信息，也未收录其他链或法币账户，无法据此判断线下服务质量或经营状态。",
+                "evidenceIds": [
+                  "02834e5c-43a3-4a5c-985a-40732451d1e1:trace:0x90f79bf6eb2c4f870365e785982e1f101e93b906"
+                ]
+              }
+            ],
+            "alternatives": [
+              "正常经营成本支付：商家把窗口内收到的部分资金用于房租、工资、水电、器材或供应商结算，收款后快速对外付款与日常现金流节奏一致，可自然触发上述两条规则信号。",
+              "自有账户归集或钱包更换：转出可能只是商家在自有账户间调拨资金或更换收款钱包，接收方未必是会员之外的第三方，但本层数据无法确认所有权。",
+              "极小样本下的表面信号：窗口仅两笔事件、历史同类为0笔，规则阈值在极小样本下容易被触发，信号强度有限。"
+            ],
+            "limitations": [
+              "同类历史样本不足三笔（baselineCount=0），不计算金额异常倍数，任何“异常”判断缺乏基线。",
+              "数据仅覆盖当前币种、当前部署后区块2至区块3与约24小时窗口，不是商家全部资产或全部负债。",
+              "trace_recipient仅一层、最多120区块、当前币种，未查询下一接收地址，未来交易不在本次报告内。",
+              "不能判断两个未知地址的现实身份、关联关系或意图，也不能据此认定回收款或跑路。",
+              "GYM没有人民币或美元价值，无法折算经济金额；窗口内转出不能逐枚归属为某位会员的资金。",
+              "交易已入块但非最终不可逆确认，后续区块重组在理论上仍可能（本地链场景下有限）。"
+            ],
+            "recommendation": "维持“证据不足”：不建议仅凭两条规则信号认定异常或推定任何违法情形。建议补充历史事件样本以建立金额基线，扩大trace深度与区块范围，核对商家公示收款钱包与支出用途凭证，并与疑似会员付款记录双向对账；补齐前不对地址现实身份或经营状态作结论。",
+            "verdict": "insufficient"
+          },
+          "finishedAt": "2026-10-07T03:49:01.112Z"
+        }
+      ],
+      "limitations": [
+        "同类历史样本不足三笔，不计算金额异常倍数。",
+        "只反映已采集的当前币种与部署后窗口，不是商家全部资产或全部负债。",
+        "规则信号不等于跑路、违法或线下服务停止；正常成本支付也可能触发。",
+        "仅分析已观察到的链上资金行为，不评价未知线下履约；GYM 为无真实价值的测试币。",
+        "调查与复核使用同一模型服务，独立调用工具不等于独立模型或完全消除共同偏差。"
+      ],
+      "generatedAt": "2026-10-07T03:49:01.114Z"
+    },
+    {
+      "id": "919d4417-494a-49d8-a996-f63689440fa4",
+      "datasetId": "direct-local-1791344887892",
+      "eventId": "direct-local-1791344887892:0x0b3006e0785cd1fe4465696a814a826fbe31160a6dd8ed102460199f2eae570f:0",
+      "asOfBlock": 2,
+      "chainId": 31337,
+      "dataOrigin": "local-chain",
+      "status": "complete",
+      "risk": "insufficient",
+      "headline": "独立重算后，当前事件为经核验的 confirmed（已入块、非最终不可逆）付款：0x3C44…93BC 向 0xf39F…2266 转入 863 GYM，logIndex 为 0。窗口（86400 秒、截至区块 2）内收款 863、转出 0、净流入 863，转出/收款比率为 0，最大接收方集中度与首位接收方为空；事件列表共 1 笔，无重复计数，初始铸币不计为经营收款。同类历史样本为 0 笔，金额倍数不可计算，属样本不足，不构成金额异常或正常。未发现商家转出信号，也无窗口内转出可供逐枚归属；GYM 为本地链模拟代币，无人民币或美元价值。结论维持 insufficient。",
+      "metrics": {
+        "version": "direct-flow-quant-v1",
+        "window": {
+          "from": 1791258497,
+          "to": 1791344897,
+          "seconds": 86400
+        },
+        "eventAmount": "863",
+        "baselineCount": 0,
+        "baselineMedian": null,
+        "amountVsMedianBps": null,
+        "receipts": "863",
+        "outflows": "0",
+        "netInflow": "863",
+        "outflowToReceiptBps": "0",
+        "recipientConcentrationBps": null,
+        "topRecipient": null,
+        "secondsSinceLastReceipt": null,
+        "flags": [],
+        "limitations": [
+          "同类历史样本不足三笔，不计算金额异常倍数。",
+          "只反映已采集的当前币种与部署后窗口，不是商家全部资产或全部负债。",
+          "规则信号不等于跑路、违法或线下服务停止；正常成本支付也可能触发。"
+        ]
+      },
+      "facts": [
+        {
+          "text": "本笔转账 863 GYM，发送方 0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC，接收方 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266。",
+          "evidenceIds": [
+            "direct-local-1791344887892:0x0b3006e0785cd1fe4465696a814a826fbe31160a6dd8ed102460199f2eae570f:0"
+          ]
+        },
+        {
+          "text": "统计窗口收款 863 GYM，转出 0 GYM；只计算一次付款，不重复计收款。",
+          "evidenceIds": [
+            "441f6d7a-dff1-4401-b157-87cb0bffdb92:metrics"
+          ]
+        }
+      ],
+      "stages": [
+        {
+          "name": "investigator",
+          "status": "complete",
+          "model": "deepseek-flash",
+          "startedAt": "2026-10-07T03:48:17.780Z",
+          "toolRuns": [
+            {
+              "id": "a9bdda5c-59d3-4084-9c66-90a478f2cff2",
+              "name": "verify_transaction",
+              "arguments": {
+                "txHash": "0x0b3006e0785cd1fe4465696a814a826fbe31160a6dd8ed102460199f2eae570f"
+              },
+              "at": "2026-10-07T03:48:19.795Z",
+              "status": "ok",
+              "result": {
+                "evidenceId": "441f6d7a-dff1-4401-b157-87cb0bffdb92:receipt",
+                "chainId": 31337,
+                "txHash": "0x0b3006e0785cd1fe4465696a814a826fbe31160a6dd8ed102460199f2eae570f",
+                "blockNumber": 2,
+                "blockHash": "0xef8d97ef39fc643f2079b20af6b24440afce12269d0a0c9ae7a5bf2ea93e1939",
+                "status": "confirmed",
+                "transactionFrom": "0x3c44cdddb6a900fa2b585dd299e03d12fa4293bc",
+                "transactionTo": "0x5fbdb2315678afecb367f032d93f642f64180aa3",
+                "transfer": {
+                  "from": "0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC",
+                  "to": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+                  "amount": "863",
+                  "logIndex": 0
+                },
+                "gasUsed": "51565",
+                "effectiveGasPrice": "971692250",
+                "explorerUrl": null,
+                "finality": "已入块；不是最终不可逆确认"
+              },
+              "evidenceIds": [
+                "441f6d7a-dff1-4401-b157-87cb0bffdb92:receipt",
+                "direct-local-1791344887892:0x0b3006e0785cd1fe4465696a814a826fbe31160a6dd8ed102460199f2eae570f:0"
+              ]
+            },
+            {
+              "id": "0e557858-c765-4391-b5f6-c4a169805a62",
+              "name": "compute_metrics",
+              "arguments": {},
+              "at": "2026-10-07T03:48:19.806Z",
+              "status": "ok",
+              "result": {
+                "version": "direct-flow-quant-v1",
+                "window": {
+                  "from": 1791258497,
+                  "to": 1791344897,
+                  "seconds": 86400
+                },
+                "eventAmount": "863",
+                "baselineCount": 0,
+                "baselineMedian": null,
+                "amountVsMedianBps": null,
+                "receipts": "863",
+                "outflows": "0",
+                "netInflow": "863",
+                "outflowToReceiptBps": "0",
+                "recipientConcentrationBps": null,
+                "topRecipient": null,
+                "secondsSinceLastReceipt": null,
+                "flags": [],
+                "limitations": [
+                  "同类历史样本不足三笔，不计算金额异常倍数。",
+                  "只反映已采集的当前币种与部署后窗口，不是商家全部资产或全部负债。",
+                  "规则信号不等于跑路、违法或线下服务停止；正常成本支付也可能触发。"
+                ],
+                "evidenceId": "441f6d7a-dff1-4401-b157-87cb0bffdb92:metrics",
+                "formula": {
+                  "bps": "分子×10000÷分母；10000bps=100%，整数截断",
+                  "amountRatio": "当前金额÷此前最多20笔同类记录中位数，仅样本>=3时计算",
+                  "outflowRatio": "24小时商家转出合计÷商家收款合计",
+                  "concentration": "24小时最大接收方转出合计÷转出合计"
+                },
+                "asOfBlock": 2
+              },
+              "evidenceIds": [
+                "441f6d7a-dff1-4401-b157-87cb0bffdb92:metrics"
+              ]
+            },
+            {
+              "id": "3d9aded8-ddf3-405f-bcac-b421f8000b4c",
+              "name": "list_events",
+              "arguments": {},
+              "at": "2026-10-07T03:48:19.807Z",
+              "status": "ok",
+              "result": {
+                "events": [
+                  {
+                    "id": "direct-local-1791344887892:0x0b3006e0785cd1fe4465696a814a826fbe31160a6dd8ed102460199f2eae570f:0",
+                    "txHash": "0x0b3006e0785cd1fe4465696a814a826fbe31160a6dd8ed102460199f2eae570f",
+                    "logIndex": 0,
+                    "blockNumber": 2,
+                    "blockHash": "0xef8d97ef39fc643f2079b20af6b24440afce12269d0a0c9ae7a5bf2ea93e1939",
+                    "timestamp": 1791344897,
+                    "from": "0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC",
+                    "to": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+                    "amount": "863",
+                    "kind": "payment"
+                  }
+                ],
+                "total": 1,
+                "truncated": false,
+                "asOfBlock": 2,
+                "limitation": "一笔付款同时是商家收款，不重复计数。初始铸币不是经营收款。"
+              },
+              "evidenceIds": [
+                "direct-local-1791344887892:0x0b3006e0785cd1fe4465696a814a826fbe31160a6dd8ed102460199f2eae570f:0"
+              ]
+            }
+          ],
+          "result": {
+            "summary": "当前事件是一笔 863 GYM 的付款，交易已确认入块，付款转出方为 0x3C44…93BC，代币转入接收方 0xf39F…2266。按已采集窗口（86400 秒、截至区块 2）统计，收款 863、转出 0、净流入 863，商家转出对收款的比率为 0，未出现转出信号，也无可归属的收款方集中度。窗口内同类历史样本为 0 笔，不足以衡量金额异常倍数，因此不作金额偏离推断。",
+            "risk": "insufficient",
+            "observations": [
+              {
+                "type": "inference",
+                "text": "交易经核验为 confirmed 状态、已入块但非最终不可逆确认；付款方为 0x3C44…93BC，代币转账接收方为 0xf39F…2266，金额 863 GYM，logIndex 为 0。",
+                "evidenceIds": [
+                  "441f6d7a-dff1-4401-b157-87cb0bffdb92:receipt",
+                  "direct-local-1791344887892:0x0b3006e0785cd1fe4465696a814a826fbe31160a6dd8ed102460199f2eae570f:0"
+                ]
+              },
+              {
+                "type": "inference",
+                "text": "指标显示该窗口内商家收款 863、转出 0、净流入 863，转出/收款比率为 0，最大接收方集中度与首位接收方为空；当前不存在商家向外转出的链上痕迹。",
+                "evidenceIds": [
+                  "441f6d7a-dff1-4401-b157-87cb0bffdb92:metrics"
+                ]
+              },
+              {
+                "type": "inference",
+                "text": "事件列表中仅此一笔记录，明确该笔付款同时是商家收款、不重复计数，且初始铸币不计入经营收款；未采集到其他经营流水。",
+                "evidenceIds": [
+                  "direct-local-1791344887892:0x0b3006e0785cd1fe4465696a814a826fbe31160a6dd8ed102460199f2eae570f:0"
+                ]
+              },
+              {
+                "type": "unknown",
+                "text": "基准样本为 0 笔、基线中位数与金额倍数均为空，无法判断 863 GYM 相对同类历史是否异常；这是样本不足，不是金额正常或异常的结论。",
+                "evidenceIds": [
+                  "441f6d7a-dff1-4401-b157-87cb0bffdb92:metrics"
+                ]
+              },
+              {
+                "type": "unknown",
+                "text": "无法判断两个地址在现实中的身份，也无法从链上推断线下健身服务质量或履约安排；该付款是否对应当期会员权益同样未知。",
+                "evidenceIds": [
+                  "441f6d7a-dff1-4401-b157-87cb0bffdb92:receipt"
+                ]
+              }
+            ],
+            "alternatives": [
+              "正常经营支付：会员购买健身服务或续费，资金按约定直接转入商家地址，属预期内的日常收款。",
+              "预售或团课等一次多付：单笔金额偏大但仍是真实交易对价，需线下合同或订单信息才能确认。",
+              "归集或地址结构调整：资金先打入某运营地址再统一入账，但本窗口无后续转出证据，暂无法验证。"
+            ],
+            "limitations": [
+              "窗口仅含 86400 秒、截至区块 2 的已采集数据，不代表商家全部资产或全部负债。",
+              "同类历史样本不足三笔，不计算金额异常倍数，任何金额合理性判断都缺依据。",
+              "窗口内转出为 0，无法把转出金额逐枚归属为某位会员的资金；本窗口亦无转出可归属。",
+              "GYM 是本地链模拟代币，没有人民币或美元价值，不能折算实际损失。",
+              "规则信号不等于经营异常或线下服务停止；正常成本支付也可能触发同类信号。",
+              "无法核验未知地址的现实身份与线下经营状况。"
+            ],
+            "recommendation": "维持 insufficient 结论：当前仅观察到一笔 863 GYM 的商家收款，无转出信号，尚不构成资金异动。后续可继续采集窗口外的收付款流水、补齐同类样本至三笔以上，并结合线下合同、订单与商家地址台账进行核对；本报告不对现实身份或服务质量作判断。"
+          },
+          "finishedAt": "2026-10-07T03:48:29.368Z"
+        },
+        {
+          "name": "reviewer",
+          "status": "complete",
+          "model": "deepseek-flash",
+          "startedAt": "2026-10-07T03:48:29.370Z",
+          "toolRuns": [
+            {
+              "id": "fb0b2f5f-3bc9-4368-80fd-d1a48f64ebb1",
+              "name": "list_events",
+              "arguments": {},
+              "at": "2026-10-07T03:48:30.851Z",
+              "status": "ok",
+              "result": {
+                "events": [
+                  {
+                    "id": "direct-local-1791344887892:0x0b3006e0785cd1fe4465696a814a826fbe31160a6dd8ed102460199f2eae570f:0",
+                    "txHash": "0x0b3006e0785cd1fe4465696a814a826fbe31160a6dd8ed102460199f2eae570f",
+                    "logIndex": 0,
+                    "blockNumber": 2,
+                    "blockHash": "0xef8d97ef39fc643f2079b20af6b24440afce12269d0a0c9ae7a5bf2ea93e1939",
+                    "timestamp": 1791344897,
+                    "from": "0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC",
+                    "to": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+                    "amount": "863",
+                    "kind": "payment"
+                  }
+                ],
+                "total": 1,
+                "truncated": false,
+                "asOfBlock": 2,
+                "limitation": "一笔付款同时是商家收款，不重复计数。初始铸币不是经营收款。"
+              },
+              "evidenceIds": [
+                "direct-local-1791344887892:0x0b3006e0785cd1fe4465696a814a826fbe31160a6dd8ed102460199f2eae570f:0"
+              ]
+            },
+            {
+              "id": "f8f13342-8e9e-4eeb-a89e-9f3eb4789941",
+              "name": "compute_metrics",
+              "arguments": {},
+              "at": "2026-10-07T03:48:30.852Z",
+              "status": "ok",
+              "result": {
+                "version": "direct-flow-quant-v1",
+                "window": {
+                  "from": 1791258497,
+                  "to": 1791344897,
+                  "seconds": 86400
+                },
+                "eventAmount": "863",
+                "baselineCount": 0,
+                "baselineMedian": null,
+                "amountVsMedianBps": null,
+                "receipts": "863",
+                "outflows": "0",
+                "netInflow": "863",
+                "outflowToReceiptBps": "0",
+                "recipientConcentrationBps": null,
+                "topRecipient": null,
+                "secondsSinceLastReceipt": null,
+                "flags": [],
+                "limitations": [
+                  "同类历史样本不足三笔，不计算金额异常倍数。",
+                  "只反映已采集的当前币种与部署后窗口，不是商家全部资产或全部负债。",
+                  "规则信号不等于跑路、违法或线下服务停止；正常成本支付也可能触发。"
+                ],
+                "evidenceId": "441f6d7a-dff1-4401-b157-87cb0bffdb92:metrics",
+                "formula": {
+                  "bps": "分子×10000÷分母；10000bps=100%，整数截断",
+                  "amountRatio": "当前金额÷此前最多20笔同类记录中位数，仅样本>=3时计算",
+                  "outflowRatio": "24小时商家转出合计÷商家收款合计",
+                  "concentration": "24小时最大接收方转出合计÷转出合计"
+                },
+                "asOfBlock": 2
+              },
+              "evidenceIds": [
+                "441f6d7a-dff1-4401-b157-87cb0bffdb92:metrics"
+              ]
+            },
+            {
+              "id": "99a8167f-bc29-428c-bfc5-4118e12a1de3",
+              "name": "verify_transaction",
+              "arguments": {
+                "txHash": "0x0b3006e0785cd1fe4465696a814a826fbe31160a6dd8ed102460199f2eae570f"
+              },
+              "at": "2026-10-07T03:48:30.853Z",
+              "status": "ok",
+              "result": {
+                "evidenceId": "441f6d7a-dff1-4401-b157-87cb0bffdb92:receipt",
+                "chainId": 31337,
+                "txHash": "0x0b3006e0785cd1fe4465696a814a826fbe31160a6dd8ed102460199f2eae570f",
+                "blockNumber": 2,
+                "blockHash": "0xef8d97ef39fc643f2079b20af6b24440afce12269d0a0c9ae7a5bf2ea93e1939",
+                "status": "confirmed",
+                "transactionFrom": "0x3c44cdddb6a900fa2b585dd299e03d12fa4293bc",
+                "transactionTo": "0x5fbdb2315678afecb367f032d93f642f64180aa3",
+                "transfer": {
+                  "from": "0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC",
+                  "to": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+                  "amount": "863",
+                  "logIndex": 0
+                },
+                "gasUsed": "51565",
+                "effectiveGasPrice": "971692250",
+                "explorerUrl": null,
+                "finality": "已入块；不是最终不可逆确认"
+              },
+              "evidenceIds": [
+                "441f6d7a-dff1-4401-b157-87cb0bffdb92:receipt",
+                "direct-local-1791344887892:0x0b3006e0785cd1fe4465696a814a826fbe31160a6dd8ed102460199f2eae570f:0"
+              ]
+            }
+          ],
+          "result": {
+            "summary": "独立重算后，当前事件为经核验的 confirmed（已入块、非最终不可逆）付款：0x3C44…93BC 向 0xf39F…2266 转入 863 GYM，logIndex 为 0。窗口（86400 秒、截至区块 2）内收款 863、转出 0、净流入 863，转出/收款比率为 0，最大接收方集中度与首位接收方为空；事件列表共 1 笔，无重复计数，初始铸币不计为经营收款。同类历史样本为 0 笔，金额倍数不可计算，属样本不足，不构成金额异常或正常。未发现商家转出信号，也无窗口内转出可供逐枚归属；GYM 为本地链模拟代币，无人民币或美元价值。结论维持 insufficient。",
+            "risk": "insufficient",
+            "observations": [
+              {
+                "type": "inference",
+                "text": "交易核验为 confirmed 状态、已入块但非最终不可逆确认；付款方 0x3C44…93BC，代币转账接收方 0xf39F…2266，金额 863 GYM，logIndex 为 0，交易 To 为代币合约地址 0x5FbD…aa3。",
+                "evidenceIds": [
+                  "441f6d7a-dff1-4401-b157-87cb0bffdb92:receipt",
+                  "direct-local-1791344887892:0x0b3006e0785cd1fe4465696a814a826fbe31160a6dd8ed102460199f2eae570f:0"
+                ]
+              },
+              {
+                "type": "inference",
+                "text": "独立重算指标：窗口内商家收款 863、转出 0、净流入 863，转出/收款比率为 0，最大接收方集中度与首位接收方为空，flags 为空；当前窗口不存在商家向外转出的链上痕迹。",
+                "evidenceIds": [
+                  "441f6d7a-dff1-4401-b157-87cb0bffdb92:metrics"
+                ]
+              },
+              {
+                "type": "inference",
+                "text": "事件列表共 1 笔且未截断，该笔付款同时计为商家收款、不重复计数；窗口内无其他已采集经营流水。",
+                "evidenceIds": [
+                  "direct-local-1791344887892:0x0b3006e0785cd1fe4465696a814a826fbe31160a6dd8ed102460199f2eae570f:0"
+                ]
+              },
+              {
+                "type": "unknown",
+                "text": "基准样本 0 笔、基线中位数与金额倍数均为空，无法判断 863 GYM 相对同类历史是否异常；这是样本不足，而非金额正常或异常的结论。",
+                "evidenceIds": [
+                  "441f6d7a-dff1-4401-b157-87cb0bffdb92:metrics"
+                ]
+              },
+              {
+                "type": "unknown",
+                "text": "无法核验两个地址在现实中的身份、线下健身服务质量或履约安排，也无法确认该付款是否对应当期会员权益；窗口无转出，不能把转出金额逐枚归属为某位会员的资金。",
+                "evidenceIds": [
+                  "441f6d7a-dff1-4401-b157-87cb0bffdb92:receipt",
+                  "441f6d7a-dff1-4401-b157-87cb0bffdb92:metrics"
+                ]
+              }
+            ],
+            "alternatives": [
+              "正常经营支付：会员购买健身服务或续费，款项按约定直接转入商家地址，属预期内的日常收款。",
+              "预售、团课或多次合并付款：单笔金额相对其他场景偏大但仍是真实交易对价，需线下合同或订单信息才能确认。",
+              "归集或地址结构调整：资金先打入某运营地址再统一入账；本窗口无后续转出证据，暂无法验证此解释。"
+            ],
+            "limitations": [
+              "窗口仅含 86400 秒、截至区块 2 的已采集数据，不代表商家全部资产或全部负债。",
+              "同类历史样本不足三笔，不计算金额异常倍数，金额合理性判断缺乏依据。",
+              "窗口内转出为 0，无法把转出金额逐枚归属为某位会员的资金；本窗口亦无转出可归属。",
+              "GYM 为本地链模拟代币，没有人民币或美元价值，不能折算实际损失。",
+              "规则信号不等于经营异常或线下服务停止，正常成本支付也可能触发同类信号。",
+              "无法核验未知地址的现实身份与线下经营状况。"
+            ],
+            "recommendation": "维持 insufficient：当前仅见一笔 863 GYM 的商家收款，无转出信号，尚不构成资金异动；样本不足使其无法被判定为异常或正常。后续继续采集窗口外收付款流水、补齐同类样本至三笔以上，并结合线下合同、订单与商家地址台账核对，不对现实身份或服务质量作判断。",
+            "verdict": "agree"
+          },
+          "finishedAt": "2026-10-07T03:48:35.540Z"
+        }
+      ],
+      "limitations": [
+        "同类历史样本不足三笔，不计算金额异常倍数。",
+        "只反映已采集的当前币种与部署后窗口，不是商家全部资产或全部负债。",
+        "规则信号不等于跑路、违法或线下服务停止；正常成本支付也可能触发。",
+        "仅分析已观察到的链上资金行为，不评价未知线下履约；GYM 为无真实价值的测试币。",
+        "调查与复核使用同一模型服务，独立调用工具不等于独立模型或完全消除共同偏差。"
+      ],
+      "generatedAt": "2026-10-07T03:48:35.543Z"
+    }
+  ]
+}

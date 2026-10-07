@@ -1,0 +1,18 @@
+{
+  "at": "2026-10-06T23:55:16.035Z",
+  "passedReportIds": [
+    "4a0d9e83-e652-44d7-8655-ee17b311f875",
+    "724ce936-b009-4601-bd72-59cb3b982d85",
+    "9a997dcd-f041-40cc-a02a-4242735faf71",
+    "5057715c-60bc-428d-a429-15fdd5625498",
+    "e8ef7fdc-d3ab-4e6e-8571-5e9d745378d1"
+  ],
+  "reclassified": [
+    {
+      "reportId": "f41e45df-1a68-4b8f-8ca9-55e46c00daf7",
+      "reason": "Unsupported refund attribution: refund returns unused credit, not a reversal of confirmed consumption or merchant revenue"
+    }
+  ],
+  "archive": "data/report-audits/1791330916185.json",
+  "scope": "当前程序校验；不证明全部自然语言语义，不重写模型输出，不替代公共业务验收"
+}

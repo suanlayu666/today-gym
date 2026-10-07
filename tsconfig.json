@@ -1,0 +1,8 @@
+{
+  "compilerOptions": {
+    "target": "ES2023", "module": "ESNext", "moduleResolution": "Bundler", "jsx": "react-jsx",
+    "strict": true, "esModuleInterop": true, "skipLibCheck": true, "resolveJsonModule": true,
+    "allowImportingTsExtensions": true, "noEmit": true, "types": ["node", "vite/client"]
+  },
+  "include": ["web", "server", "shared", "scripts", "tests", "vite.config.ts", "hardhat.config.ts"]
+}

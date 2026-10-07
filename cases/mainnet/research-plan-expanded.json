@@ -1,0 +1,12 @@
+{
+  "rule": {
+    "version": "usdc-flow-v1",
+    "baselineDays": 7,
+    "minRawAmount": "100000000000",
+    "growthBps": "50000",
+    "singleConcentrationBps": "8000"
+  },
+  "recordedAt": "2026-10-06T16:06:54.297Z",
+  "selection": "保留第一正常候选。从原始120块样本其后候选中，固定选择最多4个大额（至少100000 USDC）且样本中正额转出不超过2笔的目标。规则不变；这是披露的探索性扩大检索，不是独立预测验证。",
+  "sourceUrl": "https://developers.circle.com/stablecoins/usdc-contract-addresses"
+}

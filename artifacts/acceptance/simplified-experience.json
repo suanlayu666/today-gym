@@ -1,0 +1,89 @@
+{
+  "at": "2026-10-07T00:59:47.386Z",
+  "passed": true,
+  "results": [
+    {
+      "name": "actual new member and merchant summary after two UI-confirmed consumptions and withdrawals",
+      "passed": true,
+      "memberCredit": "2880",
+      "visits": "96",
+      "merchantRevenue": "0",
+      "todayRevenue": "60"
+    },
+    {
+      "name": "six real UI business transaction receipts, no snapshots or rollback",
+      "passed": true,
+      "events": [
+        {
+          "name": "ConsumptionRequested",
+          "blockNumber": 87,
+          "txHash": "0x2bfef84ba24c54713122029b47b79f2307571d01bd6cc1080de58ba4b1f867c7"
+        },
+        {
+          "name": "ConsumptionConfirmed",
+          "blockNumber": 88,
+          "txHash": "0xede5257af700acee5c6f07545404e0491a0db3b801e1a6b00bdf9e2b3342d73e"
+        },
+        {
+          "name": "Withdrawn",
+          "blockNumber": 89,
+          "txHash": "0x4411df07a208affe5a776ec3c80ff9157990c3505d4b6659e621185959aac57f"
+        },
+        {
+          "name": "ConsumptionRequested",
+          "blockNumber": 90,
+          "txHash": "0xc76ee8396a1d95c450b1c351e659b87ff01921cca23b48ef76f6481eb154d365"
+        },
+        {
+          "name": "ConsumptionConfirmed",
+          "blockNumber": 91,
+          "txHash": "0xe48d53decc583fd21ad2e31cd7edbd0ccc772b0273e9abc86f36382e732f4759"
+        },
+        {
+          "name": "Withdrawn",
+          "blockNumber": 92,
+          "txHash": "0x9d863ecef54184676a767f074cb2fe8d750806b0669dc0e077839920675a1bfd"
+        }
+      ]
+    },
+    {
+      "name": "actual background-triggered DeepSeek investigation and scoped evidence",
+      "passed": true,
+      "jobId": "58d21264-77bd-4b82-9afb-81c6dd8eb45b",
+      "reportId": "a700580c-bdce-473e-b31f-5b4285832131",
+      "tools": [
+        {
+          "name": "get_business_events",
+          "status": "ok"
+        },
+        {
+          "name": "compute_metrics",
+          "status": "ok"
+        },
+        {
+          "name": "get_escrow_snapshot",
+          "status": "ok"
+        },
+        {
+          "name": "get_tx_evidence",
+          "status": "ok"
+        },
+        {
+          "name": "get_evidence",
+          "status": "ok"
+        },
+        {
+          "name": "get_payout_timeline",
+          "status": "ok"
+        }
+      ],
+      "automaticKey": "automatic-07b0b96291210e6ab793aa01"
+    },
+    {
+      "name": "automatic monitoring enabled after human authorization, one job for current alert key",
+      "passed": true,
+      "count": 1
+    }
+  ],
+  "scope": "Real local UI/EVM and real DeepSeek. Existing public mainnet cases preserved; no Sepolia deployment, no second Agent, no new full-contract rollback suite. This verifier sends no transaction or model request."
+}

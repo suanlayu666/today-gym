@@ -1,0 +1,13 @@
+{
+  "at": "2026-10-07T07:06:27.182Z",
+  "owned": [
+    "chain"
+  ],
+  "reused": [
+    "api",
+    "research",
+    "web"
+  ],
+  "localChainId": 31337,
+  "publicSigning": false
+}

@@ -1,0 +1,28 @@
+{
+  "chainId": 11155111,
+  "network": "Ethereum Sepolia; no-value testing only",
+  "execute": false,
+  "merchant": "0x4710134650B35e657Db13Ec3AadBc93B374f0D11",
+  "users": [
+    "0x0C8945718099925786E510a8653cB4246f8a76C8",
+    "0xCC92A942FbD151d771DB4f543DcFdF3D220E5974"
+  ],
+  "payout": "0x387F70E7c2739d8b6200900110393c949a9ab16C",
+  "tokenInit": [
+    30000,
+    30000,
+    30000
+  ],
+  "maxFeePerGas": "3000000000",
+  "maxTotalFee": "30000000000000000",
+  "maximumTransactions": 4,
+  "balance": "0",
+  "gasLimits": {
+    "token": 1500000,
+    "escrow": 2800000
+  },
+  "tokenCreationHash": "0x2ab84919ed1fe2577e32cebf934384364fd8be4c16ed450ef344b9720e810f03",
+  "escrowCreationHash": "0xe2dece7095244b8d355d53489e30caa99b184695a24b9d4cfb9e615e7618476b",
+  "compiler": "0.8.30+commit.73712a01.Emscripten.clang",
+  "preparedAt": "2026-10-06T16:09:36.427Z"
+}

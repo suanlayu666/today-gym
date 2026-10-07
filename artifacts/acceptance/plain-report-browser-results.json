@@ -1,0 +1,30 @@
+{
+  "at": "2026-10-07T05:00:06.312Z",
+  "scope": "只检查报告呈现；未主动新增交易、模型调用或重置链",
+  "checks": [
+    {
+      "name": "简明结果不含地址哈希、bps、模型或执行日志",
+      "status": "pass"
+    },
+    {
+      "name": "用户结果有事实、提醒原因、建议与不确定性",
+      "status": "pass"
+    },
+    {
+      "name": "详细分析在栏目最下方",
+      "status": "pass"
+    },
+    {
+      "name": "未完成报告不显示成功判断",
+      "status": "pass"
+    },
+    {
+      "name": "手机宽度390px无横向溢出，结果先于账单列表",
+      "status": "pass"
+    }
+  ],
+  "desktopLayout": {
+    "summaryBottom": 862.3515625,
+    "technicalTop": 1138.9921875
+  }
+}

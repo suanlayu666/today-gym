@@ -1,0 +1,131 @@
+{
+  "at": "2026-10-07T00:00:47.624Z",
+  "checks": [
+    {
+      "name": "anomaly: network, token and source scope",
+      "passed": true
+    },
+    {
+      "name": "anomaly: raw log/receipt/block internal consistency",
+      "passed": true,
+      "details": {
+        "verifiedReturnedTransfers": 80,
+        "independentCompletenessProof": false
+      }
+    },
+    {
+      "name": "anomaly: persisted index equals raw replay",
+      "passed": true
+    },
+    {
+      "name": "anomaly: deterministic metric replay",
+      "passed": true
+    },
+    {
+      "name": "anomaly: unchanged alert criteria",
+      "passed": true
+    },
+    {
+      "name": "anomaly: current report citation/numeric validator",
+      "passed": true
+    },
+    {
+      "name": "anomaly: factual statements reproduce successful tool evidence",
+      "passed": true
+    },
+    {
+      "name": "anomaly: actual Agent tools and associated-address increment",
+      "passed": true
+    },
+    {
+      "name": "anomaly: bounded follow-up source and returned receipt consistency",
+      "passed": true,
+      "details": [
+        {
+          "evidenceId": "followup-9e194ef5f6791528d7094183",
+          "asOfBlock": 26090354,
+          "count": 1,
+          "positiveCount": 0
+        },
+        {
+          "evidenceId": "followup-465b273cb05a9502fb95e867",
+          "asOfBlock": 26091574,
+          "count": 1,
+          "positiveCount": 1
+        }
+      ]
+    },
+    {
+      "name": "control: network, token and source scope",
+      "passed": true
+    },
+    {
+      "name": "control: raw log/receipt/block internal consistency",
+      "passed": true,
+      "details": {
+        "verifiedReturnedTransfers": 165,
+        "independentCompletenessProof": false
+      }
+    },
+    {
+      "name": "control: persisted index equals raw replay",
+      "passed": true
+    },
+    {
+      "name": "control: deterministic metric replay",
+      "passed": true
+    },
+    {
+      "name": "control: unchanged alert criteria",
+      "passed": true
+    },
+    {
+      "name": "control: current report citation/numeric validator",
+      "passed": true
+    },
+    {
+      "name": "control: factual statements reproduce successful tool evidence",
+      "passed": true
+    },
+    {
+      "name": "control: actual Agent tools and associated-address increment",
+      "passed": true
+    },
+    {
+      "name": "control: bounded follow-up source and returned receipt consistency",
+      "passed": true,
+      "details": [
+        {
+          "evidenceId": "followup-e835fd25d89d880e2552da34",
+          "asOfBlock": 26086794,
+          "count": 3,
+          "positiveCount": 1
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "role": "anomaly",
+      "datasetId": "mainnet-usdc-f07e3258-1790726400",
+      "reportId": "724ce936-b009-4601-bd72-59cb3b982d85",
+      "rawTransfers": 80,
+      "flags": [
+        "MAIN_CONCENTRATION"
+      ]
+    },
+    {
+      "role": "control",
+      "datasetId": "mainnet-usdc-31173ed1-1790726400",
+      "reportId": "4a0d9e83-e652-44d7-8655-ee17b311f875",
+      "rawTransfers": 165,
+      "flags": []
+    }
+  ],
+  "rpcTrace": [],
+  "limitations": [
+    "程序引用和数值检查不证明全部自然语言语义。",
+    "离线检查只验证已保存返回值；在线模式仅重新读取样本，不是全窗口独立重采。",
+    "完整索引分页仍不能独立证明第三方索引绝无遗漏。"
+  ]
+}

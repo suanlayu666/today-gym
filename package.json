@@ -1,0 +1,51 @@
+{
+  "name": "today-gym", "version": "0.1.0", "private": true, "type": "module",
+  "engines": { "node": ">=24.0.0" },
+  "scripts": {
+    "start": "node --import tsx scripts/services.ts start --flow",
+    "start:legacy": "node --import tsx scripts/services.ts start",
+    "deploy:flow": "node --import tsx scripts/deploy-flow.ts",
+    "test:flow": "node --import tsx --test tests/flow.test.ts tests/flow-view.test.ts tests/plain-report.test.ts tests/research.test.ts tests/companion-motion.test.ts",
+    "server:research": "node --import tsx server/research-entry.ts",
+    "verify:research": "node --import tsx scripts/verify-research.ts",
+    "verify:flow": "node --import tsx scripts/verify-flow.ts",
+    "stop": "node --import tsx scripts/services.ts stop",
+    "doctor": "node --import tsx scripts/services.ts doctor",
+    "services:status": "node --import tsx scripts/services.ts status",
+    "dev": "vite --host 127.0.0.1 --port 5173 --strictPort",
+    "server": "node --import tsx server/index.ts",
+    "chain": "hardhat node --network local --hostname 127.0.0.1 --port 8545",
+    "compile": "node --import tsx scripts/compile.ts",
+    "deploy:local": "node --import tsx scripts/deploy.ts local",
+    "prepare:sepolia": "node --import tsx scripts/prepare-sepolia.ts",
+    "plan:sepolia": "node --import tsx scripts/deploy-sepolia.ts",
+    "deploy:sepolia": "node --import tsx scripts/deploy-sepolia.ts --execute",
+    "case:local": "node --import tsx scripts/local-anomaly.ts",
+    "collect:mainnet": "node --import tsx scripts/collect-mainnet.ts --expanded",
+    "verify:mainnet": "node --import tsx scripts/verify-mainnet.ts",
+    "verify:mainnet:online": "node --import tsx scripts/verify-mainnet.ts --online",
+    "audit:reports": "node --import tsx scripts/audit-reports.ts",
+    "verify:reports": "node --import tsx scripts/verify-reports.ts",
+    "verify:provenance": "node --import tsx scripts/verify-provenance.ts",
+    "verify:api": "node --import tsx scripts/verify-api.ts",
+    "verify:all": "node --import tsx scripts/verify-all.ts",
+    "verify:startup": "node --import tsx scripts/verify-startup.ts",
+    "test:web-safety": "node --import tsx --test tests/web-safety.test.ts",
+    "test:experience": "node --import tsx --test tests/presentation.test.ts tests/monitor.test.ts tests/web-safety.test.ts tests/assistant-ui.test.ts",
+    "verify:layout": "node --import tsx scripts/verify-layout.ts",
+    "verify:experience": "node --import tsx scripts/verify-experience.ts",
+    "verify:browser-business": "node --import tsx scripts/verify-browser-business.ts",
+    "build": "tsc --noEmit && vite build",
+    "test": "node --import tsx --test tests/*.test.ts",
+    "test:unit": "node --import tsx --test tests/analysis.test.ts tests/data-agent.test.ts"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^5.4.0", "ethers": "^6.15.0", "express": "^5.1.0",
+    "react": "^19.1.0", "react-dom": "^19.1.0", "zod": "^4.1.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0", "@types/node": "^24.0.0", "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.0", "@vitejs/plugin-react": "^5.0.0", "hardhat": "^3.0.0",
+    "solc": "0.8.30", "tsx": "^4.20.0", "typescript": "^5.9.0", "vite": "^7.1.0"
+  }
+}

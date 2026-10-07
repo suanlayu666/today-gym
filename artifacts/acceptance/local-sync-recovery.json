@@ -1,0 +1,19 @@
+{
+  "at": "2026-10-07T00:00:47.242Z",
+  "passed": true,
+  "results": [
+    {
+      "datasetId": "local-6-1791299344390",
+      "blockNumber": 86,
+      "blockHash": "0x3ed1dc0f9dae7273675dcebfd19f181190091a6517fb03641e38ae002a74189e",
+      "attempts": 1
+    },
+    {
+      "datasetId": "local-anomaly-65",
+      "blockNumber": 86,
+      "blockHash": "0x3ed1dc0f9dae7273675dcebfd19f181190091a6517fb03641e38ae002a74189e",
+      "attempts": 1
+    }
+  ],
+  "scope": "Actual local RPC/API post-snapshot synchronization; no new business or public transactions."
+}

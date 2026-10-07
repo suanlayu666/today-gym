@@ -1,0 +1,99 @@
+{
+  "at": "2026-10-07T00:10:45.452Z",
+  "passed": true,
+  "method": "development-evidence-review",
+  "results": [
+    {
+      "role": "local-normal",
+      "reportId": "66b4b531-0728-43b5-8bd2-b165b2eeb977",
+      "excludedHypotheses": [
+        1
+      ],
+      "notes": [
+        {
+          "text": "请求 #2 被会员拒绝、#3 被商家取消时均未到请求到期时间。因此原稿中“有效期到期”的替代解释不采用；具体线下原因仍未知。取消请求的权限属于商家，不应归给会员。",
+          "evidenceIds": [
+            "event-f186a01d5325cf9c0e6c95eb",
+            "event-25a704166938e6b196fde182",
+            "state-fd67be30f163f8baa21f61b5"
+          ]
+        },
+        {
+          "text": "退款只退还尚未消费的额度，不撤销已确认消费。已实际观察到成功退款，但不能保证未来退款或线下履约。",
+          "evidenceIds": [
+            "state-fd67be30f163f8baa21f61b5",
+            "metrics-fd67be30f163f8baa21f61b5"
+          ]
+        }
+      ]
+    },
+    {
+      "role": "local-anomaly",
+      "reportId": "99c893f2-4d6c-4803-a760-262dfa4283fb",
+      "excludedHypotheses": [
+        1
+      ],
+      "notes": [
+        {
+          "text": "密集确认触发的是 R4 固定规则，不是与该会员历史习惯的统计比较。因此“远超常态”缺少历史基线支持。GYM 在本项目不提供现金兑换，“以兑换现金为目的”的推测也没有证据，不采用该条异常假设。",
+          "evidenceIds": [
+            "metrics-34995e0dda5cb8cdaa34fcc4"
+          ]
+        },
+        {
+          "text": "正确顺序为改收款地址后提现；提现仅减少已结算收入，未消费权益仍由托管资产覆盖。符合合约权限和额度不等于现实经营合法，也不证明实际到店。",
+          "evidenceIds": [
+            "state-34995e0dda5cb8cdaa34fcc4",
+            "event-700f75f6548276938e870fc3",
+            "event-7ec0beafa4d97180fb0b8a67",
+            "event-c634c40c0c4fa2525b182f8d"
+          ]
+        }
+      ]
+    },
+    {
+      "role": "mainnet-anomaly",
+      "reportId": "724ce936-b009-4601-bd72-59cb3b982d85",
+      "excludedHypotheses": [],
+      "notes": [
+        {
+          "text": "两笔 Agent 追加核验交易均位于评估日。原稿限制中“一笔基线转入”的时间归类不正确，以对应事件时间及收据区块为准。",
+          "evidenceIds": [
+            "tx-05c8d084d01d2769e3bff7ef",
+            "tx-fa2726e48b42503ee8c3687b"
+          ]
+        },
+        {
+          "text": "最大接收地址的窄窗口未见正数转出，不证明资金最终停留。另一地址的后续转出只说明该地址发生流动，不能认定转出的币逐枚来自本次入账。资金归集等原因仍是候选解释，不是已查明的现实原因。",
+          "evidenceIds": [
+            "metrics-b8d5d942ad0d5425f0438a52",
+            "followup-9e194ef5f6791528d7094183",
+            "followup-465b273cb05a9502fb95e867"
+          ]
+        }
+      ]
+    },
+    {
+      "role": "mainnet-control",
+      "reportId": "4a0d9e83-e652-44d7-8655-ee17b311f875",
+      "excludedHypotheses": [
+        2
+      ],
+      "notes": [
+        {
+          "text": "大额样本仅用于发现候选；指标使用已保存完整窗口，对评估日与七日基线采用相同口径。原稿把金额增长归因于候选采样的假设不采用。零金额日志可影响笔数，但不能放大金额合计。第三方索引仍有遗漏和样本代表性风险。",
+          "evidenceIds": [
+            "metrics-5d46f957e7ec555949749ce7"
+          ]
+        },
+        {
+          "text": "未查询不等于没有转出。实际补查仅覆盖所查询接收地址的锚点后最多 120 区块；金额接近与时序相邻不证明逐枚资金来源、现实身份或完整余额。规则未告警不等于安全。",
+          "evidenceIds": [
+            "followup-e835fd25d89d880e2552da34"
+          ]
+        }
+      ]
+    }
+  ],
+  "scope": "Only these four frozen demo reports. Original AI text retained; excluded hypotheses must not be used. Not a second Agent or a guarantee of real-world risk."
+}

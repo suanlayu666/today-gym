@@ -1,0 +1,30 @@
+{
+  "datasetId": "local-6-1791299344390",
+  "chainId": 31337,
+  "blockNumber": 66,
+  "tokenCodeHash": "0xbfb863dfe2037e717f6f144ce3e7a3645f5e92f5b797e55497ee085d7936a9c1",
+  "escrowCodeHash": "0xc4fcbe0bbfd36453a6f95afe87944a2d92139f19d87461c9f8cf0735a4c5498e",
+  "runtimeMatches": true,
+  "immutableBindingsVerified": true,
+  "compiler": "0.8.30+commit.73712a01.Emscripten.clang",
+  "settings": {
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    },
+    "evmVersion": "shanghai",
+    "outputSelection": {
+      "*": {
+        "*": [
+          "abi",
+          "evm.bytecode.object",
+          "evm.deployedBytecode.object",
+          "evm.deployedBytecode.immutableReferences",
+          "metadata"
+        ]
+      }
+    }
+  },
+  "verifiedAt": "2026-10-06T16:10:10.589Z",
+  "sourceVerification": "Local compiled runtime comparison, not an explorer source-verification badge"
+}

@@ -1,0 +1,30 @@
+{
+  "at": "2026-10-07T05:32:09.864Z",
+  "scope": "只验证展示和导航，没有点击付款或再次启动模型",
+  "checks": [
+    {
+      "name": "公开案例明确标注主网历史数据，不是健身房账单",
+      "passed": true
+    },
+    {
+      "name": "页面显示在线核验成功及两位 Agent 各四次实际工具调用",
+      "passed": true
+    },
+    {
+      "name": "三种样例明确标注模拟，非实际交易或预测评测",
+      "passed": true
+    },
+    {
+      "name": "390px宽度内容无水平溢出",
+      "passed": true,
+      "details": {
+        "viewport": 390,
+        "contentWidth": 390
+      }
+    },
+    {
+      "name": "会员和商家均不渲染研究栏目",
+      "passed": true
+    }
+  ]
+}

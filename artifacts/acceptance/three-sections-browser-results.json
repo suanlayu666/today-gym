@@ -1,0 +1,24 @@
+{
+  "at": "2026-10-07T04:42:45.630Z",
+  "scope": "前端分区与信息过滤验收；不重置链、不新增资金交易",
+  "checks": [
+    {
+      "name": "会员页面仅含余额、付款与本人账单",
+      "result": "pass"
+    },
+    {
+      "name": "商家页面只含经营账户收款、转出及账单",
+      "result": "pass"
+    },
+    {
+      "name": "智能体、模型、指标及证据集中在独立分析栏",
+      "result": "pass"
+    }
+  ],
+  "responsive": {
+    "width": 390,
+    "memberContentWidth": 390,
+    "analysisContentWidth": 390
+  },
+  "confirmation": "会员与商家确认、取消、余额校验已浏览器检查，未提交新交易"
+}

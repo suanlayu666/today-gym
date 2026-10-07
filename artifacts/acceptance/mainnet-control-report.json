@@ -1,0 +1,615 @@
+{
+  "headline": "规则未告警的 USDC 对照案例：合计最大接收方方向改变，实际已查询接收地址在窄窗口内的正数转出与进入接近",
+  "findings": [
+    {
+      "text": "评估窗口内目标转出合计 1256160344.465382 USDC，转出日志 15 条（含零金额日志），最大单笔 291925450.020739 USDC。此前 7 个完整 UTC 日合计 3517652273.403638 USDC。",
+      "type": "fact",
+      "evidenceIds": [
+        "metrics-5d46f957e7ec555949749ce7"
+      ]
+    },
+    {
+      "text": "规则版本 usdc-flow-v1；实际 flags：空数组，无规则告警。相对日均倍数 2.4997，比较方向：高于此前7日日均；单笔集中度 2323 bps，合计最大接收方 0x688CC76D3b009d805AB6b4D0A1cbd228131b5cBF。公式及阈值见程序附件。",
+      "type": "fact",
+      "evidenceIds": [
+        "metrics-5d46f957e7ec555949749ce7"
+      ]
+    },
+    {
+      "text": "本次追加在线核验的交易位于区块 #26086674，收据状态 1；交易发送方 0x31173ed183e5a9450c3671018ec4d770c8a8bf18，调用目标 0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48。代币接收方需查看收据日志，不等于调用目标；哈希、输入与日志见证据。",
+      "type": "fact",
+      "evidenceIds": [
+        "tx-0ceefd61bdfc4a4ccf333ab6"
+      ]
+    },
+    {
+      "text": "接收地址 0x688CC76D3b009d805AB6b4D0A1cbd228131b5cBF 在补查区块 #26086674–#26086794 内本 token 转出合计 222775262.721143 USDC，共 3 条转出日志，其中 1 条正数、2 条零金额。仅观察接收锚点后最多120区块，不是全天、完整余额或逐枚资金归属追踪。",
+      "type": "fact",
+      "evidenceIds": [
+        "followup-e835fd25d89d880e2552da34"
+      ]
+    },
+    {
+      "text": "实际已查询的接收地址 0x688CC76D…5cBF 恰好等于指标中的合计最大接收方，因此对该地址的 120 块补查结果可归入合计最大接收方的窄窗观察，但补查锚点只代表目标向该地址的最大正数入账，不代表该地址的全部活动、余额或最终归属。",
+      "type": "inference",
+      "evidenceIds": [
+        "metrics-5d46f957e7ec555949749ce7",
+        "followup-e835fd25d89d880e2552da34"
+      ]
+    },
+    {
+      "text": "补查窗口内该地址出现一条与收到金额几乎相等的正数转出，指向 0xd0A61F…39E0，转账时序紧随入账之后，与中转/转发或资金归集路径相符；这是对链上时序与金额关系的一种解释，不能证明现实身份、经营意图或受益归属。",
+      "type": "inference",
+      "evidenceIds": [
+        "tx-0ceefd61bdfc4a4ccf333ab6",
+        "followup-e835fd25d89d880e2552da34"
+      ]
+    },
+    {
+      "text": "评估日合计最大接收方与基线 7 日固定出现的接收方不同，说明接收方向本身发生变化；这一变化可由资金调度路径轮换解释，也可由其他原因造成，当前证据不足以区分。",
+      "type": "inference",
+      "evidenceIds": [
+        "metrics-5d46f957e7ec555949749ce7"
+      ]
+    },
+    {
+      "text": "规则 flags 为空只表示按 usdc-flow-v1 阈值未触发告警，不能推出真实活动正常或合法；名称中的“正常对照”仅指规则未告警。",
+      "type": "inference",
+      "evidenceIds": [
+        "metrics-5d46f957e7ec555949749ce7"
+      ]
+    },
+    {
+      "text": "未查询是否等于没有转出：120 块补查不是全天追踪，窗口之外的更晚流向、逐笔资金归属及该地址余额均未知。",
+      "type": "unknown",
+      "evidenceIds": [
+        "followup-e835fd25d89d880e2552da34"
+      ]
+    },
+    {
+      "text": "本次仅追加核验了评估日的一笔主要交易，评估日其余转出交易的逐笔在线核验未完成；已保存收据与 Agent 追加抽查属不同层次的核验，不能互相替代。",
+      "type": "unknown",
+      "evidenceIds": [
+        "tx-0ceefd61bdfc4a4ccf333ab6",
+        "metrics-5d46f957e7ec555949749ce7"
+      ]
+    },
+    {
+      "text": "0x688CC76D…5cBF、0xd0A61F…39E0 等地址的现实归属、账户性质以及是否存在更下游链条未知；链上数据本身无法确定现实主体。",
+      "type": "unknown",
+      "evidenceIds": [
+        "followup-e835fd25d89d880e2552da34"
+      ]
+    },
+    {
+      "text": "缺少评估日前历史余额快照，因此无法断言该地址收到或转出的资金构成其全部余额，也无法断言这些资金被再次全额转出或逐枚归属；本 token 转出记录不足以判断其完整资金行为。",
+      "type": "unknown",
+      "evidenceIds": [
+        "followup-e835fd25d89d880e2552da34"
+      ]
+    }
+  ],
+  "hypotheses": [
+    {
+      "explanation": "正常解释：目标在评估日按业务节奏将 USDC 划付给合计最大接收方，该接收方随后在相邻区块把接近等额资金转往下一地址，属于常规中转、清算或资金归集流程。",
+      "supportingEvidenceIds": [
+        "tx-0ceefd61bdfc4a4ccf333ab6",
+        "followup-e835fd25d89d880e2552da34",
+        "metrics-5d46f957e7ec555949749ce7"
+      ],
+      "contradictingEvidenceIds": [
+        "metrics-5d46f957e7ec555949749ce7"
+      ],
+      "unresolved": [
+        "该中转是否对应真实业务关系尚无链上证据",
+        "窗口外后续流向未查询",
+        "评估日其余交易未逐笔核验",
+        "缺少历史余额，无法判断是否为全部资金"
+      ]
+    },
+    {
+      "explanation": "路径轮换解释：合计最大接收方由基线中的固定地址切换为另一地址，可能是资金调度路由变化或合作方变更，而非异常。",
+      "supportingEvidenceIds": [
+        "metrics-5d46f957e7ec555949749ce7"
+      ],
+      "contradictingEvidenceIds": [
+        "followup-e835fd25d89d880e2552da34"
+      ],
+      "unresolved": [
+        "无法确认路径轮换的经营原因",
+        "无法排除同时存在其他并行路径",
+        "缺少历史余额与所有权信息"
+      ]
+    },
+    {
+      "explanation": "数据覆盖解释：相对总量高于此前 7 日日均，但评估日样本来自大额候选选样，笔数包含零金额日志，放大可能部分来自采样与计入口径差异而非实际资金活动异常。",
+      "supportingEvidenceIds": [
+        "metrics-5d46f957e7ec555949749ce7"
+      ],
+      "contradictingEvidenceIds": [
+        "tx-0ceefd61bdfc4a4ccf333ab6"
+      ],
+      "unresolved": [
+        "候选选样不是独立预测验证",
+        "第三方索引遗漏风险不能独立排除"
+      ]
+    }
+  ],
+  "consumerImpact": "本案例为主网 ERC20 公开链数据观察，不含消费者会员权益语义，也不涉及健身房式消费或结算关系，因此不对任何会员权益或消费者资金作保护性结论。规则未告警不等于资金活动正常或安全；合计最大接收方及其下游地址的资金去向可能影响相关方，但链上无法确定现实主体与最终受益方，也无历史余额或所有权证据。请勿据此对具体机构或个人作定性判断。",
+  "recommendations": [
+    "将本次结论限定为链上观察，不对地址现实身份、经营状态或资金安全性作定性。",
+    "如需继续核查，优先在剩余预算内对实际已查询接收地址的更晚区块或另一主要接收地址做有界补查，并明确标注覆盖范围。",
+    "如关注合计最大接收方路径，建议补充评估日的逐笔核验与历史余额快照，以判断其资金结构而非断言全额再转出。",
+    "报告中应区分采集器已保存的收据核验与本次 Agent 追加在线抽查，避免混同证据层级。",
+    "后续若规则出现 flags 告警，再按告警规则重新评估，而非以本案例对照名义推断其他案例。"
+  ],
+  "limitations": [
+    "120 块补查仅覆盖接收锚点后有限窗口，不是全天或完整资金追踪，且未查询不等于没有转出。",
+    "本次仅追加核验一笔主要交易，评估日其余交易未逐笔在线核验，不能代表全部交易均已复核。",
+    "缺少评估日前历史余额与所有权信息，无法断言收到的资金构成全部余额或被全额再转出。",
+    "候选来自大额样本选样，不是独立预测验证，可能存在选择偏差。",
+    "无法独立证明第三方索引绝无遗漏；代币精度为当前读取，非历史 eth_call。",
+    "链上数据不能确定现实身份、经营意图、合法性与最终受益方。",
+    "flags 为空仅表示按当前规则版本未触发阈值，不代表活动正常、安全或合法。",
+    "补查结果仅属于实际已查询的接收地址，不能替代或推广到其他接收地址。"
+  ],
+  "id": "4a0d9e83-e652-44d7-8655-ee17b311f875",
+  "datasetId": "mainnet-usdc-31173ed1-1790726400",
+  "chainId": 1,
+  "dataOrigin": "public-mainnet",
+  "asOfBlock": 26093737,
+  "mode": "llm",
+  "status": "complete",
+  "analysis": {
+    "factGeneration": "evidence-facts-v1",
+    "token": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+    "tokenSymbol": "USDC",
+    "decimals": 6,
+    "fromBlock": 26029316,
+    "toBlock": 26093737,
+    "window": {
+      "from": 1790726400,
+      "to": 1790812800
+    },
+    "ruleVersion": "usdc-flow-v1",
+    "metricsEvidenceId": "metrics-5d46f957e7ec555949749ce7",
+    "metrics": {
+      "rule": {
+        "version": "usdc-flow-v1",
+        "baselineDays": 7,
+        "minRawAmount": "100000000000",
+        "growthBps": "50000",
+        "singleConcentrationBps": "8000"
+      },
+      "unit": "raw token units",
+      "decimals": 6,
+      "current": {
+        "from": 1790726400,
+        "to": 1790812800,
+        "total": "1256160344465382",
+        "count": 15,
+        "maxSingle": "291925450020739",
+        "singleConcentrationBps": "2323",
+        "topRecipient": "0x688CC76D3b009d805AB6b4D0A1cbd228131b5cBF",
+        "recipientConcentrationBps": "2831",
+        "eventIds": [
+          "event-3be698a925b7f84e29fc1ebc",
+          "event-22258f8d327c15cfeceeffbe",
+          "event-2501e4f802f67198672b2a7f",
+          "event-86fa0c4098a03d794042d718",
+          "event-0dbd6ab70a950b8ba262e522",
+          "event-80639f368f413a963bd49307",
+          "event-82470b2752a2f9322150b6df",
+          "event-da2faacd05d186dec053d844",
+          "event-b4ae453ea4facca709e48ee9",
+          "event-b76ffc49146bb36264bbefc3",
+          "event-52fd692a878bf091a89a9448",
+          "event-b16d311fcf8193117083ebba",
+          "event-e820ac4d47e4408e9969dbf2",
+          "event-ec300b9d22782c60ce6a4f9d",
+          "event-8f7fa2bd832aa59bf0aea340"
+        ]
+      },
+      "baseline": {
+        "days": 7,
+        "from": 1790121600,
+        "to": 1790726400,
+        "daily": [
+          {
+            "from": 1790121600,
+            "to": 1790208000,
+            "total": "414245799018660",
+            "count": 9,
+            "maxSingle": "209242994017668",
+            "singleConcentrationBps": "5051",
+            "topRecipient": "0xf1EdBf98ddA764Ec51dE3776371F0F7d6F6156a8",
+            "recipientConcentrationBps": "5051",
+            "eventIds": [
+              "event-dd80212f7fe1366c0f55ed6d",
+              "event-17e0695aad99cff9b92ddad4",
+              "event-f668f978a326fe81d8a04f59",
+              "event-82957034546f34af8038949b",
+              "event-57edb8ddaa83a2e02ecae371",
+              "event-44af869d76b4d05c6c1e309b",
+              "event-8bfe77067fe2539c15054274",
+              "event-211cb7b27b4c7f28e5c45660",
+              "event-11d8491541215d44f3ad7508"
+            ]
+          },
+          {
+            "from": 1790208000,
+            "to": 1790294400,
+            "total": "489671335587879",
+            "count": 10,
+            "maxSingle": "229507591552323",
+            "singleConcentrationBps": "4686",
+            "topRecipient": "0xf1EdBf98ddA764Ec51dE3776371F0F7d6F6156a8",
+            "recipientConcentrationBps": "4686",
+            "eventIds": [
+              "event-f7e02bb781939b4b13001af6",
+              "event-556bf21b6f49732b9536adac",
+              "event-479d4ce15e279ac995a28119",
+              "event-a2310c4be8d02300bb71a639",
+              "event-02185d9d0c7faa00066fd13f",
+              "event-546298248d9062df0753df31",
+              "event-be833be0db4042ec4068ac4a",
+              "event-7e1718219fabf353b78d7461",
+              "event-da9448c148fd5cd27f85cda6",
+              "event-ce4f8de7585cdc4396386a90"
+            ]
+          },
+          {
+            "from": 1790294400,
+            "to": 1790380800,
+            "total": "516655031643400",
+            "count": 19,
+            "maxSingle": "261158132068601",
+            "singleConcentrationBps": "5054",
+            "topRecipient": "0xf1EdBf98ddA764Ec51dE3776371F0F7d6F6156a8",
+            "recipientConcentrationBps": "5054",
+            "eventIds": [
+              "event-309a080aaa1a3952c5c7723c",
+              "event-349261111e134c4a04ee0366",
+              "event-7184c28d1f14cc754bf9336c",
+              "event-00af591c86b649410fd809c5",
+              "event-8d9d7b585deb033381f6d47f",
+              "event-6314679bdae2cd2ba5f17f5c",
+              "event-7a15cc15653f2d290a33aff8",
+              "event-9cd894081811256c699fc3fe",
+              "event-a009e50c01b4e8f934b95e58",
+              "event-eea3302294fce510e0b5c2e8",
+              "event-06e5077d9a2f671a4985acb8",
+              "event-3003a521f78d85d5bdf75535",
+              "event-e0668adc492b74e8e34dced2",
+              "event-d70685a3b368a0fbeba0cd15",
+              "event-c158fbd61edc604791c3ce2d",
+              "event-4b15d988af92e5a77ca78f89",
+              "event-3e3f9d4af0c72ec617695055",
+              "event-937152bbdd32475f3b005f71",
+              "event-73b8c3a74d20c1194152b58b"
+            ]
+          },
+          {
+            "from": 1790380800,
+            "to": 1790467200,
+            "total": "522950024971896",
+            "count": 6,
+            "maxSingle": "261791892898796",
+            "singleConcentrationBps": "5006",
+            "topRecipient": "0xf1EdBf98ddA764Ec51dE3776371F0F7d6F6156a8",
+            "recipientConcentrationBps": "5006",
+            "eventIds": [
+              "event-cfb3404d0231738dbd629d84",
+              "event-61d2c6bc9ea8916d3dc382c4",
+              "event-5a01f4d0636d9d5d2b94b7d6",
+              "event-f1540e53c6ec32e6593bde2f",
+              "event-f9009a563095ff0dd8d35153",
+              "event-596a8eb1cefb5c36ae377020"
+            ]
+          },
+          {
+            "from": 1790467200,
+            "to": 1790553600,
+            "total": "513463241276429",
+            "count": 4,
+            "maxSingle": "251671348264831",
+            "singleConcentrationBps": "4901",
+            "topRecipient": "0xf1EdBf98ddA764Ec51dE3776371F0F7d6F6156a8",
+            "recipientConcentrationBps": "4901",
+            "eventIds": [
+              "event-2284695d572ab31ccc63d88c",
+              "event-718ea13d57d8494886c8c21f",
+              "event-0ccd00479c7ac7e6d9b7b87d",
+              "event-53648d0cd2ebc4c820876d65"
+            ]
+          },
+          {
+            "from": 1790553600,
+            "to": 1790640000,
+            "total": "500552198714755",
+            "count": 4,
+            "maxSingle": "243777790339924",
+            "singleConcentrationBps": "4870",
+            "topRecipient": "0xf1EdBf98ddA764Ec51dE3776371F0F7d6F6156a8",
+            "recipientConcentrationBps": "4870",
+            "eventIds": [
+              "event-f18b11950890a1ed8113081d",
+              "event-911cca200fc2d85ba01063a0",
+              "event-0757a0637feb8b0b66d83eca",
+              "event-e6e6e14391b6400c0a8ec1b7"
+            ]
+          },
+          {
+            "from": 1790640000,
+            "to": 1790726400,
+            "total": "560114642190619",
+            "count": 9,
+            "maxSingle": "314486481740444",
+            "singleConcentrationBps": "5614",
+            "topRecipient": "0xf1EdBf98ddA764Ec51dE3776371F0F7d6F6156a8",
+            "recipientConcentrationBps": "5614",
+            "eventIds": [
+              "event-26bdbf5b03644edefd3395a6",
+              "event-4abed7be390129c28a7199db",
+              "event-429f54983042968b49f2aef8",
+              "event-90a113fa789f900c5c0c3745",
+              "event-d19c9a2642a9ea61b29cf1c5",
+              "event-575ca255201a9f3deb0b3309",
+              "event-02dc85bb5d619234e8b400cd",
+              "event-b394c03e34c0709ec80673ca",
+              "event-312b9966045337ac48cea68e"
+            ]
+          }
+        ],
+        "total": "3517652273403638",
+        "meanNumerator": "3517652273403638",
+        "meanDenominator": "7",
+        "count": "61"
+      },
+      "relativeTotalBps": "24997",
+      "relativeCountBps": "17213",
+      "flags": [],
+      "limitations": [
+        "零基线的相对变化不可计算，不输出无穷倍。",
+        "候选从大额交易样本中选取，有选择偏差，不是独立预测验证。",
+        "集中转账可能是正常资金归集；链上无法单独证明现实身份或经营意图。"
+      ]
+    },
+    "display": {
+      "currentTotal": "1256160344.465382 USDC",
+      "currentMaxSingle": "291925450.020739 USDC",
+      "baselineTotal": "3517652273.403638 USDC",
+      "relativeTotalRatio": "2.4997",
+      "relativeCountRatio": "1.7213",
+      "currentVersusDailyMean": "高于此前7日日均",
+      "comparisonDefinition": "倍数=评估日总量/(此前7日合计/7)，不是除以7日合计。bps除以一万得到倍数；直接引用relativeTotalRatio，不要重新计算。",
+      "countDefinition": "笔数包含返回的value=0日志；最低规模阈值应用于整日转出合计，不是逐条过滤条件。"
+    },
+    "collection": {
+      "capturedAt": "2026-10-06T15:53:41.227Z",
+      "rpcHost": "ethereum.publicnode.com",
+      "selection": "120 块大额样本候选；固定阈值筛选，非独立预测验证",
+      "complete": true,
+      "rawFile": "cases/mainnet/0x31173ed183e5a9450c3671018ec4d770c8a8bf18.raw.json",
+      "followupFromBlock": 26086570,
+      "indexHost": "eth.blockscout.com",
+      "coverageMethod": "bounded-index-pagination + every returned transfer checked against RPC receipt and block",
+      "limitations": [
+        "无法独立证明第三方索引绝无遗漏。",
+        "代币精度是当前读取，不是历史 eth_call。",
+        "探索性选样，不是独立预测验证。"
+      ]
+    },
+    "checkpoint": {
+      "blockNumber": 26093737,
+      "blockHash": "0xcd26204e996dceb606ccf0bc6f5bf8ea6747a471df8be73b5855f01624d5d743",
+      "timestamp": 1790812799,
+      "head": 26136675,
+      "finalizedBlock": 26136609,
+      "coverageComplete": true,
+      "syncedAt": "2026-10-06T23:38:35.815Z",
+      "status": "ok",
+      "fromBlock": 26029316,
+      "coverageMethod": "bounded-index-pagination + every returned transfer checked against RPC receipt and block",
+      "replay": true,
+      "capturedAt": "2026-10-06T15:53:41.227Z",
+      "sourceLimitations": [
+        "无法独立证明第三方索引绝无遗漏。",
+        "代币精度是当前读取，不是历史 eth_call。",
+        "探索性选样，不是独立预测验证。"
+      ],
+      "refreshMethod": "复用已采集覆盖记录；本次核对截止区块与新增区块，不代表重新全量获取旧窗口"
+    }
+  },
+  "toolRuns": [
+    {
+      "id": "29502142-0eea-470f-82c7-154948becc5c",
+      "name": "get_business_events",
+      "arguments": {},
+      "startedAt": "2026-10-06T23:43:24.374Z",
+      "status": "ok",
+      "evidenceIds": [
+        "event-03a96203652c635f4d347459",
+        "event-479d4ce15e279ac995a28119",
+        "event-a2310c4be8d02300bb71a639",
+        "event-02185d9d0c7faa00066fd13f",
+        "event-546298248d9062df0753df31",
+        "event-65853a1c694c67d67c4bb624",
+        "event-be833be0db4042ec4068ac4a",
+        "event-cac0ed05f63be36c57510199",
+        "event-7e1718219fabf353b78d7461",
+        "event-247cc8f0f140522aeb1d82a5",
+        "event-da9448c148fd5cd27f85cda6",
+        "event-46a81edbbd347620533dc302",
+        "event-1558ccfd848994ef78cdf4d9",
+        "event-ce4f8de7585cdc4396386a90",
+        "event-4f25230db815e6efdd1cd785",
+        "event-4523af4c90f6be50be71eca8",
+        "event-309a080aaa1a3952c5c7723c",
+        "event-349261111e134c4a04ee0366",
+        "event-962fc2ce86a234ab4ba52f97",
+        "event-7184c28d1f14cc754bf9336c",
+        "event-00af591c86b649410fd809c5",
+        "event-8d9d7b585deb033381f6d47f",
+        "event-6314679bdae2cd2ba5f17f5c",
+        "event-3118f39f65cb09914490b648",
+        "event-7a15cc15653f2d290a33aff8",
+        "event-9cd894081811256c699fc3fe",
+        "event-a009e50c01b4e8f934b95e58",
+        "event-9ff1c5b73845149c004d7a0d",
+        "event-eea3302294fce510e0b5c2e8",
+        "event-06e5077d9a2f671a4985acb8",
+        "event-9d30cfce180a5f4d23fcc777",
+        "event-3003a521f78d85d5bdf75535",
+        "event-e0668adc492b74e8e34dced2",
+        "event-d70685a3b368a0fbeba0cd15",
+        "event-6f91359996a0a63cbf8fcc2c",
+        "event-a2f08f28d6ca68bc732e5c94",
+        "event-c158fbd61edc604791c3ce2d",
+        "event-4b15d988af92e5a77ca78f89",
+        "event-3e3f9d4af0c72ec617695055",
+        "event-20339a47e82f2be22f83dbf2",
+        "event-937152bbdd32475f3b005f71",
+        "event-90d56df5e76adadfebef49a5",
+        "event-655eeea9c68982cc08b0823a",
+        "event-73b8c3a74d20c1194152b58b",
+        "event-b2b5ec9ea11cb623899179f3",
+        "event-3292866b116214fab6fd6d21",
+        "event-54c77128872b679cb21adf98",
+        "event-cfb3404d0231738dbd629d84",
+        "event-61d2c6bc9ea8916d3dc382c4",
+        "event-1c61c43aa8825007bc86ad77",
+        "event-5a01f4d0636d9d5d2b94b7d6",
+        "event-f1540e53c6ec32e6593bde2f",
+        "event-4a61a9766fd2c2070fb0df9e",
+        "event-f9009a563095ff0dd8d35153",
+        "event-9a80351c918ca3ce0ae20839",
+        "event-8981539bb900bc835df241b0",
+        "event-596a8eb1cefb5c36ae377020",
+        "event-b9a67d09541f3343a643a749",
+        "event-76091feb8ad09f849c9efbb4",
+        "event-473dd4127d7890c8879a98bf",
+        "event-2284695d572ab31ccc63d88c",
+        "event-718ea13d57d8494886c8c21f",
+        "event-739e6a64d361fa5738a945e1",
+        "event-0ccd00479c7ac7e6d9b7b87d",
+        "event-2c6fae9beabf7687bcd6a4b2",
+        "event-b8f269082de1797ad1f55b60",
+        "event-53648d0cd2ebc4c820876d65",
+        "event-615ef675be7185ccb6b54e2a",
+        "event-f18b11950890a1ed8113081d",
+        "event-911cca200fc2d85ba01063a0",
+        "event-0b4693ceecdcdacfd6ba402d",
+        "event-0757a0637feb8b0b66d83eca",
+        "event-e7ff387bb3bb1f624e8eaa97",
+        "event-37686b2656d005b29e897bbe",
+        "event-e6e6e14391b6400c0a8ec1b7",
+        "event-5fa04295387e768348b34fbe",
+        "event-26bdbf5b03644edefd3395a6",
+        "event-4abed7be390129c28a7199db",
+        "event-429f54983042968b49f2aef8",
+        "event-c69fe343b3e58070305a152c",
+        "event-90a113fa789f900c5c0c3745",
+        "event-d19c9a2642a9ea61b29cf1c5",
+        "event-4e04dc56e8fdcd28c9a51511",
+        "event-575ca255201a9f3deb0b3309",
+        "event-04ece1e5ee3ae10c394d1450",
+        "event-49dda79db1833b12dfdf01a7",
+        "event-02dc85bb5d619234e8b400cd",
+        "event-b394c03e34c0709ec80673ca",
+        "event-312b9966045337ac48cea68e",
+        "event-9b3f4f18771827ba82398f06",
+        "event-0b485754e327cdfdd708e486",
+        "event-3be698a925b7f84e29fc1ebc",
+        "event-22258f8d327c15cfeceeffbe",
+        "event-2d74c3058548d580f33aeb7d",
+        "event-2501e4f802f67198672b2a7f",
+        "event-86fa0c4098a03d794042d718",
+        "event-0dbd6ab70a950b8ba262e522",
+        "event-63aa132951836f2f11357fa8",
+        "event-80639f368f413a963bd49307",
+        "event-296f785d3113f09b29cd7763",
+        "event-82470b2752a2f9322150b6df",
+        "event-0ebaa6b92dcd932062bbb31c",
+        "event-da2faacd05d186dec053d844",
+        "event-2a2a3161e841d09b7001007f",
+        "event-2fc994ba2e38d6fd9983d611",
+        "event-b4ae453ea4facca709e48ee9",
+        "event-511a3c8fc8c3a1e469833714",
+        "event-5cfac010f091383db3716107",
+        "event-b76ffc49146bb36264bbefc3",
+        "event-4e3beb86296980d964edee41",
+        "event-52fd692a878bf091a89a9448",
+        "event-15d5c37a89307b27bf53638a",
+        "event-b16d311fcf8193117083ebba",
+        "event-e7249b5b70b8bd83bb437a97",
+        "event-8412c46995c0581adeb181b9",
+        "event-e820ac4d47e4408e9969dbf2",
+        "event-ec300b9d22782c60ce6a4f9d",
+        "event-e8d15c57f49d6a58ee693ec1",
+        "event-8f7fa2bd832aa59bf0aea340",
+        "event-fdfffbe3908f885f2fd4ac7a"
+      ],
+      "summary": "取得 120 条证据"
+    },
+    {
+      "id": "deeb3764-ec54-49e9-bb23-19ae94bc8cdf",
+      "name": "compute_metrics",
+      "arguments": {},
+      "startedAt": "2026-10-06T23:43:24.376Z",
+      "status": "ok",
+      "evidenceIds": [
+        "metrics-5d46f957e7ec555949749ce7"
+      ],
+      "summary": "取得 1 条证据"
+    },
+    {
+      "id": "ddb29d37-515c-4378-91a4-71b30de11977",
+      "name": "get_tx_evidence",
+      "arguments": {
+        "txHash": "0x7f3137702ad9e9bdcfb8b978705e4e6d052cb8069d8062eacbd64cd73dfafadb"
+      },
+      "startedAt": "2026-10-06T23:43:25.448Z",
+      "status": "ok",
+      "evidenceIds": [
+        "tx-0ceefd61bdfc4a4ccf333ab6"
+      ],
+      "summary": "取得 1 条证据"
+    },
+    {
+      "id": "df41b6a6-c6cc-4ba9-9b25-c69f3ea0759e",
+      "name": "get_token_transfers",
+      "arguments": {
+        "address": "0x688CC76D3b009d805AB6b4D0A1cbd228131b5cBF"
+      },
+      "startedAt": "2026-10-06T23:43:26.898Z",
+      "status": "ok",
+      "evidenceIds": [
+        "followup-e835fd25d89d880e2552da34"
+      ],
+      "summary": "取得 1 条证据"
+    }
+  ],
+  "generatedAt": "2026-10-06T23:43:48.385Z",
+  "review": {
+    "at": "2026-10-07T00:10:45.452Z",
+    "method": "development-evidence-review",
+    "notes": [
+      {
+        "text": "大额样本仅用于发现候选；指标使用已保存完整窗口，对评估日与七日基线采用相同口径。原稿把金额增长归因于候选采样的假设不采用。零金额日志可影响笔数，但不能放大金额合计。第三方索引仍有遗漏和样本代表性风险。",
+        "evidenceIds": [
+          "metrics-5d46f957e7ec555949749ce7"
+        ]
+      },
+      {
+        "text": "未查询不等于没有转出。实际补查仅覆盖所查询接收地址的锚点后最多 120 区块；金额接近与时序相邻不证明逐枚资金来源、现实身份或完整余额。规则未告警不等于安全。",
+        "evidenceIds": [
+          "followup-e835fd25d89d880e2552da34"
+        ]
+      }
+    ],
+    "excludedHypotheses": [
+      2
+    ]
+  }
+}

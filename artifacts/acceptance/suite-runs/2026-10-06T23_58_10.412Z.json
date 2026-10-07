@@ -1,0 +1,83 @@
+{
+  "startedAt": "2026-10-06T23:58:10.412Z",
+  "finishedAt": "2026-10-06T23:58:50.926Z",
+  "scopePassed": false,
+  "projectP0Complete": false,
+  "options": [
+    "--online",
+    "--contracts"
+  ],
+  "results": [
+    {
+      "name": "TypeScript",
+      "status": "passed",
+      "exitCode": 0,
+      "output": "",
+      "durationMs": 1364
+    },
+    {
+      "name": "网页生产构建",
+      "status": "passed",
+      "exitCode": 0,
+      "output": "vite v7.3.7 building client environment for production...\ntransforming...\n✓ 175 modules transformed.\nrendering chunks...\ncomputing gzip size...\n../dist/web/index.html                   0.57 kB │ gzip:   0.44 kB\n../dist/web/assets/index-Boit3eqx.css    5.67 kB │ gzip:   1.84 kB\n../dist/web/assets/index-BOLekYFO.js   511.47 kB │ gzip: 174.62 kB\n\n(!) Some chunks are larger than 500 kB after minification. Consider:\n- Using dynamic import() to code-split the application\n- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks\n- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.\n✓ built in 1.34s\n",
+      "durationMs": 1496
+    },
+    {
+      "name": "分析与数据工具单元测试（synthetic/mock）",
+      "status": "passed",
+      "exitCode": 0,
+      "output": "▶ Report evidence boundaries (synthetic unit fixtures)\n  ✔ accepts a scoped evidence-backed draft (3.875875ms)\n  ✔ rejects a fact without evidence (0.223709ms)\n  ✔ rejects cross-dataset and cross-network hypothesis references (0.192209ms)\n  ✔ rejects evidence after the investigation cutoff (0.105042ms)\n  ✔ rejects fabricated hashes outside findings too (0.308917ms)\n  ✔ rejects a real hash cited against the wrong evidence (0.14075ms)\n  ✔ rejects definitive accusations in a headline (0.149375ms)\n  ✔ accepts explicit uncertainty instead of mistaking negated accusations for convictions (0.685084ms)\n  ✔ does not equate no alert with normality or withdrawal with another member debit (0.336958ms)\n  ✔ rejects unrelated mainnet consumer-protection claims (0.204541ms)\n  ✔ does not apply ERC20 daily-baseline fields to a gym investigation (0.338125ms)\n  ✔ does not describe unused-credit refunds as reversals of consumed services (0.553375ms)\n  ✔ rejects injected additional output fields (0.475958ms)\n  ✔ rejects a false monetary amount despite a valid evidence ID (0.580708ms)\n  ✔ rejects invented raw amounts and incomplete guessed digits (0.313ms)\n  ✔ rejects alerts absent from the deterministic flags and unqueried whole-balance claims (1.65475ms)\n  ✔ checks headline amount precision, not just factual findings (0.299333ms)\n  ✔ does not rename a different follow-up recipient as the aggregate-largest recipient (0.206333ms)\n  ✔ does not mistake a date or ERC20 label for a token amount (0.297417ms)\n  ✔ rejects a mislabeled state amount (0.428125ms)\n  ✔ accepts the exact amount and converts configured token precision (0.238625ms)\n✔ Report evidence boundaries (synthetic unit fixtures) (12.5855ms)\n▶ Quantitative rules (synthetic unit fixtures)\n  ✔ calculates large integer basis points without floating point (0.084625ms)\n  ✔ does not call an ordinary 30-token withdrawal anomalous (0.567458ms)\n  ✔ flags a concentrated withdrawal with its exact denominator (0.142375ms)\n  ✔ does not mistake an earlier block with a higher log index for a later payout (0.092834ms)\n  ✔ detects a same-block payout change followed by withdrawal (0.079541ms)\n  ✔ calculates transfer metrics with a left-closed, right-open window (0.215791ms)\n✔ Quantitative rules (synthetic unit fixtures) (1.294417ms)\n▶ Program-generated facts (synthetic unit fixtures)\n  ✔ uses scoped successful tools only and does not rename the recipient as the call target (0.435083ms)\n  ✔ projects precision, flags and zero-valued follow-up logs without inventing balances (8.774583ms)\n✔ Program-generated facts (synthetic unit fixtures) (9.282ms)\n▶ Index transactions and rollback (isolated synthetic fixtures)\n  ✔ deduplicates rescanned tx/log IDs (1.130958ms)\n  ✔ rolls back an interrupted database transaction atomically (0.594166ms)\n  ✔ preserves ancestor evidence, removes orphan evidence and marks reports stale (0.746125ms)\n  ✔ keeps reports at/before a matched ancestor, but invalidates them on full reset (0.773791ms)\n✔ Index transactions and rollback (isolated synthetic fixtures) (3.882917ms)\n▶ Mainnet quantifier (synthetic fixtures, not mainnet proof)\n  ✔ uses seven complete UTC days, rational baseline and identical thresholds (0.863167ms)\n  ✔ does not calculate a growth multiple on an empty baseline (0.105083ms)\n  ✔ rejects a short baseline or partial-day comparison (0.102666ms)\n✔ Mainnet quantifier (synthetic fixtures, not mainnet proof) (1.208333ms)\n▶ Fixed post-receipt follow-up scope (synthetic fixtures)\n  ✔ anchors the largest positive assessment-day transfer using integer amounts (0.211084ms)\n  ✔ caps the horizon at the case cutoff and rejects target/self or unrelated recipients (0.120625ms)\n✔ Fixed post-receipt follow-up scope (synthetic fixtures) (0.443541ms)\n▶ Agent execution boundaries (mock model; not real LLM proof)\n  ✔ rejects signing/shell tools and unknown arguments or addresses (2.462958ms)\n  ✔ bounds business-event output to 120 even when assessment fills every slot (3.160875ms)\n  ✔ finishes at exactly ten tool calls instead of discarding the report (16.5485ms)\n  ✔ queues another dataset instead of failing it as busy (5.246ms)\n✔ Agent execution boundaries (mock model; not real LLM proof) (27.674083ms)\nℹ tests 42\nℹ suites 7\nℹ pass 42\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 405.045\n",
+      "durationMs": 539
+    },
+    {
+      "name": "本地 EVM 合约测试（会快照回滚；不覆盖公开链）",
+      "status": "passed",
+      "exitCode": 0,
+      "output": "Compiled demo contracts using pinned solc 0.8.30+commit.73712a01.Emscripten.clang\n{\"deployed\":true,\"chainId\":31337,\"token\":\"0x4826533B4897376654Bb4d4AD88B7faFD0C98528\",\"escrow\":\"0x99bbA657f2BbC93c02D617f8bA121cB8Fc104Acf\"}\n▶ Actual EVM: GYM escrow permissions and accounting\n  ✔ FLOW-01: fixed supply, zero decimals and deposit 3000 (233.857834ms)\n  ✔ FLOW-02: request does not debit; confirmation moves exactly 30 (410.703125ms)\n  ✔ FLOW-04: withdrawal transfers only earned revenue to payout (477.925458ms)\n  ✔ SAFE-01: merchant cannot confirm, stranger cannot operate merchant (516.601541ms)\n  ✔ SAFE-01: other user cannot confirm, reject or refund another balance (432.76125ms)\n  ✔ SAFE-01: over-withdrawal and repeated confirmation rejected (509.165708ms)\n  ✔ FLOW-03: reject and cancel never generate merchant revenue (534.486416ms)\n  ✔ FLOW-03: request expiry and automatic stale-request cleanup (522.098667ms)\n  ✔ SAFE-02: duplicate keys and concurrent requests rejected (403.29175ms)\n  ✔ SAFE-02: refund invalidates ability to over-confirm a pending request (396.883834ms)\n  ✔ SAFE-03: card expiry blocks top-up/consumption but not refund (588.076292ms)\n  ✔ SAFE-02: direct surplus does not become withdrawable (332.567958ms)\n  ✔ FLOW-04: payout change preserves credit and logs exact operator (614.473084ms)\n  ✔ SAFE-03: token transfer failures atomically roll back (639.361166ms)\n  ✔ SAFE-03: reentrant token callback cannot enter refund (429.48225ms)\n  ✔ QUANT/SAFE: deterministic operation sequence maintains invariant (2660.806875ms)\n  ✔ SAFE: invalid amount/allowance/credit rejected (566.229459ms)\n✔ Actual EVM: GYM escrow permissions and accounting (11584.357291ms)\nℹ tests 17\nℹ suites 1\nℹ pass 17\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 12031.86875\n",
+      "durationMs": 12068
+    },
+    {
+      "name": "主网保存数据离线复算",
+      "status": "passed",
+      "exitCode": 0,
+      "output": "{\n  \"passed\": true,\n  \"mode\": \"offline-replay\",\n  \"checks\": 18,\n  \"results\": [\n    {\n      \"role\": \"anomaly\",\n      \"datasetId\": \"mainnet-usdc-f07e3258-1790726400\",\n      \"reportId\": \"724ce936-b009-4601-bd72-59cb3b982d85\",\n      \"rawTransfers\": 80,\n      \"flags\": [\n        \"MAIN_CONCENTRATION\"\n      ]\n    },\n    {\n      \"role\": \"control\",\n      \"datasetId\": \"mainnet-usdc-31173ed1-1790726400\",\n      \"reportId\": \"4a0d9e83-e652-44d7-8655-ee17b311f875\",\n      \"rawTransfers\": 165,\n      \"flags\": []\n    }\n  ]\n}\n",
+      "durationMs": 383
+    },
+    {
+      "name": "四份当前报告与真实模型原稿核对",
+      "status": "passed",
+      "exitCode": 0,
+      "output": "{\n  \"passed\": true,\n  \"checks\": 10,\n  \"results\": [\n    {\n      \"role\": \"mainnet-anomaly\",\n      \"datasetId\": \"mainnet-usdc-f07e3258-1790726400\",\n      \"reportId\": \"724ce936-b009-4601-bd72-59cb3b982d85\",\n      \"jobId\": \"1ce0e7c0-af6b-413d-a6a2-8073fcfc5593\",\n      \"asOfBlock\": 26093737,\n      \"chainId\": 1,\n      \"toolCalls\": 6,\n      \"factCount\": 6\n    },\n    {\n      \"role\": \"mainnet-control\",\n      \"datasetId\": \"mainnet-usdc-31173ed1-1790726400\",\n      \"reportId\": \"4a0d9e83-e652-44d7-8655-ee17b311f875\",\n      \"jobId\": \"15a68a4c-262f-44da-92b8-674c2b514b80\",\n      \"asOfBlock\": 26093737,\n      \"chainId\": 1,\n      \"toolCalls\": 4,\n      \"factCount\": 4\n    },\n    {\n      \"role\": \"local-normal\",\n      \"datasetId\": \"local-6-1791299344390\",\n      \"reportId\": \"66b4b531-0728-43b5-8bd2-b165b2eeb977\",\n      \"jobId\": \"828f8424-ee90-4a3f-89a9-41c42b5f7fc7\",\n      \"asOfBlock\": 78,\n      \"chainId\": 31337,\n      \"toolCalls\": 6,\n      \"factCount\": 3\n    },\n    {\n      \"role\": \"local-anomaly\",\n      \"datasetId\": \"local-anomaly-65\",\n      \"reportId\": \"99c893f2-4d6c-4803-a760-262dfa4283fb\",\n      \"jobId\": \"820a8cda-4225-4faa-8b44-1fdba571a526\",\n      \"asOfBlock\": 78,\n      \"chainId\": 31337,\n      \"toolCalls\": 7,\n      \"factCount\": 3\n    }\n  ]\n}\n",
+      "durationMs": 288
+    },
+    {
+      "name": "实际 API 与导出核对",
+      "status": "failed",
+      "exitCode": 1,
+      "output": "{\"name\":\"API verification halted\",\"passed\":false,\"details\":\"Expected values to be strictly equal:\\n\\n400 !== 200\\n\"}\n",
+      "durationMs": 262
+    },
+    {
+      "name": "既有网页拒绝取消交易的链上核对（不是重新操作网页）",
+      "status": "passed",
+      "exitCode": 0,
+      "output": "{\"passed\":true,\"receipts\":4,\"balance\":\"2940\",\"merchantRevenue\":\"0\",\"block\":82}\n",
+      "durationMs": 263
+    },
+    {
+      "name": "主网只读在线样本复核",
+      "status": "failed",
+      "exitCode": 1,
+      "output": "{\"name\":\"verification halted\",\"passed\":false,\"details\":\"RPC transaction temporarily unavailable\"}\n",
+      "durationMs": 23846
+    }
+  ],
+  "limitations": [
+    "通过仅指本次列出的检查，不表示执行方案所有 P0 项通过。",
+    "不发送公开网络交易、不生成新模型报告、不申请资源、不重启服务。",
+    "报告检查依据已保存的实际数据与模型响应；自然语言语义仍可能存在残余错误。",
+    "网页链上核对使用已有实际浏览器交易，不是本次重新进行浏览器端到端操作。",
+    "Sepolia 公开业务、完整浏览器/故障/安全回归和冷启动复现尚需独立验收。",
+    "可选本地合约测试会改变测试链高度；不要同时发起调查或交易。"
+  ]
+}

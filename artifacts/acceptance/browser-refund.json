@@ -1,0 +1,12 @@
+{
+  "datasetId": "local-6-1791299344390",
+  "chainId": 31337,
+  "txHash": "0x6b891ce41196b0569ef2a50844ca8977c40b0b2bab925c084483d46465c1be31",
+  "receiptStatus": 1,
+  "block": 66,
+  "userBalance": "2940",
+  "wallet": "27030",
+  "merchantAvailable": "0",
+  "verifiedAt": "2026-10-06T16:00:50.002Z",
+  "scope": "Actual local browser action and independent EVM read"
+}

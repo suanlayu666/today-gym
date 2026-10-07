@@ -1,0 +1,14 @@
+{
+  "datasetId": "local-6-1791299344390",
+  "chainId": 31337,
+  "block": 11,
+  "userBalance": "2970",
+  "merchantAvailable": "0",
+  "payoutToken": "30",
+  "userWallet": "27000",
+  "verifiedAt": "2026-10-06T15:42:15.707Z",
+  "depositTx": "0x76691cb8d9bcef49466c6c8001a20d5be9b8b85b4f4f701ab17e9666eedaf456",
+  "requestTx": "0x34aa6b9799ab607cfc431bee0ccd78ba1a4abae101da7011c249fb1156508243",
+  "confirmTx": "0x2ed48ce428c49cd57c04f6f5d73ccb5e9067733c69fb9c2f4d8ae6cb76bf3e59",
+  "withdrawTx": "0x7bad1c21eb8543781420e5fa9e055a69a1311cc11d02f2607c7f7184feae5a89"
+}

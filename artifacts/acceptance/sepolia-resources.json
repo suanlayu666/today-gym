@@ -1,0 +1,30 @@
+{
+  "chainId": 11155111,
+  "network": "Ethereum Sepolia",
+  "preparedAt": "2026-10-07T03:30:43.178Z",
+  "rpcHost": "ethereum-sepolia.publicnode.com",
+  "accounts": {
+    "merchant": {
+      "address": "0x4710134650B35e657Db13Ec3AadBc93B374f0D11",
+      "wei": "0x0"
+    },
+    "userA": {
+      "address": "0x0C8945718099925786E510a8653cB4246f8a76C8",
+      "wei": "0x0"
+    },
+    "userB": {
+      "address": "0xCC92A942FbD151d771DB4f543DcFdF3D220E5974",
+      "wei": "0x0"
+    },
+    "payout": {
+      "address": "0x387F70E7c2739d8b6200900110393c949a9ab16C",
+      "wei": "0x0"
+    },
+    "nextPayout": {
+      "address": "0xAE571f23b5A991560CD49a33Cf2ACAB37f75Bfb2",
+      "wei": "0x0"
+    }
+  },
+  "fundingAddress": "0x4710134650B35e657Db13Ec3AadBc93B374f0D11",
+  "fundingNote": "只接收免费 Sepolia 测试 ETH，不能发送以太坊主网 ETH 或购买测试币。"
+}

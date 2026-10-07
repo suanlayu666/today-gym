@@ -1,0 +1,56 @@
+{
+  "at": "2026-10-06T23:38:37.604Z",
+  "results": [
+    {
+      "datasetId": "mainnet-usdc-31173ed1-1790726400",
+      "status": "pass",
+      "savedEvents": 165,
+      "checkpoint": {
+        "blockNumber": 26093737,
+        "blockHash": "0xcd26204e996dceb606ccf0bc6f5bf8ea6747a471df8be73b5855f01624d5d743",
+        "timestamp": 1790812799,
+        "head": 26136675,
+        "finalizedBlock": 26136609,
+        "coverageComplete": true,
+        "syncedAt": "2026-10-06T23:38:35.815Z",
+        "status": "ok",
+        "fromBlock": 26029316,
+        "coverageMethod": "bounded-index-pagination + every returned transfer checked against RPC receipt and block",
+        "replay": true,
+        "capturedAt": "2026-10-06T15:53:41.227Z",
+        "sourceLimitations": [
+          "无法独立证明第三方索引绝无遗漏。",
+          "代币精度是当前读取，不是历史 eth_call。",
+          "探索性选样，不是独立预测验证。"
+        ],
+        "refreshMethod": "复用已采集覆盖记录；本次核对截止区块与新增区块，不代表重新全量获取旧窗口"
+      }
+    },
+    {
+      "datasetId": "mainnet-usdc-f07e3258-1790726400",
+      "status": "pass",
+      "savedEvents": 80,
+      "checkpoint": {
+        "blockNumber": 26093737,
+        "blockHash": "0xcd26204e996dceb606ccf0bc6f5bf8ea6747a471df8be73b5855f01624d5d743",
+        "timestamp": 1790812799,
+        "head": 26136675,
+        "finalizedBlock": 26136609,
+        "coverageComplete": true,
+        "syncedAt": "2026-10-06T23:38:37.594Z",
+        "status": "ok",
+        "fromBlock": 26029316,
+        "coverageMethod": "bounded-index-pagination + every returned transfer checked against RPC receipt and block",
+        "replay": true,
+        "capturedAt": "2026-10-06T16:09:13.580Z",
+        "sourceLimitations": [
+          "无法独立证明第三方索引绝无遗漏。",
+          "代币精度是当前读取，不是历史 eth_call。",
+          "探索性选样，不是独立预测验证。"
+        ],
+        "refreshMethod": "复用已采集覆盖记录；本次核对截止区块与新增区块，不代表重新全量获取旧窗口"
+      }
+    }
+  ],
+  "scope": "实际手动同步核对：保存窗口的采集时间与索引来源不被误标为本次全量重采"
+}

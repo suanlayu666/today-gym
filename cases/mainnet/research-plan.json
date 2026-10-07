@@ -1,0 +1,12 @@
+{
+  "rule": {
+    "version": "usdc-flow-v1",
+    "baselineDays": 7,
+    "minRawAmount": "100000000000",
+    "growthBps": "50000",
+    "singleConcentrationBps": "8000"
+  },
+  "recordedAt": "2026-10-06T16:01:58.683Z",
+  "selection": "检索最近完整 UTC 日末 120 个区块的 USDC 转账，按金额选前 3 个非零转出地址；采集此前 14 个完整日。依固定阈值选择异常与无提醒的正常对照窗口。",
+  "sourceUrl": "https://developers.circle.com/stablecoins/usdc-contract-addresses"
+}

@@ -1,0 +1,157 @@
+{
+  "rule": {
+    "version": "usdc-flow-v1",
+    "baselineDays": 7,
+    "minRawAmount": "100000000000",
+    "growthBps": "50000",
+    "singleConcentrationBps": "8000"
+  },
+  "unit": "raw token units",
+  "decimals": 6,
+  "current": {
+    "from": 1790726400,
+    "to": 1790812800,
+    "total": "13200000000000",
+    "count": 3,
+    "maxSingle": "11200000000000",
+    "singleConcentrationBps": "8484",
+    "topRecipient": "0xD178a90C41ff3DcffbfDEF7De0BAF76Cbfe6a121",
+    "recipientConcentrationBps": "8484",
+    "eventIds": [
+      "event-809eb80f85d5eac9ed40bab1",
+      "event-b92af9d040385923f0e4436d",
+      "event-a7d253d7402e33a07e535ad6"
+    ]
+  },
+  "baseline": {
+    "days": 7,
+    "from": 1790121600,
+    "to": 1790726400,
+    "daily": [
+      {
+        "from": 1790121600,
+        "to": 1790208000,
+        "total": "18000000000150",
+        "count": 7,
+        "maxSingle": "5000000000000",
+        "singleConcentrationBps": "2777",
+        "topRecipient": "0x0405bb0dFcaf9983E0B2eece98A1DF1cb54e291a",
+        "recipientConcentrationBps": "5555",
+        "eventIds": [
+          "event-88e5db8b5adbd124045b0529",
+          "event-a1b32f9f6e5127a32a223125",
+          "event-1a082e53ae597eb9fb93892e",
+          "event-36c7c48fd3f61d3fbfa8361d",
+          "event-a2687ff4b83cb85b2da250a1",
+          "event-6f2ba83b96d1dd1db7f6c393",
+          "event-987fffd08a2df8393401c86d"
+        ]
+      },
+      {
+        "from": 1790208000,
+        "to": 1790294400,
+        "total": "0",
+        "count": 2,
+        "maxSingle": "0",
+        "singleConcentrationBps": null,
+        "topRecipient": "0x8E71ae8f3b88f052708216917241ccff06038232",
+        "recipientConcentrationBps": null,
+        "eventIds": [
+          "event-ce6803b8c6e8b89fdad9cdec",
+          "event-10872863bdcccc7701c70bd3"
+        ]
+      },
+      {
+        "from": 1790294400,
+        "to": 1790380800,
+        "total": "25000400000000",
+        "count": 8,
+        "maxSingle": "5000100000000",
+        "singleConcentrationBps": "2000",
+        "topRecipient": "0x0405bb0dFcaf9983E0B2eece98A1DF1cb54e291a",
+        "recipientConcentrationBps": "8000",
+        "eventIds": [
+          "event-2093af0913b4c5e0ff00b874",
+          "event-3c3c48feb664c4ad74e30d42",
+          "event-e8af21b93acd3c323a41f1ad",
+          "event-3c9b49ce76b65b63b62102f9",
+          "event-ca7926c4ad7c3843ef98de5b",
+          "event-c1676d3380f571be80d49834",
+          "event-cd3cd56d3932a3eab7a3bc95",
+          "event-a057f43d1e0b3cac4c80b9f9"
+        ]
+      },
+      {
+        "from": 1790380800,
+        "to": 1790467200,
+        "total": "0",
+        "count": 0,
+        "maxSingle": "0",
+        "singleConcentrationBps": null,
+        "topRecipient": null,
+        "recipientConcentrationBps": null,
+        "eventIds": []
+      },
+      {
+        "from": 1790467200,
+        "to": 1790553600,
+        "total": "0",
+        "count": 0,
+        "maxSingle": "0",
+        "singleConcentrationBps": null,
+        "topRecipient": null,
+        "recipientConcentrationBps": null,
+        "eventIds": []
+      },
+      {
+        "from": 1790553600,
+        "to": 1790640000,
+        "total": "12000000000000",
+        "count": 5,
+        "maxSingle": "5000000000000",
+        "singleConcentrationBps": "4166",
+        "topRecipient": "0x0405bb0dFcaf9983E0B2eece98A1DF1cb54e291a",
+        "recipientConcentrationBps": "8333",
+        "eventIds": [
+          "event-4aaee05d891039f061781a4c",
+          "event-0ab4a2ff3fe056c1d7aa5eaf",
+          "event-df49c631acb7ff760b29e8ab",
+          "event-008925d58d736e48e23bf20c",
+          "event-3fea4d7c27d630139435e047"
+        ]
+      },
+      {
+        "from": 1790640000,
+        "to": 1790726400,
+        "total": "7000000000000",
+        "count": 6,
+        "maxSingle": "5000000000000",
+        "singleConcentrationBps": "7142",
+        "topRecipient": "0x0405bb0dFcaf9983E0B2eece98A1DF1cb54e291a",
+        "recipientConcentrationBps": "7142",
+        "eventIds": [
+          "event-bfd0508826ecc5ccc7e58c8a",
+          "event-8fe0ef608432e26f38764a8c",
+          "event-d4dfdbdda35f0ebf3dcc1934",
+          "event-3bfff1f53be1d4ce1daba5ec",
+          "event-61cd0766431491f735350dde",
+          "event-baa918943c5282a486e01f2f"
+        ]
+      }
+    ],
+    "total": "62000400000150",
+    "meanNumerator": "62000400000150",
+    "meanDenominator": "7",
+    "count": "28"
+  },
+  "relativeTotalBps": "14903",
+  "relativeCountBps": "7500",
+  "flags": [
+    "MAIN_CONCENTRATION"
+  ],
+  "limitations": [
+    "零基线的相对变化不可计算，不输出无穷倍。",
+    "候选从大额交易样本中选取，有选择偏差，不是独立预测验证。",
+    "集中转账可能是正常资金归集；链上无法单独证明现实身份或经营意图。"
+  ]
+}

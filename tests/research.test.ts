@@ -1,0 +1,41 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {comparisonCases} from '../server/comparison-cases.ts';
+import {researchSummary,ResearchService,validateResearchInterpretation} from '../server/research-service.ts';
+import {runFlowStage} from '../server/flow-agent.ts';
+import {Store} from '../server/store.ts';
+import {ChainService} from '../server/chain.ts';
+import {mainnetMetrics} from '../server/mainnet-metrics.ts';
+import type {Dataset,ChainEvent,Evidence} from '../shared/types.ts';
+import type {FlowEvent,FlowStage,FlowToolRun} from '../shared/flow.ts';
+import {exactTokenAmount,type ResearchRun} from '../shared/research.ts';
+const address=(n:number)=>'0x'+n.toString(16).padStart(40,'0'),hash=(n:number)=>'0x'+n.toString(16).padStart(64,'0');
+const ds:Dataset={id:'public-test',chainId:1,dataOrigin:'public-mainnet',adapter:'erc20',name:'test',token:address(8),tokenSymbol:'USDC',decimals:6,deploymentBlock:1,target:address(1),fromBlock:1,toBlock:9,analysisWindow:{from:8*86400,to:9*86400},baselineDays:7,caseRole:'anomaly',collection:{capturedAt:'2026-10-07T00:00:00Z',rpcHost:'test',selection:'synthetic unit fixture',complete:true,rawFile:'unused'}};
+const events:ChainEvent[]=Array.from({length:8},(_,i)=>({id:'ev-'+i,datasetId:ds.id,chainId:1,address:ds.token,name:'Transfer',args:{from:address(1),to:address(4),value:i===7?'200000000000':'100000000000'},txHash:hash(i+1),blockNumber:i+1,blockHash:hash(i+1),timestamp:(i+1)*86400+30,transactionIndex:0,logIndex:0,finality:'finalized'}));
+const metrics=mainnetMetrics(ds,events);
+const run:ResearchRun={id:'run',datasetId:ds.id,asOfBlock:9,status:'complete',risk:'insufficient',startedAt:'2026-10-07T00:00:00Z',finishedAt:'2026-10-07T00:00:01Z',stages:[],online:{status:'verified',scope:'sample only'}};
+test('三种方法样例重算结果与模拟来源一致',()=>{const [steady,clustered,short]=comparisonCases();assert.equal(steady.origin,'synthetic');assert.equal(steady.metrics.flags.length,0);assert.equal(clustered.metrics.flags.length,3);assert.equal(short.metrics.outflowToReceiptBps,'9000');assert.equal(short.metrics.amountVsMedianBps,null);assert.equal(short.metrics.baselineCount,0);});
+test('主网原始金额按六位小数显示，不混成 GYM 或健身房数据',()=>{const s=researchSummary(metrics);assert.ok(s.happened.includes('200,000.0 USDC'));assert.ok(!s.happened.includes('GYM'));assert.ok(s.boundary.includes('不是健身房账单'));assert.ok(s.label.includes('等待'));assert.equal(exactTokenAmount('900719925474099312345678',6),'900,719,925,474,099,312.345678');});
+test('规则未告警不能宣称正常，失败不能宣称完成',()=>{const control={...metrics,flags:[]};assert.ok(researchSummary(control).reasons.some(r=>r.includes('不代表')));assert.equal(researchSummary(control,{...run,status:'partial'}).label,'本次检查未完成');assert.equal(researchSummary(control,run).label,'现有证据不足');assert.equal(researchSummary(control,{...run,risk:'disputed'}).label,'两位智能体存在分歧');});
+test('主网案例入口拒绝本地/模拟/未授权数据集',()=>{const store=new Store(':memory:');try{store.put('datasets',ds);for(const e of events)store.addEvent(e);store.put('datasets',{...ds,id:'local',chainId:31337,dataOrigin:'local-chain'});const s=new ResearchService(store,new ChainService(store));assert.equal(s.overview().cases.length,1);assert.throws(()=>s.dataset('local'));assert.throws(()=>s.dataset('../file'));assert.equal(s.getCase(ds).anchor.txHash,hash(8));}finally{store.close();}});
+test('公共链复核员必须额外追踪接收方，不能直接复述',async()=>{
+  const event:FlowEvent={id:'event',txHash:hash(9),blockNumber:9,blockHash:hash(9),logIndex:0,timestamp:9*86400,from:address(1),to:address(4),amount:'1000000',kind:'withdrawal'};
+  let calls=0;const model=async(body:Record<string,unknown>)=>{calls++;if(body.tools)return {tool_calls:['list_events','compute_metrics','verify_transaction',...(calls===1?[]:['trace_recipient'])].map((name,i)=>({id:'call-'+i,function:{name,arguments:JSON.stringify(name==='verify_transaction'?{txHash:event.txHash}:name==='trace_recipient'?{address:event.to}:{})}}))};return {content:JSON.stringify({summary:'只能确认已观察资金行为，现实用途未知',risk:'insufficient',verdict:'insufficient',observations:[{type:'inference',text:'需要更多证据',evidenceIds:['known']}],alternatives:['正常归集是尚未证实的解释'],limitations:['窗口有限'],recommendation:'补充凭证'})};};
+  const s=await runFlowStage('reviewer',ds,event,'测试',async()=>({data:{testFixture:true},evidenceIds:['known']}),()=>{},undefined,model,{description:'公开主网研究，不是健身房数据。',boundary:'测试替身，不是真实链查询。'});assert.equal(s.status,'complete');assert.ok(s.toolRuns.some(t=>t.name==='trace_recipient'&&t.status==='ok'));assert.equal(calls,3);
+});
+test('场景校验器拒绝错误解释时不得标记完成',async()=>{
+  const event:FlowEvent={id:'event',txHash:hash(9),blockNumber:9,blockHash:hash(9),logIndex:0,timestamp:9*86400,from:address(1),to:address(4),amount:'1000000',kind:'payment'};
+  const model=async(body:Record<string,unknown>)=>body.tools?{tool_calls:['list_events','compute_metrics','verify_transaction'].map((name,i)=>({id:'call-'+i,function:{name,arguments:JSON.stringify(name==='verify_transaction'?{txHash:event.txHash}:{})}}))}:{content:JSON.stringify({summary:'test',risk:'attention',observations:[{type:'inference',text:'test',evidenceIds:['known']}],alternatives:['test'],limitations:['test'],recommendation:'test'})};
+  const s=await runFlowStage('investigator',ds,event,'测试',async()=>({data:{},evidenceIds:['known']}),()=>{},undefined,model,{description:'test',boundary:'test',validate:()=>{throw Error('semantic validation failure');}});assert.equal(s.status,'failed');
+});
+test('报告适配保留长解释、大样本与完整语义核验，不因标题或引用上限误拒',()=>{
+  const eventIds=Array.from({length:40},(_,i)=>'baseline-'+i),ids=[...eventIds,'metric'];
+  const evidence:Evidence[]=ids.map(id=>({id,datasetId:ds.id,chainId:1,kind:'window',asOfBlock:9,capturedAt:'now',facts:id==='metric'?{metrics}: {},coverage:{complete:true,missing:[]}}));
+  const runs:FlowToolRun[]=[{id:'list',name:'list_events',arguments:{},at:'now',status:'ok',result:{},evidenceIds:eventIds},{id:'metric',name:'compute_metrics',arguments:{},at:'now',status:'ok',result:metrics,evidenceIds:['metric']}];
+  const result:NonNullable<FlowStage['result']>={summary:'证据仍不足，现实用途无法确认。'.repeat(15),risk:'insufficient',observations:[{type:'inference',text:'只能确认资金变化。',evidenceIds:['metric']}],alternatives:['可能是正常结算。'.repeat(30),'正常资金调度也需凭证。'.repeat(30)],limitations:['用途未知'],recommendation:'补充凭证'};
+  assert.doesNotThrow(()=>validateResearchInterpretation(ds,result,runs,evidence,9));
+  assert.throws(()=>validateResearchInterpretation(ds,{...result,summary:'确定跑路'},runs,evidence,9));
+  assert.throws(()=>validateResearchInterpretation(ds,{...result,summary:'转出 777 USDC'},runs,evidence,9));
+  assert.throws(()=>validateResearchInterpretation(ds,{...result,summary:'评估日窗口不完整，需补齐完整一日。'},runs,evidence,9));
+  assert.doesNotThrow(()=>validateResearchInterpretation(ds,{...result,summary:'不能说评估日窗口不完整；无法独立排除第三方索引遗漏。'},runs,evidence,9));
+});

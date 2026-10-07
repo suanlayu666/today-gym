@@ -1,0 +1,109 @@
+{
+  "at": "2026-10-07T01:40:46.899Z",
+  "checks": [
+    {
+      "name": "health and config contain public fields, not credentials",
+      "passed": true
+    },
+    {
+      "name": "unknown browser Origin rejected",
+      "passed": true
+    },
+    {
+      "name": "DNS-rebinding/unknown Host rejected",
+      "passed": true
+    },
+    {
+      "name": "local browser Origin permitted",
+      "passed": true
+    },
+    {
+      "name": "invalid dataset rejected, not silently substituted",
+      "passed": true
+    },
+    {
+      "name": "invalid user address rejected",
+      "passed": true
+    },
+    {
+      "name": "malformed JSON and oversized body rejected",
+      "passed": true
+    },
+    {
+      "name": "unknown signing/API operation is unavailable",
+      "passed": true
+    },
+    {
+      "name": "empty question and arbitrary URL argument rejected before task creation",
+      "passed": true
+    },
+    {
+      "name": "mainnet-usdc-31173ed1-1790726400: overview network and mainnet read-only data separation",
+      "passed": true
+    },
+    {
+      "name": "mainnet-usdc-31173ed1-1790726400: JSON/Markdown export match persisted report",
+      "passed": true
+    },
+    {
+      "name": "mainnet-usdc-31173ed1-1790726400: report references resolve through actual evidence API",
+      "passed": true,
+      "details": {
+        "references": 5
+      }
+    },
+    {
+      "name": "mainnet-usdc-f07e3258-1790726400: overview network and mainnet read-only data separation",
+      "passed": true
+    },
+    {
+      "name": "mainnet-usdc-f07e3258-1790726400: JSON/Markdown export match persisted report",
+      "passed": true
+    },
+    {
+      "name": "mainnet-usdc-f07e3258-1790726400: report references resolve through actual evidence API",
+      "passed": true,
+      "details": {
+        "references": 10
+      }
+    },
+    {
+      "name": "local-6-1791299344390: overview network and mainnet read-only data separation",
+      "passed": true
+    },
+    {
+      "name": "local-6-1791299344390: JSON/Markdown export match persisted report",
+      "passed": true
+    },
+    {
+      "name": "local-6-1791299344390: report references resolve through actual evidence API",
+      "passed": true,
+      "details": {
+        "references": 16
+      }
+    },
+    {
+      "name": "local-anomaly-65: overview network and mainnet read-only data separation",
+      "passed": true
+    },
+    {
+      "name": "local-anomaly-65: JSON/Markdown export match persisted report",
+      "passed": true
+    },
+    {
+      "name": "local-anomaly-65: report references resolve through actual evidence API",
+      "passed": true,
+      "details": {
+        "references": 9
+      }
+    },
+    {
+      "name": "built browser bundle excludes actual model/test-wallet credentials",
+      "passed": true,
+      "details": {
+        "scannedBuiltFiles": 4
+      }
+    }
+  ],
+  "scope": "Actual loopback API and built browser files; not a penetration test or public deployment security certification."
+}

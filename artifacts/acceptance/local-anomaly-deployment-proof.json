@@ -1,0 +1,30 @@
+{
+  "datasetId": "local-anomaly-65",
+  "chainId": 31337,
+  "blockNumber": 66,
+  "tokenCodeHash": "0xbfb863dfe2037e717f6f144ce3e7a3645f5e92f5b797e55497ee085d7936a9c1",
+  "escrowCodeHash": "0xf85d46a73086b2960d9f35c7855ab5fa6701291f2fe0f11fa0151c54b4c9c40f",
+  "runtimeMatches": true,
+  "immutableBindingsVerified": true,
+  "compiler": "0.8.30+commit.73712a01.Emscripten.clang",
+  "settings": {
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    },
+    "evmVersion": "shanghai",
+    "outputSelection": {
+      "*": {
+        "*": [
+          "abi",
+          "evm.bytecode.object",
+          "evm.deployedBytecode.object",
+          "evm.deployedBytecode.immutableReferences",
+          "metadata"
+        ]
+      }
+    }
+  },
+  "verifiedAt": "2026-10-06T16:10:10.643Z",
+  "sourceVerification": "Local compiled runtime comparison, not an explorer source-verification badge"
+}
